@@ -19,4 +19,7 @@ func create_card(value, rank, suit):
 	suit = suit
 
 func print_card():
-	print("rank: " + rank + "value: " + value + "suit: " + suit)
+	print(rank)
+	print(value)
+	print(suit)
+	#print("rank: " + rank + "value: " + value + "suit: " + suit)
