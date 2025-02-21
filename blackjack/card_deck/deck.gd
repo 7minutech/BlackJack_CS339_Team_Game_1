@@ -35,6 +35,7 @@ func create_deck():
 		add_child(card)
 		card.create_card(value, rank, suit)	
 		cards.append(card)
+		#test rebase
 		card.print_card()
 	
 	
