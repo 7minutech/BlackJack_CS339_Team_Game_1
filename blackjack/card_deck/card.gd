@@ -2,7 +2,7 @@ extends Node2D
 var value
 var rank
 var suit
-
+var royalty = ["jack", "queen", "king", "ace"]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,12 +14,15 @@ func _process(delta: float) -> void:
 	
 	
 func create_card(value, rank, suit):
-	rank = rank 
-	value = value 
-	suit = suit
+	self.rank = rank 
+	self.value = value 
+	self.suit = suit
 
-func print_card():
-	print(rank)
-	print(value)
-	print(suit)
-	#print("rank: " + rank + "value: " + value + "suit: " + suit)
+func _to_string() -> String:
+	if rank in royalty:
+		return "[Rank=%s, Suit=%s]" % [rank, suit]
+	else:
+		return "[Value=%d, Suit=%s]" % [value, suit]
+
+func display_card():
+	print("rank: " + rank + " value: " +str(value) + " suit: " + suit)
