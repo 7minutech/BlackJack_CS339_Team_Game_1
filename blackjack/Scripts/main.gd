@@ -3,13 +3,33 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Deck.create_deck()
-	$Deck.shuffle()
-	var drawn_card = $Deck.cards.pop_front()
-	print(drawn_card)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func play_round():
+	pass
+	
+func play_game():
+	pass
+
+func is_round_over():
+	pass
+
+func is_game_over():
+	pass
+
+func check_winner():
+	pass
+
+func add_chip():
+	pass
+
+func remove_chip():
+	pass
+	
+	
