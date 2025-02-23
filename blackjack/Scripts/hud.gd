@@ -44,7 +44,7 @@ func setInputType() -> void:
 #Functions to trigger events when the buttons are pressed
 func _on_button_left_pressed() -> void:
 	pass # Replace with function body.
-func _on_button__down_pressed() -> void:
+func _on_button_down_pressed() -> void:
 	pass # Replace with function body.
 func _on_button_right_pressed() -> void:
 	pass # Replace with function body.
