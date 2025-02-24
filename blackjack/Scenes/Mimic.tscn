@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://p345uk1em4hj"]
+
+[ext_resource type="Script" path="res://Scenes/mimic.gd" id="1_xsnfs"]
+[ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_ugpsx"]
+
+[node name="Mimic" type="Node2D"]
+script = ExtResource("1_xsnfs")
+
+[node name="Deck" parent="." instance=ExtResource("2_ugpsx")]

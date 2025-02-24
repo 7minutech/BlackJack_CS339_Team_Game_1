@@ -1,7 +1,8 @@
 extends Node2D
 
 var card_scene = preload("res://card_deck/card.tscn")
-var cards = []
+var draw_pile = []
+var discard_pile = []
 var royalty = ["jack", "queen", "king", "ace"]
 var numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]
 var suits = ["club", "heart", "spade", "diamond"]
@@ -11,7 +12,7 @@ func _ready() -> void:
 	pass
 
 func shuffle():
-	cards.shuffle()
+	draw_pile.shuffle()
 
 func create_deck():
 	for suit in suits:
@@ -21,13 +22,16 @@ func create_deck():
 
 			if j < 9:
 				value = numbers[j]  # Numbers 2-10
-				rank = "number" # Assing rank to number cards
+				rank = "number" # Assing rank to number draw_pile
 			else:
-				value = 10  # Face cards are worth 10
+				value = 10  # Face draw_pile are worth 10
 				rank = royalty[j - 9]  # Assign face card rank (jack, queen, king, ace)
 
 			var card = card_scene.instantiate()
 			card.create_card(value, rank, suit)
 			add_child(card)
-			cards.append(card)
+			draw_pile.append(card)
 			print(card)
+
+func draw_card():
+	var drawn_card = draw_pile.pop_front()
