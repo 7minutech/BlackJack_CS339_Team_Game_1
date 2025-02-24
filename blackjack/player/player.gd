@@ -6,6 +6,7 @@ var chips = 3
 var total_card_value 
 var selected_cards = []
 var bust = false
+var standing = false
 
 # Called Swhen the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +34,11 @@ func clear_selected_cards():
 func has_bust():
 	if total_card_value > 21:
 		bust = true
+
+func is_standing():
+	if standing:
+		return true
+	return false
 	
 func can_split_cards(card1,card2):
 	if card1.value == card1.value && card1.rank == card2.rank && selected_cards.length == 2:
@@ -47,7 +53,7 @@ func sum_card_value():
 func stand():
 	total_card_value
 	
-func player_lost():
+func has_lost():
 	if chips <= 0:
 		return true
 	return false

@@ -52,7 +52,7 @@ func sum_card_value():
 func stand():
 	total_card_value
 	
-func player_lost():
+func has_lost():
 	if chips <= 0:
 		return true
 	return false
