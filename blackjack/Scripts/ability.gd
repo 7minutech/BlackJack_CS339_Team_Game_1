@@ -20,6 +20,14 @@ func setPassive() -> void:
 func isActive() -> bool:
 	return active
 
+#Function to set the description of the ability
+func setDescription(desc: String) -> void:
+	description = desc
+
+#Function to set the name of an ability
+func setName(n: String) -> void:
+	self.name = n
+
 #Function to assign the correct ability sprite
-func setSprite() -> void:
-	$Skin.texture = null
+func setSkin(sprite: CompressedTexture2D) -> void:
+	$Skin.texture = sprite
