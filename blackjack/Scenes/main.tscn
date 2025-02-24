@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpgjxvuee1p7s"]
+[gd_scene load_steps=5 format=3 uid="uid://cpgjxvuee1p7s"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_cqmws"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_ja0gb"]
+[ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_0w7xo"]
+[ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_kw63l"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_cqmws")
 
 [node name="Deck" parent="." instance=ExtResource("2_ja0gb")]
+
+[node name="Player" parent="." instance=ExtResource("3_0w7xo")]
+position = Vector2(537, 254)
+
+[node name="Node2D" parent="." instance=ExtResource("4_kw63l")]

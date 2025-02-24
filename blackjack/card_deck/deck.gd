@@ -11,6 +11,7 @@ func _ready() -> void:
 	pass
 
 func shuffle():
+	randomize()
 	cards.shuffle()
 
 func create_deck():

@@ -1,7 +1,7 @@
 extends Node
 
 var hand = []
-var abiliites = []
+var abiliites: Array[PackedScene] = []
 var chips = 3
 var total_card_value 
 var selected_cards = []
@@ -58,4 +58,9 @@ func reset_player():
 	bust = false
 	chips = 3
 	total_card_value = 0
-	
+
+#Functions to add and get abilities
+func addAbility(ability: PackedScene) -> void:
+	abiliites.append(ability)
+func getAbilities() -> Array[PackedScene]:
+	return abiliites
