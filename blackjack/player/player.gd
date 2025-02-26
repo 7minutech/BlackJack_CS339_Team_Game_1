@@ -4,7 +4,7 @@ var hand = []
 var hand_2 = []
 var abiliites: Array[PackedScene] = []
 var chips = 3
-var total_card_value 
+var total_card_value = 0
 var selected_cards = []
 var bust = false
 var standing = false
@@ -79,3 +79,7 @@ func addAbility(ability: PackedScene) -> void:
 	abiliites.append(ability)
 func getAbilities() -> Array[PackedScene]:
 	return abiliites
+
+func show_hand():
+	for card in hand:
+		print(card)

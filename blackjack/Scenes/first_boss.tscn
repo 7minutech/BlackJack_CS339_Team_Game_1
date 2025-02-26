@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/first_boss.gd" id="1_fxwmb"]
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="1_ka7bn"]
-[ext_resource type="PackedScene" path="res://Scenes/Mimic.tscn" id="2_fjtwe"]
+[ext_resource type="PackedScene" uid="uid://p345uk1em4hj" path="res://Scenes/Mimic.tscn" id="2_fjtwe"]
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_28ss3"]
 
 [node name="FirstBoss" type="Node2D"]

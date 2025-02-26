@@ -1,7 +1,8 @@
 extends Node2D
-var value
-var rank
-var suit
+class_name  Card
+var value: int 
+var rank: String
+var suit: String
 var royalty = ["jack", "queen", "king", "ace"]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

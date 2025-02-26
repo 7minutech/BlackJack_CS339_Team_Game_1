@@ -3,6 +3,9 @@ var player_hand_value
 var dealer_hand_value 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Mimic/Deck.create_deck()
+	$Mimic/Deck.shuffle()
+	play_round()
 	pass # Replace with function body.
 
 

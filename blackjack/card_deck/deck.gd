@@ -9,6 +9,7 @@ var suits = ["club", "heart", "spade", "diamond"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	pass
 
 func shuffle():
@@ -33,7 +34,7 @@ func create_deck():
 			card.create_card(value, rank, suit)
 			add_child(card)
 			draw_pile.append(card)
-			print(card)
 
-func draw_card():
+func draw_card() -> Card:
 	var drawn_card = draw_pile.pop_front()
+	return drawn_card	
