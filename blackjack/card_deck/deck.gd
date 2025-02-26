@@ -13,6 +13,8 @@ func _ready() -> void:
 
 func shuffle():
 	draw_pile.shuffle()
+	randomize()
+
 
 func create_deck():
 	for suit in suits:

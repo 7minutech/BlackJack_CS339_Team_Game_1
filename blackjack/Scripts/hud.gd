@@ -1,6 +1,7 @@
 extends Node2D
 
-var abilitesList: Array = []
+var passivesList: Array[PackedScene] = []
+var activesList: Array[PackedScene] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,21 +12,30 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+#Function to get input information
+func getInputMethod() -> void:
+	pass
+	
 #Functions to get ability information from player
 func getAbilityDescription() -> void:
 	pass
 func getAbilityTexture() -> void:
 	pass
 
-#Function to get input information
-func getInputMethod() -> void:
+#Function to adjust displayed info based on current abilities
+func setActivesDescriptions() -> void:
+	pass
+func setPassiveDescription() -> void:
 	pass
 
-#Functions to adjust displayed info based on current abilities
-func setActiveDescriptions() -> void:
-	pass
-func setPassiveDescriptions() -> void:
-	pass
+#Functions to store information about an added ability
+func addAbility() -> void:
+	var ablty: Array[PackedScene] = get_tree().current_scene.find_child("Player").getAbilities()
+	for a in ablty:
+		if a.isActive():
+			activesList.append(a)
+		else:
+			passivesList.append(a)
 
 #Functions to assign an ability to a button
 func setLeft() -> void:
