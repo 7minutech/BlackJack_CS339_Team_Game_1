@@ -31,27 +31,60 @@ func createSelection() -> PackedScene:
 				fillAbility(details, a_scene)
 				self.add_child(a_scene)
 			2:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			3:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			4:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			5:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			6:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			7:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			8:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			9:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			10:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			11:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			12:
-				pass
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
 			_:
 				print("Invalid number supplied to Abilities.createSelection()")
 	return null

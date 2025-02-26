@@ -1,6 +1,7 @@
 extends Node2D
 
 var active: bool
+var status: String
 var description: String = "Placeholder Text"
 var cooldown: int
 
@@ -15,11 +16,13 @@ func _process(delta: float) -> void:
 	pass
 
 #Function to set and determine if this ability is an active ability or not
-func setStatus(status: String) -> void:
-	if (status == "a") or (status == "A"):
+func setStatus(state: String) -> void:
+	if (state == "a") or (state == "A"):
 		active = true
-	elif (status == "P") or (status == "P'"):
+		status = "Active"
+	elif (state == "p") or (state == "P"):
 		active = false
+		status = "Passive"
 
 func isActive() -> bool:
 	return active
@@ -40,4 +43,4 @@ func setSkin(sprite: CompressedTexture2D) -> void:
 	$Skin.texture = sprite
 
 func _to_string() -> String:
-	return self.name + ": " + self.description + "\n" + "Active = " + str(self.active) + " Cooldown: " + str(self.cooldown)
+	return self.name + ": " + self.description + "\n" + "Status = " + self.status + " || Cooldown: " + str(self.cooldown)
