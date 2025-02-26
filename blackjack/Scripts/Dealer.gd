@@ -11,23 +11,17 @@ func _ready() -> void:
 	reset()
 
 # Deal a single card to the dealer's hand
-func deal_card(card: Node) -> void:
-	hand.append(card)
-	sum_card_value()
-	if total_card_value > 21:
-		bust = true
+func deal_card():
+	var card = $Deck.draw_card()
+	return $Deck.draw_card()
+func deal_cards():
+	var drawn_cards = []
+	for i in range(4):
+		var drawn_card = $Deck.draw_card()
+		drawn_cards.append(drawn_card)	
+	return drawn_cards
 
 
-func initial_deal(deck: Node) -> void:
-	deal_card(deck.draw_card()) # Face down card
-	deal_card(deck.draw_card()) # Face up card
-
-# Dealer hits until reaching at least 17
-func hit_until_stand(deck: Node) -> void:
-	while total_card_value < 17 and not bust:
-		deal_card(deck.draw_card())
-		await get_tree().create_timer(0.5).timeout # Small delay for realism
-	stand()
 
 # Sum the values of cards in the dealer's hand
 func sum_card_value() -> void:
@@ -66,3 +60,9 @@ func has_lost() -> bool:
 func reveal_face_down_card() -> void:
 	# Implement visual reveal logic here if needed
 	pass
+func clear_hand():
+	hand = []
+
+func show_hand():
+	for card in hand:
+		print(card)
