@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c63m8tfiigc3"]
+[gd_scene load_steps=27 format=3 uid="uid://c63m8tfiigc3"]
 
 [ext_resource type="Texture2D" uid="uid://ccm2u70hycoij" path="res://icon.svg" id="1_a1nua"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_u2ua6"]
@@ -9,15 +9,14 @@
 [ext_resource type="BitMap" uid="uid://dtf335br4pmn8" path="res://Assets/Buttons/Button_Bitmap.png" id="6_5ll0s"]
 [ext_resource type="Texture2D" uid="uid://cff656hut0g06" path="res://Assets/Buttons/Button_Focused.png" id="6_nw2xv"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_1fumw"]
+[sub_resource type="InputEventAction" id="InputEventAction_d7fav"]
 action = &"UseLeft"
 
-[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_0qwip"]
-device = 1
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_p62a0"]
 button_index = 2
 
 [sub_resource type="Shortcut" id="Shortcut_iehtw"]
-events = [SubResource("InputEventAction_1fumw"), SubResource("InputEventJoypadButton_0qwip")]
+events = [SubResource("InputEventAction_d7fav"), SubResource("InputEventJoypadButton_p62a0")]
 
 [sub_resource type="InputEventAction" id="InputEventAction_yd1gi"]
 action = &"UseDown"
@@ -47,6 +46,24 @@ button_index = 3
 
 [sub_resource type="Shortcut" id="Shortcut_52udb"]
 events = [SubResource("InputEventAction_orixy"), SubResource("InputEventJoypadButton_2es5d")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ergpa"]
+action = &"Hit"
+
+[sub_resource type="Shortcut" id="Shortcut_u8kjv"]
+events = [SubResource("InputEventAction_ergpa")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0fix"]
+font_size = 30
+
+[sub_resource type="InputEventAction" id="InputEventAction_c3b7o"]
+action = &"Stand"
+
+[sub_resource type="Shortcut" id="Shortcut_y2ttc"]
+events = [SubResource("InputEventAction_c3b7o")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8thmw"]
+font_size = 30
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u2ua6")
@@ -170,7 +187,62 @@ text = "Passive Abilities:
 scroll_active = false
 drag_and_drop_selection_enabled = false
 
+[node name="HitButton" type="TextureButton" parent="."]
+offset_left = 380.0
+offset_top = 526.0
+offset_right = 612.0
+offset_bottom = 706.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_u8kjv")
+texture_normal = ExtResource("2_gjn71")
+texture_pressed = ExtResource("3_tkwen")
+texture_hover = ExtResource("4_gpm3m")
+texture_disabled = ExtResource("5_gxb08")
+texture_focused = ExtResource("6_nw2xv")
+texture_click_mask = ExtResource("6_5ll0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HitButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.185
+offset_left = 94.0
+offset_top = -10.0
+offset_right = 94.08
+offset_bottom = 32.0
+text = "Hit
+"
+label_settings = SubResource("LabelSettings_x0fix")
+
+[node name="StandButton" type="TextureButton" parent="."]
+offset_left = 476.0
+offset_top = 526.0
+offset_right = 708.0
+offset_bottom = 706.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_y2ttc")
+texture_normal = ExtResource("2_gjn71")
+texture_pressed = ExtResource("3_tkwen")
+texture_hover = ExtResource("4_gpm3m")
+texture_disabled = ExtResource("5_gxb08")
+texture_focused = ExtResource("6_nw2xv")
+texture_click_mask = ExtResource("6_5ll0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="StandButton"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = -6.0
+offset_right = 157.0
+offset_bottom = 36.0
+text = "Stand"
+label_settings = SubResource("LabelSettings_8thmw")
+
 [connection signal="pressed" from="Button_Left" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="Button_Down" to="." method="_on_button_down_pressed"]
 [connection signal="pressed" from="Button_Right" to="." method="_on_button_right_pressed"]
 [connection signal="pressed" from="Button_Up" to="." method="_on_button_up_pressed"]
+[connection signal="pressed" from="HitButton" to="." method="_on_hit_button_pressed"]
+[connection signal="pressed" from="StandButton" to="." method="_on_stand_button_pressed"]
