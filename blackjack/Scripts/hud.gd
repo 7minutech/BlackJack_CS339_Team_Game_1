@@ -52,6 +52,7 @@ func setInputType() -> void:
 	pass
 
 #Functions to trigger events when the buttons are pressed
+## Ability Buttons
 func _on_button_left_pressed() -> void:
 	pass # Replace with function body.
 func _on_button_down_pressed() -> void:
@@ -59,4 +60,9 @@ func _on_button_down_pressed() -> void:
 func _on_button_right_pressed() -> void:
 	pass # Replace with function body.
 func _on_button_up_pressed() -> void:
+	pass # Replace with function body.
+## Hit/Stand Buttons
+func _on_hit_button_pressed() -> void:
+	pass # Replace with function body.
+func _on_stand_button_pressed() -> void:
 	pass # Replace with function body.
