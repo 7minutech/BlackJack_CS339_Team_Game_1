@@ -1,0 +1,2 @@
+"Name","Description","cooldown(turns)","status(a,p)"
+Reroll,"Before the player stands, this ability allows the player to pick any one card in their hand to be redrawn.",3,a
