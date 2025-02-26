@@ -1,13 +1,14 @@
 extends Node
 
 var hand = []
+var hand_2 = []
 var abiliites = []
 var chips = 3
 var total_card_value 
 var selected_cards = []
 var bust = false
 var standing = false
-
+var is_split = false
 # Called Swhen the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -40,8 +41,14 @@ func is_standing():
 		return true
 	return false
 	
-func can_split_cards(card1,card2):
-	if card1.value == card1.value && card1.rank == card2.rank && selected_cards.length == 2:
+func split(card_1,card_2):
+	if can_split_cards(card_1, card_2):
+		var index = hand.find(card_2)
+		hand_2.append(hand.pop_at(index))	
+		is_split = true
+	return
+func can_split_cards(card_1,card_2):
+	if card_1.value == card_2.value && card_1.rank == card_2.rank && selected_cards.length == 2:
 		return true
 	return false
 	
@@ -51,6 +58,7 @@ func sum_card_value():
 		total_card_value += card.value
 
 func stand():
+	standing = true
 	total_card_value
 	
 func has_lost():
@@ -58,10 +66,11 @@ func has_lost():
 		return true
 	return false
 	
-func reset_player():
-	clear_hand()
+func reset():
 	clear_hand()
 	bust = false
 	chips = 3
 	total_card_value = 0
+	is_split = false
+	standing = false
 	

@@ -16,7 +16,8 @@ func _process(delta: float) -> void:
 	sum_card_value()
 	pass
 	
-	
+func deal_card():
+	return $Deck.draw_card()
 func deal_cards():
 	var drawn_cards = []
 	for i in range(4):
@@ -57,8 +58,7 @@ func has_lost():
 		return true
 	return false
 	
-func reset_player():
-	clear_hand()
+func reset():
 	clear_hand()
 	bust = false
 	chips = 3
