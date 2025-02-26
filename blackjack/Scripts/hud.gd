@@ -5,7 +5,9 @@ var activesList: Array[PackedScene] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	addAbilities()
+	setActivesDescriptions()
+	setPassivesDescription()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,35 +19,50 @@ func getInputMethod() -> void:
 	pass
 	
 #Functions to get ability information from player
-func getAbilityDescription() -> void:
+func getAbilityDescription(ablty: PackedScene) -> void:
 	pass
 func getAbilityTexture() -> void:
 	pass
 
 #Function to adjust displayed info based on current abilities
 func setActivesDescriptions() -> void:
-	pass
-func setPassiveDescription() -> void:
-	pass
+	for ablty in activesList:
+		$Info_Active.append_text(ablty.getDescription() + "\n")
+func setPassivesDescription() -> void:
+	for ablty in activesList:
+		$Info_Passive.append_text(ablty.getDescription() + "\n")
 
 #Functions to store information about an added ability
-func addAbility() -> void:
+func addAbilities() -> void:
 	var ablty: Array[PackedScene] = get_tree().current_scene.find_child("Player").getAbilities()
+	var indexCounter: int = 0
 	for a in ablty:
 		if a.isActive():
 			activesList.append(a)
 		else:
 			passivesList.append(a)
+		match indexCounter:
+			0:
+				setDown(a.getSkin())
+			1:
+				setRight(a.getSkin())
+			2:
+				setLeft(a.getSkin())
+			3:
+				setUp(a.getSkin())
+			_:
+				print("Invalid value")
+		indexCounter += 1
 
-#Functions to assign an ability to a button
-func setLeft() -> void:
-	pass
-func setDown() -> void:
-	pass
-func setRight() -> void:
-	pass
-func setUp() -> void:
-	pass
+#Functions to assign an ability and a skin to a button
+func setLeft(skin: CompressedTexture2D) -> void:
+	$Button_Left/AbilitySymbol_Left.texture = skin
+func setDown(skin: CompressedTexture2D) -> void:
+	$Button_Down/AbilitySymbol_Down.texture = skin
+func setRight(skin: CompressedTexture2D) -> void:
+	$Button_Right/AbilitySymbol_Right.texture = skin
+func setUp(skin: CompressedTexture2D) -> void:
+	$Button_Up/AbilitySymbol_Up.texture = skin
 
 #Function to set InputSymbol Sprite textures
 func setInputType() -> void:

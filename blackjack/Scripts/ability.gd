@@ -27,20 +27,30 @@ func setStatus(state: String) -> void:
 func isActive() -> bool:
 	return active
 
-#Function to set the description of the ability
+#Functions to set and get the description of the ability
 func setDescription(desc: String) -> void:
 	description = desc
-#Function to set the cooldown of the ability
+func getDescription() -> String:
+	return description
+
+#Functions to set and get the cooldown of the ability
 func setCooldown(cd: int) -> void:
 	cooldown = cd
+func getCooldown() -> int:
+	return cooldown
 
-#Function to set the name of an ability
+#Functions to set and get the name of an ability
 func setName(n: String) -> void:
 	self.name = n
-
+func getName() -> String:
+	return name
+	
 #Function to assign the correct ability sprite
 func setSkin(sprite: CompressedTexture2D) -> void:
 	$Skin.texture = sprite
-
+#Function to retrieve the ability's sprite
+func getSkin() -> CompressedTexture2D:
+	return $Skin.texture
+	
 func _to_string() -> String:
 	return self.name + ": " + self.description + "\n" + "Status = " + self.status + " || Cooldown: " + str(self.cooldown)
