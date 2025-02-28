@@ -1,5 +1,6 @@
 extends Node2D
 class_name  Card
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var value: int 
 var rank: String
 var suit: String

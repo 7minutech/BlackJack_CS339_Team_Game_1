@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://susx3f4px1a6"]
+
+[ext_resource type="Texture2D" uid="uid://0akc2vakrew7" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_0.png" id="1_pt8kl"]
+[ext_resource type="Texture2D" uid="uid://d356uejc42v84" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_1.png" id="2_b3xmu"]
+[ext_resource type="Texture2D" uid="uid://b5ojwgt8n6aux" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_2.png" id="3_x7b13"]
+[ext_resource type="Texture2D" uid="uid://c1gubceukji6a" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_3.png" id="4_khaev"]
+[ext_resource type="Texture2D" uid="uid://bt70x036r8mo4" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_4.png" id="5_6hjsj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egpqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pt8kl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pt8kl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b3xmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x7b13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_khaev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6hjsj")
+}],
+"loop": false,
+"name": &"focus_animation",
+"speed": 5.0
+}]
+
+[node name="soh_symbol" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_egpqt")
+animation = &"focus_animation"

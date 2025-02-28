@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj6cgnvtsvowr"]
+
+[ext_resource type="Texture2D" uid="uid://b7i6r2b6ptthr" path="res://Assets/Sprites/animations/symbol_animations/swap_animation/frame_0.png" id="1_van0r"]
+[ext_resource type="Texture2D" uid="uid://cggj5s7nlwgwb" path="res://Assets/Sprites/animations/symbol_animations/swap_animation/frame_1.png" id="2_l26vc"]
+[ext_resource type="Texture2D" uid="uid://coabwr0d73y3h" path="res://Assets/Sprites/animations/symbol_animations/swap_animation/frame_2.png" id="3_2c0rb"]
+[ext_resource type="Texture2D" uid="uid://sm1fop3xyarm" path="res://Assets/Sprites/animations/symbol_animations/swap_animation/frame_3.png" id="4_ljjr5"]
+[ext_resource type="Texture2D" uid="uid://c8pdj1ftg70fi" path="res://Assets/Sprites/animations/symbol_animations/swap_animation/frame_4.png" id="5_bqpk3"]
+[ext_resource type="Texture2D" uid="uid://bq6br4b3yxh36" path="res://Assets/Sprites/animations/symbol_animations/swap_animation/frame_5.png" id="6_g4axm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyl5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_van0r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_van0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l26vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2c0rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ljjr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bqpk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g4axm")
+}],
+"loop": false,
+"name": &"focus_animation",
+"speed": 8.0
+}]
+
+[node name="gamble_symbol" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qyl5c")
+animation = &"focus_animation"
+frame = 5
+frame_progress = 1.0
