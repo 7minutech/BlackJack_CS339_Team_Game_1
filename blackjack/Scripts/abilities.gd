@@ -4,7 +4,7 @@ const ability = preload("res://Scenes/Ability.tscn")
 const ABILITIES_FILE: String = "res://InformationFiles/AbilityInfo.txt";
 const A_NUMS: Array[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 var a_available: Array[int] = A_NUMS.duplicate()
-var a_list: Dictionary
+var a_list: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,12 +15,12 @@ func _process(delta: float) -> void:
 	pass
 
 #Function to build the dictionary of abilities
-func build_Dict() -> void:
+func add_To_Dict(key: String, value: Node2D) -> void:
 	#The keys should be the names of the abilities and the values should be the corresponding ability scene
-	pass
+	a_list[key] = value
 	
-#Function to create the selction of abilities to show the player after each level
-func createSelection() -> PackedScene:
+#Function to create the selection of abilities to show the player after each level
+func createSelection() -> void:
 	for num in getNums():
 		print("Ability Number " + str(num))
 		match num:
@@ -30,6 +30,7 @@ func createSelection() -> PackedScene:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
 				fillAbility(details, a_scene)
 				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
 			2:
 				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
@@ -87,7 +88,6 @@ func createSelection() -> PackedScene:
 				self.add_child(a_scene)
 			_:
 				print("Invalid number supplied to Abilities.createSelection()")
-	return null
 	
 # Function to get the numbers for the next abilities to be shown to the player
 func getNums() -> Array[int]:

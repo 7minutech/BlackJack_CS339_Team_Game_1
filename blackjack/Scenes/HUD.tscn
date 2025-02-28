@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c63m8tfiigc3"]
+[gd_scene load_steps=28 format=3 uid="uid://c63m8tfiigc3"]
 
 [ext_resource type="Texture2D" uid="uid://ccm2u70hycoij" path="res://icon.svg" id="1_a1nua"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_u2ua6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://1xrcaqipryf0" path="res://Assets/Buttons/Button_Disabled.png" id="5_gxb08"]
 [ext_resource type="BitMap" uid="uid://dtf335br4pmn8" path="res://Assets/Buttons/Button_Bitmap.png" id="6_5ll0s"]
 [ext_resource type="Texture2D" uid="uid://cff656hut0g06" path="res://Assets/Buttons/Button_Focused.png" id="6_nw2xv"]
+[ext_resource type="Texture2D" uid="uid://cgw2pf75mdkgo" path="res://Assets/Sprites/chip/chip.png" id="9_hjerj"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_d7fav"]
 action = &"UseLeft"
@@ -90,6 +91,10 @@ position = Vector2(28, 96)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_a1nua")
 
+[node name="AbilitySymbol_Left" type="Sprite2D" parent="Button_Left"]
+position = Vector2(116, 86)
+texture = ExtResource("9_hjerj")
+
 [node name="Button_Down" type="TextureButton" parent="."]
 offset_left = 68.0
 offset_top = 514.0
@@ -112,6 +117,10 @@ position = Vector2(126, 186)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_a1nua")
 
+[node name="AbilitySymbol_Down" type="Sprite2D" parent="Button_Down"]
+position = Vector2(128, 90)
+texture = ExtResource("9_hjerj")
+
 [node name="Button_Right" type="TextureButton" parent="."]
 offset_left = 139.0
 offset_top = 495.0
@@ -132,6 +141,10 @@ self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(192, 94)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_a1nua")
+
+[node name="AbilitySymbol_Right" type="Sprite2D" parent="Button_Right"]
+position = Vector2(96, 88)
+texture = ExtResource("9_hjerj")
 
 [node name="Button_Up" type="TextureButton" parent="."]
 offset_left = 87.0
@@ -154,6 +167,10 @@ self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(92, 18)
 scale = Vector2(0.59375, 0.5625)
 texture = ExtResource("1_a1nua")
+
+[node name="AbilitySymbol_Up" type="Sprite2D" parent="Button_Up"]
+position = Vector2(90, 110)
+texture = ExtResource("9_hjerj")
 
 [node name="Info_Active" type="RichTextLabel" parent="."]
 offset_left = 960.0
