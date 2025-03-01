@@ -4,6 +4,7 @@ class_name  Card
 @export var rank: String
 @export var suit: String
 @export var royalty = ["jack", "queen", "king", "ace"]
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
