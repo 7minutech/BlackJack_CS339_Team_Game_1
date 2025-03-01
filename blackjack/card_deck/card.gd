@@ -1,9 +1,9 @@
 extends Node2D
 class_name  Card
-var value: int 
-var rank: String
-var suit: String
-var royalty = ["jack", "queen", "king", "ace"]
+@export var value: int 
+@export var rank: String
+@export var suit: String
+@export var royalty = ["jack", "queen", "king", "ace"]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

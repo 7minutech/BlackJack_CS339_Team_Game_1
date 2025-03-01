@@ -27,4 +27,4 @@ position = Vector2(537, 254)
 offset_right = 8.0
 offset_bottom = 8.0
 
-[connection signal="round_over_main" from="." to="." method="_on_round_over_main"]
+[connection signal="hit_pressed_main" from="." to="." method="_on_hit_pressed_main"]

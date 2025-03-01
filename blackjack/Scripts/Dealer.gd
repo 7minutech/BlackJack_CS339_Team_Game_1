@@ -34,8 +34,9 @@ func stand() -> void:
 	standing = true
 
 
-func has_bust() -> bool:
-	return bust
+func has_bust():
+	if total_card_value > 21:
+		bust = true
 
 # Reset dealer state for a new round
 func reset() -> void:
@@ -66,3 +67,26 @@ func clear_hand():
 func show_hand():
 	for card in hand:
 		print(card)
+		
+func hand_str():
+	var str = ""
+	for card in hand:
+		str += card._to_string()
+	str += " Value: " + str(total_card_value)
+	return str
+
+func round_reset():
+	bust = false
+
+
+func deal_themself():
+	sum_card_value()
+	while total_card_value < 17:
+		hand.append(deal_card())
+		sum_card_value()
+		get_parent().display_hands()
+		await get_tree().create_timer(1.5).timeout
+	has_bust()
+	
+		
+		

@@ -26,6 +26,9 @@ func create_deck():
 			if j < 9:
 				value = numbers[j]  # Numbers 2-10
 				rank = "number" # Assing rank to number draw_pile
+			elif j == 12:
+				value = 11  # Face draw_pile are worth 10
+				rank = royalty[j - 9]  # Assign face card rank (jack, queen, king, ace)
 			else:
 				value = 10  # Face draw_pile are worth 10
 				rank = royalty[j - 9]  # Assign face card rank (jack, queen, king, ace)
@@ -35,6 +38,6 @@ func create_deck():
 			add_child(card)
 			draw_pile.append(card)
 
-func draw_card() -> Card:
+func draw_card():
 	var drawn_card = draw_pile.pop_front()
 	return drawn_card	

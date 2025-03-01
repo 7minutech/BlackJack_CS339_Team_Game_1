@@ -1,8 +1,17 @@
 extends Node2D
 var player_hand_value 
 var dealer_hand_value 
+var hud 
+var scene_root 
+var result
+var finished 
+signal hit_pressed_main
+signal stand_pressed_main
+signal round_over_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalBus.hit_pressed.connect(_on_hit_pressed_main)
+	SignalBus.stand_pressed.connect(_on_stand_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
 	play_round()
@@ -14,24 +23,31 @@ func _process(delta: float) -> void:
 	pass
 
 
-func play_game():
-	while not ($Player.has_lost() or $Dealer.has_lost()):
-		play_round()
 		
 func play_round():
+	reset_players()
 	add_discard_pile()
 	clear_hands()
 	deal_cards()
-	$Player.show_hand()
-	$Dealer.show_hand()
-	if round_over():
-		if player_has_won():
-			player_win()
-		elif dealer_has_won():
-			dealer_win()
-		else:
-			tie()
-		
+	calculate_total_value()
+	display_hands()
+	display_chips()
+	print("before")
+	await round_over_main
+	print("after")
+	if player_has_won():
+		player_win()
+	elif dealer_has_won():
+		dealer_win()
+	else:
+		tie()
+	game_over()
+	play_round()
+	
+	 
+
+func wait_for_player():
+	await round_over_main
 	
 	
 func player_hit():
@@ -40,7 +56,7 @@ func player_hit():
 func player_split():
 	$Player.split()
 
-func player_stand():
+func all_stand():
 	player_hand_value = $Player.stand()
 	dealer_hand_value = $Dealer.stand()
 
@@ -59,24 +75,31 @@ func determine_winner():
 	pass
 	
 func player_has_won():
-	var diff = player_hand_value - dealer_hand_value
+	var diff = $Player.total_card_value - $Dealer.total_card_value
+	if $Dealer.bust:
+		return true
 	if not $Player.bust and diff > 0:
 		return true
 	return false
 
 func dealer_has_won():
-	var diff = player_hand_value - dealer_hand_value
+	var diff = $Dealer.total_card_value - $Player.total_card_value
+	if $Player.bust:
+		return true
 	if not $Dealer.bust and diff > 0:
 		return true
 	return false
 func player_win():
-	$Player.gain_chip()
+	$HUD/RoundMessage.text = "You win!"
+	$Player.win_chip()
 	$Dealer.lose_chip()
 func dealer_win():
-	$Player.loss_chip()
+	$HUD/RoundMessage.text = "You loss!"
+	$Player.lose_chip()
 	$Dealer.win_chip()
 
 func tie():
+	$HUD/RoundMessage.text = "You tie!"
 	pass
 
 func round_over():
@@ -93,4 +116,48 @@ func add_discard_pile():
 		$Dealer/Deck.discard_pile.append(card)
 	for card in $Player.hand:
 		$Dealer/Deck.discard_pile.append(card)
-	
+
+func display_hands():
+	$HUD/PlayerHand.text = "Player " + $Player.hand_str()
+	$HUD/DealerHand.text = "Dealer " + $Dealer.hand_str()
+ 
+func display_chips():
+	$HUD/PlayerChip.text = str($Player.chips)
+	$HUD/DealerChip.text = str($Dealer.chips)
+
+func calculate_total_value():
+	$Player.sum_card_value()
+	$Dealer.sum_card_value()
+
+
+
+func _on_hit_pressed_main() -> void:
+	$Player.hit($Dealer.deal_card())
+	calculate_total_value()
+	display_hands()
+	$Player.has_bust()
+	if $Player.bust:
+		await get_tree().create_timer(1.5).timeout
+		round_over_main.emit()
+	pass # Replace with function body.
+
+func _on_stand_pressed_main() -> void:
+	$Player.stand()
+	$Dealer.deal_themself()
+	display_hands()
+	await get_tree().create_timer(1.5).timeout
+	calculate_total_value()
+	display_hands()
+	round_over_main.emit()
+	pass # Replace with function body.
+
+func game_over():
+	if $Player.has_lost() or $Dealer.has_lost():
+		get_tree().quit() 
+
+func _on_round_over_main() -> void:
+	pass # Replace with function body.
+
+func reset_players():
+	$Player.round_reset()
+	$Dealer.round_reset()

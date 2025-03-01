@@ -16,11 +16,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	sum_card_value()
 	pass
 	
-func lose_chip():
-	chips -= 1;
+
+func win_chip() -> void:
+	chips += 1
+
+# Dealer loses a chip
+func lose_chip() -> void:
+	chips -= 1
 
 func clear_hand():
 	hand = []
@@ -35,6 +39,7 @@ func clear_selected_cards():
 func has_bust():
 	if total_card_value > 21:
 		bust = true
+
 
 func is_standing():
 	if standing:
@@ -56,6 +61,7 @@ func sum_card_value():
 	total_card_value = 0
 	for card in hand:
 		total_card_value += card.value
+	has_bust()
 
 func stand():
 	standing = true
@@ -74,6 +80,9 @@ func reset():
 	is_split = false
 	standing = false
 
+func round_reset():
+	bust = false
+
 #Functions to add and get abilities
 func addAbility(ability: PackedScene) -> void:
 	abiliites.append(ability)
@@ -83,3 +92,11 @@ func getAbilities() -> Array[PackedScene]:
 func show_hand():
 	for card in hand:
 		print(card)
+
+func hand_str():
+	var str = ""
+	for card in hand:
+		str += card._to_string()
+	str += " Value: " + str(total_card_value)
+	return str
+	

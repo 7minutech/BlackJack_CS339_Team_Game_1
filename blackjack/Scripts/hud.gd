@@ -80,6 +80,8 @@ func _on_button_up_pressed() -> void:
 	pass # Replace with function body.
 ## Hit/Stand Buttons
 func _on_hit_button_pressed() -> void:
-	pass # Replace with function body.
+	SignalBus.hit_pressed.emit()
+	# Any other HUD-specific logic can still go here
+
 func _on_stand_button_pressed() -> void:
-	pass # Replace with function body.
+	SignalBus.stand_pressed.emit()

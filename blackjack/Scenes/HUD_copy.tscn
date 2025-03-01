@@ -1,14 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://c63m8tfiigc3"]
+[gd_scene load_steps=28 format=3 uid="uid://baaborxpf7j3w"]
 
-[ext_resource type="Texture2D" uid="uid://ccm2u70hycoij" path="res://icon.svg" id="1_a1nua"]
-[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_u2ua6"]
-[ext_resource type="Texture2D" uid="uid://cvylqj6ph7v6d" path="res://Assets/Buttons/Button_Default.png" id="2_gjn71"]
-[ext_resource type="Texture2D" uid="uid://bev4kwk7we2x7" path="res://Assets/Buttons/Button_Clicked.png" id="3_tkwen"]
-[ext_resource type="Texture2D" uid="uid://d6rm8iubk5fj" path="res://Assets/Buttons/Button_Hovered.png" id="4_gpm3m"]
-[ext_resource type="Texture2D" uid="uid://1xrcaqipryf0" path="res://Assets/Buttons/Button_Disabled.png" id="5_gxb08"]
-[ext_resource type="BitMap" uid="uid://dtf335br4pmn8" path="res://Assets/Buttons/Button_Bitmap.png" id="6_5ll0s"]
-[ext_resource type="Texture2D" uid="uid://cff656hut0g06" path="res://Assets/Buttons/Button_Focused.png" id="6_nw2xv"]
-[ext_resource type="Texture2D" uid="uid://cgw2pf75mdkgo" path="res://Assets/Sprites/chip/chip.png" id="9_hjerj"]
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_uvlbn"]
+[ext_resource type="Texture2D" uid="uid://cvylqj6ph7v6d" path="res://Assets/Buttons/Button_Default.png" id="2_l1cmi"]
+[ext_resource type="Texture2D" uid="uid://bev4kwk7we2x7" path="res://Assets/Buttons/Button_Clicked.png" id="3_ks5t0"]
+[ext_resource type="Texture2D" uid="uid://d6rm8iubk5fj" path="res://Assets/Buttons/Button_Hovered.png" id="4_nyqga"]
+[ext_resource type="Texture2D" uid="uid://1xrcaqipryf0" path="res://Assets/Buttons/Button_Disabled.png" id="5_vi5n4"]
+[ext_resource type="Texture2D" uid="uid://cff656hut0g06" path="res://Assets/Buttons/Button_Focused.png" id="6_fqhd7"]
+[ext_resource type="BitMap" uid="uid://dtf335br4pmn8" path="res://Assets/Buttons/Button_Bitmap.png" id="7_d65h6"]
+[ext_resource type="Texture2D" uid="uid://ccm2u70hycoij" path="res://icon.svg" id="8_63ptr"]
+[ext_resource type="Texture2D" uid="uid://cgw2pf75mdkgo" path="res://Assets/Sprites/chip/chip.png" id="9_q7o7n"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_d7fav"]
 action = &"UseLeft"
@@ -67,7 +67,7 @@ events = [SubResource("InputEventAction_c3b7o")]
 font_size = 30
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_u2ua6")
+script = ExtResource("1_uvlbn")
 
 [node name="Button_Left" type="TextureButton" parent="."]
 offset_left = 20.0
@@ -76,12 +76,12 @@ offset_right = 252.0
 offset_bottom = 674.0
 scale = Vector2(0.5, 0.5)
 shortcut = SubResource("Shortcut_iehtw")
-texture_normal = ExtResource("2_gjn71")
-texture_pressed = ExtResource("3_tkwen")
-texture_hover = ExtResource("4_gpm3m")
-texture_disabled = ExtResource("5_gxb08")
-texture_focused = ExtResource("6_nw2xv")
-texture_click_mask = ExtResource("6_5ll0s")
+texture_normal = ExtResource("2_l1cmi")
+texture_pressed = ExtResource("3_ks5t0")
+texture_hover = ExtResource("4_nyqga")
+texture_disabled = ExtResource("5_vi5n4")
+texture_focused = ExtResource("6_fqhd7")
+texture_click_mask = ExtResource("7_d65h6")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -89,11 +89,11 @@ stretch_mode = 5
 self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(28, 96)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_a1nua")
+texture = ExtResource("8_63ptr")
 
 [node name="AbilitySymbol_Left" type="Sprite2D" parent="Button_Left"]
 position = Vector2(116, 86)
-texture = ExtResource("9_hjerj")
+texture = ExtResource("9_q7o7n")
 
 [node name="Button_Down" type="TextureButton" parent="."]
 offset_left = 68.0
@@ -102,12 +102,12 @@ offset_right = 328.0
 offset_bottom = 704.0
 scale = Vector2(0.5, 0.5)
 shortcut = SubResource("Shortcut_slnyq")
-texture_normal = ExtResource("2_gjn71")
-texture_pressed = ExtResource("3_tkwen")
-texture_hover = ExtResource("4_gpm3m")
-texture_disabled = ExtResource("5_gxb08")
-texture_focused = ExtResource("6_nw2xv")
-texture_click_mask = ExtResource("6_5ll0s")
+texture_normal = ExtResource("2_l1cmi")
+texture_pressed = ExtResource("3_ks5t0")
+texture_hover = ExtResource("4_nyqga")
+texture_disabled = ExtResource("5_vi5n4")
+texture_focused = ExtResource("6_fqhd7")
+texture_click_mask = ExtResource("7_d65h6")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -115,11 +115,11 @@ stretch_mode = 5
 self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(126, 186)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_a1nua")
+texture = ExtResource("8_63ptr")
 
 [node name="AbilitySymbol_Down" type="Sprite2D" parent="Button_Down"]
 position = Vector2(128, 90)
-texture = ExtResource("9_hjerj")
+texture = ExtResource("9_q7o7n")
 
 [node name="Button_Right" type="TextureButton" parent="."]
 offset_left = 139.0
@@ -128,23 +128,23 @@ offset_right = 337.0
 offset_bottom = 679.0
 scale = Vector2(0.5, 0.5)
 shortcut = SubResource("Shortcut_1ax0q")
-texture_normal = ExtResource("2_gjn71")
-texture_pressed = ExtResource("3_tkwen")
-texture_hover = ExtResource("4_gpm3m")
-texture_disabled = ExtResource("5_gxb08")
-texture_focused = ExtResource("6_nw2xv")
-texture_click_mask = ExtResource("6_5ll0s")
+texture_normal = ExtResource("2_l1cmi")
+texture_pressed = ExtResource("3_ks5t0")
+texture_hover = ExtResource("4_nyqga")
+texture_disabled = ExtResource("5_vi5n4")
+texture_focused = ExtResource("6_fqhd7")
+texture_click_mask = ExtResource("7_d65h6")
 stretch_mode = 5
 
 [node name="InputSymbol_Right" type="Sprite2D" parent="Button_Right"]
 self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(192, 94)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_a1nua")
+texture = ExtResource("8_63ptr")
 
 [node name="AbilitySymbol_Right" type="Sprite2D" parent="Button_Right"]
 position = Vector2(96, 88)
-texture = ExtResource("9_hjerj")
+texture = ExtResource("9_q7o7n")
 
 [node name="Button_Up" type="TextureButton" parent="."]
 offset_left = 87.0
@@ -153,12 +153,12 @@ offset_right = 271.0
 offset_bottom = 675.0
 scale = Vector2(0.5, 0.5)
 shortcut = SubResource("Shortcut_52udb")
-texture_normal = ExtResource("2_gjn71")
-texture_pressed = ExtResource("3_tkwen")
-texture_hover = ExtResource("4_gpm3m")
-texture_disabled = ExtResource("5_gxb08")
-texture_focused = ExtResource("6_nw2xv")
-texture_click_mask = ExtResource("6_5ll0s")
+texture_normal = ExtResource("2_l1cmi")
+texture_pressed = ExtResource("3_ks5t0")
+texture_hover = ExtResource("4_nyqga")
+texture_disabled = ExtResource("5_vi5n4")
+texture_focused = ExtResource("6_fqhd7")
+texture_click_mask = ExtResource("7_d65h6")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -166,11 +166,11 @@ stretch_mode = 5
 self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(92, 18)
 scale = Vector2(0.59375, 0.5625)
-texture = ExtResource("1_a1nua")
+texture = ExtResource("8_63ptr")
 
 [node name="AbilitySymbol_Up" type="Sprite2D" parent="Button_Up"]
 position = Vector2(90, 110)
-texture = ExtResource("9_hjerj")
+texture = ExtResource("9_q7o7n")
 
 [node name="Info_Active" type="RichTextLabel" parent="."]
 offset_left = 960.0
@@ -211,12 +211,12 @@ offset_right = 612.0
 offset_bottom = 706.0
 scale = Vector2(0.5, 0.5)
 shortcut = SubResource("Shortcut_u8kjv")
-texture_normal = ExtResource("2_gjn71")
-texture_pressed = ExtResource("3_tkwen")
-texture_hover = ExtResource("4_gpm3m")
-texture_disabled = ExtResource("5_gxb08")
-texture_focused = ExtResource("6_nw2xv")
-texture_click_mask = ExtResource("6_5ll0s")
+texture_normal = ExtResource("2_l1cmi")
+texture_pressed = ExtResource("3_ks5t0")
+texture_hover = ExtResource("4_nyqga")
+texture_disabled = ExtResource("5_vi5n4")
+texture_focused = ExtResource("6_fqhd7")
+texture_click_mask = ExtResource("7_d65h6")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -239,12 +239,12 @@ offset_right = 708.0
 offset_bottom = 706.0
 scale = Vector2(0.5, 0.5)
 shortcut = SubResource("Shortcut_y2ttc")
-texture_normal = ExtResource("2_gjn71")
-texture_pressed = ExtResource("3_tkwen")
-texture_hover = ExtResource("4_gpm3m")
-texture_disabled = ExtResource("5_gxb08")
-texture_focused = ExtResource("6_nw2xv")
-texture_click_mask = ExtResource("6_5ll0s")
+texture_normal = ExtResource("2_l1cmi")
+texture_pressed = ExtResource("3_ks5t0")
+texture_hover = ExtResource("4_nyqga")
+texture_disabled = ExtResource("5_vi5n4")
+texture_focused = ExtResource("6_fqhd7")
+texture_click_mask = ExtResource("7_d65h6")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -268,24 +268,6 @@ offset_left = 474.0
 offset_top = 465.0
 offset_right = 514.0
 offset_bottom = 488.0
-
-[node name="RoundMessage" type="Label" parent="."]
-offset_left = 228.0
-offset_top = 13.0
-offset_right = 350.0
-offset_bottom = 56.0
-
-[node name="PlayerChip" type="Label" parent="."]
-offset_left = 110.0
-offset_top = 340.0
-offset_right = 150.0
-offset_bottom = 363.0
-
-[node name="DealerChip" type="Label" parent="."]
-offset_left = 110.0
-offset_top = 140.0
-offset_right = 150.0
-offset_bottom = 163.0
 
 [connection signal="pressed" from="Button_Left" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="Button_Down" to="." method="_on_button_down_pressed"]
