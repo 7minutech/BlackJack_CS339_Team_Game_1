@@ -1,0 +1,531 @@
+[gd_scene load_steps=58 format=3 uid="uid://cgnw48s7pdbn6"]
+
+[ext_resource type="Script" path="res://card_deck/card.gd" id="1_8i1o8"]
+[ext_resource type="Texture2D" uid="uid://brria722eg871" path="res://Assets/Sprites/cards/rounded/card_backs/default.png" id="2_68dkl"]
+[ext_resource type="Texture2D" uid="uid://ms5fokkw05v3" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_10_round.png" id="3_kt8id"]
+[ext_resource type="Texture2D" uid="uid://cypftwkvcxlwr" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_2_round.png" id="4_d6blv"]
+[ext_resource type="Texture2D" uid="uid://byydknl874m0w" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_3_round.png" id="5_o34g8"]
+[ext_resource type="Texture2D" uid="uid://dbjtgcgvxvau7" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_4_round.png" id="6_4pg68"]
+[ext_resource type="Texture2D" uid="uid://bgp3t3fspofsu" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_5_round.png" id="7_a15n0"]
+[ext_resource type="Texture2D" uid="uid://je1jtnjwemkf" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_6_round.png" id="8_4jcde"]
+[ext_resource type="Texture2D" uid="uid://b3c08u17r166u" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_7_round.png" id="9_tnfmu"]
+[ext_resource type="Texture2D" uid="uid://bps6ukw48tvhv" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_8_round.png" id="10_voio1"]
+[ext_resource type="Texture2D" uid="uid://bvwx224q2a6uj" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_9_round.png" id="11_7405d"]
+[ext_resource type="Texture2D" uid="uid://bvl1fqcu6bhlk" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_ace_round.png" id="12_6pfku"]
+[ext_resource type="Texture2D" uid="uid://pju57udp0ygv" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_jack_round.png" id="13_173pr"]
+[ext_resource type="Texture2D" uid="uid://bgekyqfsvdc5e" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_king_round.png" id="14_y1v47"]
+[ext_resource type="Texture2D" uid="uid://m3unbkgl71pd" path="res://Assets/Sprites/cards/rounded/clubs/spr_template_card_club_queen_round.png" id="15_jdftr"]
+[ext_resource type="Texture2D" uid="uid://cum1lavvd4678" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_10_round.png" id="16_iw363"]
+[ext_resource type="Texture2D" uid="uid://dkppbd3no1gpx" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_2_round.png" id="17_sglwv"]
+[ext_resource type="Texture2D" uid="uid://udk8nddfxww5" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_3_round.png" id="18_tlbwp"]
+[ext_resource type="Texture2D" uid="uid://b740ps3rk6s8" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_4_round.png" id="19_p5kid"]
+[ext_resource type="Texture2D" uid="uid://lyimqs6wruyx" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_5_round.png" id="20_pua5x"]
+[ext_resource type="Texture2D" uid="uid://b3gfv5s1eqeok" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_6_round.png" id="21_vyply"]
+[ext_resource type="Texture2D" uid="uid://d13ddioa82jsq" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_7_round.png" id="22_dl2k5"]
+[ext_resource type="Texture2D" uid="uid://or8okqhbyn5" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_8_round.png" id="23_bjcg8"]
+[ext_resource type="Texture2D" uid="uid://btcd1r23a0yf3" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_9_round.png" id="24_xqeld"]
+[ext_resource type="Texture2D" uid="uid://dbbr4vrve5p08" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_ace_round.png" id="25_2peqs"]
+[ext_resource type="Texture2D" uid="uid://ctr3p65isa86y" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_jack_round.png" id="26_q4csb"]
+[ext_resource type="Texture2D" uid="uid://cw1fdr8vkmdyj" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_king_round.png" id="27_oa108"]
+[ext_resource type="Texture2D" uid="uid://cmekak61gjemu" path="res://Assets/Sprites/cards/rounded/diamonds/spr_template_card_diamond_queen_round.png" id="28_lywav"]
+[ext_resource type="Texture2D" uid="uid://bjfonuuqqc7yq" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_10_round.png" id="29_r3gkx"]
+[ext_resource type="Texture2D" uid="uid://cpysg37n3ofky" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_2_round.png" id="30_4n52d"]
+[ext_resource type="Texture2D" uid="uid://dyhojsjxoaie8" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_3_round.png" id="31_vpvg7"]
+[ext_resource type="Texture2D" uid="uid://dphp06xri6v3g" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_4_round.png" id="32_6fx8a"]
+[ext_resource type="Texture2D" uid="uid://buicp2835r00e" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_5_round.png" id="33_jnsl4"]
+[ext_resource type="Texture2D" uid="uid://6l081yjcik2f" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_6_round.png" id="34_jwdes"]
+[ext_resource type="Texture2D" uid="uid://bvyk3nwlkf1dv" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_7_round.png" id="35_qnvue"]
+[ext_resource type="Texture2D" uid="uid://obi8i6mugrwl" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_8_round.png" id="36_aqc6c"]
+[ext_resource type="Texture2D" uid="uid://y1cie2077wrn" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_9_round.png" id="37_jhyjt"]
+[ext_resource type="Texture2D" uid="uid://b0rslaf7lmn6l" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_ace_round.png" id="38_23apy"]
+[ext_resource type="Texture2D" uid="uid://dyu720p8t5b6f" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_jack_round.png" id="39_p8prs"]
+[ext_resource type="Texture2D" uid="uid://eku4vo72m7hh" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_king_round.png" id="40_ibgl5"]
+[ext_resource type="Texture2D" uid="uid://dp38cnw8wq3aj" path="res://Assets/Sprites/cards/rounded/hearts/spr_template_card_heart_queen_round.png" id="41_831pu"]
+[ext_resource type="Texture2D" uid="uid://u0d4ia76p4kq" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_10_round.png" id="42_p1duh"]
+[ext_resource type="Texture2D" uid="uid://dcoeo47mv64cu" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_2_round.png" id="43_6u8ov"]
+[ext_resource type="Texture2D" uid="uid://dyiybrolxp5uu" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_3_round.png" id="44_iqylq"]
+[ext_resource type="Texture2D" uid="uid://jug0d12rfemp" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_4_round.png" id="45_frfnf"]
+[ext_resource type="Texture2D" uid="uid://cby5bl7epc4wq" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_5_round.png" id="46_y73il"]
+[ext_resource type="Texture2D" uid="uid://cm4oqs0o7e0db" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_6_round.png" id="47_slhnr"]
+[ext_resource type="Texture2D" uid="uid://crf3i1p6jpssy" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_7_round.png" id="48_gpu3p"]
+[ext_resource type="Texture2D" uid="uid://c8rf2rpgpwgd4" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_8_round.png" id="49_x7c4x"]
+[ext_resource type="Texture2D" uid="uid://bffcq3164xv08" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_9_round.png" id="50_fo4cw"]
+[ext_resource type="Texture2D" uid="uid://ufdlh8db4t7g" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_ace_round.png" id="51_ypg0j"]
+[ext_resource type="Texture2D" uid="uid://cpacti73pfdlm" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_jack_round.png" id="52_uwefr"]
+[ext_resource type="Texture2D" uid="uid://buh0xnp22g2qq" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_king_round.png" id="53_oeo8a"]
+[ext_resource type="Texture2D" uid="uid://hg2tpr6lmicu" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_queen_round.png" id="54_eglhf"]
+[ext_resource type="Texture2D" uid="uid://crrt4rnxptkab" path="res://Assets/Sprites/symbols/boss_symbols/mimic_symbol_opt.png" id="55_poe7v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0j21l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_68dkl")
+}],
+"loop": true,
+"name": &"card_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kt8id")
+}],
+"loop": true,
+"name": &"clubs_10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d6blv")
+}],
+"loop": true,
+"name": &"clubs_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o34g8")
+}],
+"loop": true,
+"name": &"clubs_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_4pg68")
+}],
+"loop": true,
+"name": &"clubs_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_a15n0")
+}],
+"loop": true,
+"name": &"clubs_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4jcde")
+}],
+"loop": true,
+"name": &"clubs_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tnfmu")
+}],
+"loop": true,
+"name": &"clubs_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_voio1")
+}],
+"loop": true,
+"name": &"clubs_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7405d")
+}],
+"loop": true,
+"name": &"clubs_9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6pfku")
+}],
+"loop": true,
+"name": &"clubs_a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_173pr")
+}],
+"loop": true,
+"name": &"clubs_j",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_y1v47")
+}],
+"loop": true,
+"name": &"clubs_k",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_jdftr")
+}],
+"loop": true,
+"name": &"clubs_q",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_iw363")
+}],
+"loop": true,
+"name": &"diamonds_10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_sglwv")
+}],
+"loop": true,
+"name": &"diamonds_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_tlbwp")
+}],
+"loop": true,
+"name": &"diamonds_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_p5kid")
+}],
+"loop": true,
+"name": &"diamonds_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_pua5x")
+}],
+"loop": true,
+"name": &"diamonds_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_vyply")
+}],
+"loop": true,
+"name": &"diamonds_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_dl2k5")
+}],
+"loop": true,
+"name": &"diamonds_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_bjcg8")
+}],
+"loop": true,
+"name": &"diamonds_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_xqeld")
+}],
+"loop": true,
+"name": &"diamonds_9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_2peqs")
+}],
+"loop": true,
+"name": &"diamonds_a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_q4csb")
+}],
+"loop": true,
+"name": &"diamonds_j",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_oa108")
+}],
+"loop": true,
+"name": &"diamonds_k",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_lywav")
+}],
+"loop": true,
+"name": &"diamonds_q",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_r3gkx")
+}],
+"loop": true,
+"name": &"hearts_10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_4n52d")
+}],
+"loop": true,
+"name": &"hearts_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_vpvg7")
+}],
+"loop": true,
+"name": &"hearts_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_6fx8a")
+}],
+"loop": true,
+"name": &"hearts_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_jnsl4")
+}],
+"loop": true,
+"name": &"hearts_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_jwdes")
+}],
+"loop": true,
+"name": &"hearts_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_qnvue")
+}],
+"loop": true,
+"name": &"hearts_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_aqc6c")
+}],
+"loop": true,
+"name": &"hearts_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_jhyjt")
+}],
+"loop": true,
+"name": &"hearts_9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_23apy")
+}],
+"loop": true,
+"name": &"hearts_a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_p8prs")
+}],
+"loop": true,
+"name": &"hearts_j",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_ibgl5")
+}],
+"loop": true,
+"name": &"hearts_k",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_831pu")
+}],
+"loop": true,
+"name": &"hearts_q",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_p1duh")
+}],
+"loop": true,
+"name": &"spades_10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_6u8ov")
+}],
+"loop": true,
+"name": &"spades_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_iqylq")
+}],
+"loop": true,
+"name": &"spades_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_frfnf")
+}],
+"loop": true,
+"name": &"spades_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_y73il")
+}],
+"loop": true,
+"name": &"spades_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("47_slhnr")
+}],
+"loop": true,
+"name": &"spades_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_gpu3p")
+}],
+"loop": true,
+"name": &"spades_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("49_x7c4x")
+}],
+"loop": true,
+"name": &"spades_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_fo4cw")
+}],
+"loop": true,
+"name": &"spades_9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("51_ypg0j")
+}],
+"loop": true,
+"name": &"spades_a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_uwefr")
+}],
+"loop": true,
+"name": &"spades_j",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("53_oeo8a")
+}],
+"loop": true,
+"name": &"spades_k",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("54_eglhf")
+}],
+"loop": true,
+"name": &"spades_q",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_liyqv"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("55_poe7v")
+}],
+"loop": true,
+"name": &"mimic",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_8i1o8")
+
+[node name="card_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0j21l")
+animation = &"clubs_10"
+
+[node name="boss_symbol" type="AnimatedSprite2D" parent="card_sprite"]
+position = Vector2(12, -20)
+scale = Vector2(0.153846, 0.148148)
+sprite_frames = SubResource("SpriteFrames_liyqv")
+animation = &"mimic"
+frame_progress = 0.59302
+
+[node name="boss_symbol2" type="AnimatedSprite2D" parent="card_sprite"]
+position = Vector2(-12, 20)
+rotation = 3.14159
+scale = Vector2(0.153846, 0.148148)
+sprite_frames = SubResource("SpriteFrames_liyqv")
+animation = &"mimic"
