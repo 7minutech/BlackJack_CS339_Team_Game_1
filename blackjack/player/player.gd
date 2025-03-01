@@ -2,13 +2,17 @@ extends Node
 
 var hand = []
 var hand_2 = []
-var abiliites: Array[PackedScene] = []
+var abiliites: Array[Node2D] = []
+var ability_names = []
+var abs = []
+var abs_names = []
 var chips = 3
 var total_card_value = 0
 var selected_cards = []
 var bust = false
 var standing = false
 var is_split = false
+var has_reroll = false
 # Called Swhen the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -91,9 +95,10 @@ func round_reset():
 	bust = false
 
 #Functions to add and get abilities
-func addAbility(ability: PackedScene) -> void:
+func addAbility(ability: Node2D) -> void:
 	abiliites.append(ability)
-func getAbilities() -> Array[PackedScene]:
+	ability_names.append(ability.name)
+func getAbilities() -> Array[Node2D]:
 	return abiliites
 
 func show_hand():
@@ -106,4 +111,13 @@ func hand_str():
 		str += card._to_string()
 	str += " Value: " + str(total_card_value)
 	return str
+
+func add_ability(ability_scene):
+	abs.append(ability_scene)
+	abs_names.append(ability_scene.name)
+
+func can_reroll():
+	return ability_names.has("Reroll")
+
+
 	

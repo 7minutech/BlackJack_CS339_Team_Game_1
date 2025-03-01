@@ -34,7 +34,7 @@ func setPassivesDescription() -> void:
 
 #Functions to store information about an added ability
 func addAbilities() -> void:
-	var ablty: Array[PackedScene] = get_tree().current_scene.find_child("Player").getAbilities()
+	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
 	var indexCounter: int = 0
 	for a in ablty:
 		if a.isActive():
@@ -71,12 +71,20 @@ func setInputType() -> void:
 #Functions to trigger events when the buttons are pressed
 ## Ability Buttons
 func _on_button_left_pressed() -> void:
+	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
+	SignalBus.left_pressed.emit(ablty[0].name)
 	pass # Replace with function body.
 func _on_button_down_pressed() -> void:
+	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
+	SignalBus.down_pressed.emit(ablty[0].name)
 	pass # Replace with function body.
 func _on_button_right_pressed() -> void:
+	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
+	SignalBus.right_pressed.emit(ablty[0].name)
 	pass # Replace with function body.
 func _on_button_up_pressed() -> void:
+	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
+	SignalBus.up_pressed.emit(ablty[0].name)
 	pass # Replace with function body.
 ## Hit/Stand Buttons
 func _on_hit_button_pressed() -> void:

@@ -8,12 +8,24 @@ var finished
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
+signal down_pressed_main
+signal up_pressed_main
+signal left_pressed_main
+signal right_pressed_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.hit_pressed.connect(_on_hit_pressed_main)
 	SignalBus.stand_pressed.connect(_on_stand_pressed_main)
+	SignalBus.down_pressed.connect(_on_down_pressed_main)
+	SignalBus.up_pressed.connect(_on_down_pressed_main)
+	SignalBus.left_pressed.connect(_on_down_pressed_main)
+	SignalBus.right_pressed.connect(_on_down_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
+	$AbilityManager.createSelection()
+	give_ability("Reroll")
+	#print($Player.abiliites)
+	$HUD.addAbilities()
 	play_round()
 	pass # Replace with function body.
 
@@ -157,6 +169,18 @@ func _on_stand_pressed_main() -> void:
 	round_over_main.emit()
 	pass # Replace with function body.
 
+func _on_down_pressed_main(name: String) -> void:
+	if name == "Reroll" and $Player.can_reroll():
+		reroll()
+func _on_up_pressed_main(name: String) -> void:
+	pass
+func _on_left_pressed_main(name: String) -> void:
+	pass
+func _on_right_pressed_main(name: String) -> void:
+	pass
+
+	
+
 func game_over():
 	if $Player.has_lost() or $Dealer.has_lost():
 		#get_tree().quit() 
@@ -173,4 +197,24 @@ func check_aces():
 	$Player.value_ace()
 	$Dealer.value_ace()
 
+func reroll():
+	print("rerolling")
+	var discarded_card = $Player.hand.pop_back()
+	$Dealer/Deck.discard_pile.append(discarded_card)
+	$Player.hit($Dealer.deal_card())
+	check_aces()
+	calculate_total_value()
+	display_hands()
+	$Player.has_bust()
+	if $Player.bust:
+		await get_tree().create_timer(1.5).timeout
+		round_over_main.emit()
+	pass # Replace with function body.
+
+func give_ability(ability_key: String):
+	var ability_scene = $AbilityManager.a_list[ability_key]
+	$Player.addAbility(ability_scene)
+
+	
+	
 	
