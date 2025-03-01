@@ -19,6 +19,12 @@ position = Vector2(537, 254)
 
 [node name="AbilityManager" parent="." instance=ExtResource("5_r4yoe")]
 
+[node name="Node2D2" parent="." instance=ExtResource("4_kw63l")]
+
 [node name="Dealer" parent="." instance=ExtResource("6_btryx")]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
 
 [connection signal="round_over_main" from="." to="." method="_on_round_over_main"]

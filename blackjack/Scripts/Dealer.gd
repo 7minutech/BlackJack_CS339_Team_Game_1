@@ -35,8 +35,17 @@ func stand() -> void:
 
 
 func has_bust():
+	sum_card_value()
 	if total_card_value > 21:
 		bust = true
+
+func value_ace():
+	for card in hand:
+		if card.rank == "ace":
+			sum_card_value()
+			if total_card_value > 21:
+				card.value = 1
+	sum_card_value()
 
 # Reset dealer state for a new round
 func reset() -> void:
@@ -82,10 +91,12 @@ func round_reset():
 func deal_themself():
 	sum_card_value()
 	while total_card_value < 17:
+		await get_tree().create_timer(1.0).timeout
 		hand.append(deal_card())
+		value_ace()
 		sum_card_value()
 		get_parent().display_hands()
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(1.0).timeout
 	has_bust()
 	
 		

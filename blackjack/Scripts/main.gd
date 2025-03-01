@@ -25,16 +25,19 @@ func _process(delta: float) -> void:
 
 		
 func play_round():
+	await get_tree().create_timer(0.5).timeout
+	$Dealer/Deck.check_reshuffle()
 	reset_players()
 	add_discard_pile()
 	clear_hands()
 	deal_cards()
+	check_aces()
 	calculate_total_value()
 	display_hands()
 	display_chips()
-	print("before")
+	#print("before")
 	await round_over_main
-	print("after")
+	#print("after")
 	if player_has_won():
 		player_win()
 	elif dealer_has_won():
@@ -76,6 +79,7 @@ func determine_winner():
 	
 func player_has_won():
 	var diff = $Player.total_card_value - $Dealer.total_card_value
+	$Dealer.has_bust()
 	if $Dealer.bust:
 		return true
 	if not $Player.bust and diff > 0:
@@ -133,6 +137,7 @@ func calculate_total_value():
 
 func _on_hit_pressed_main() -> void:
 	$Player.hit($Dealer.deal_card())
+	check_aces()
 	calculate_total_value()
 	display_hands()
 	$Player.has_bust()
@@ -148,12 +153,14 @@ func _on_stand_pressed_main() -> void:
 	await get_tree().create_timer(1.5).timeout
 	calculate_total_value()
 	display_hands()
+
 	round_over_main.emit()
 	pass # Replace with function body.
 
 func game_over():
 	if $Player.has_lost() or $Dealer.has_lost():
-		get_tree().quit() 
+		#get_tree().quit() 
+		pass
 
 func _on_round_over_main() -> void:
 	pass # Replace with function body.
@@ -161,3 +168,9 @@ func _on_round_over_main() -> void:
 func reset_players():
 	$Player.round_reset()
 	$Dealer.round_reset()
+
+func check_aces():
+	$Player.value_ace()
+	$Dealer.value_ace()
+
+	

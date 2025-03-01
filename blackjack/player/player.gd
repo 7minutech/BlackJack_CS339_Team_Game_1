@@ -17,7 +17,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
+
+func value_ace():
+	for card in hand:
+		if card.rank == "ace":
+			sum_card_value()
+			if total_card_value > 21:
+				card.value = 1
+	sum_card_value()
 
 func win_chip() -> void:
 	chips += 1
@@ -37,6 +44,7 @@ func clear_selected_cards():
 	selected_cards = []
 	
 func has_bust():
+	sum_card_value()
 	if total_card_value > 21:
 		bust = true
 
@@ -61,7 +69,6 @@ func sum_card_value():
 	total_card_value = 0
 	for card in hand:
 		total_card_value += card.value
-	has_bust()
 
 func stand():
 	standing = true

@@ -16,6 +16,14 @@ func shuffle():
 	draw_pile.shuffle()
 	randomize()
 
+func reshuffle():
+	draw_pile += discard_pile
+	shuffle()
+
+func check_reshuffle():
+	if draw_pile.size() < 10:
+		reshuffle()
+
 
 func create_deck():
 	for suit in suits:
@@ -37,6 +45,9 @@ func create_deck():
 			card.create_card(value, rank, suit)
 			add_child(card)
 			draw_pile.append(card)
+
+func display_total_cards():
+	print(draw_pile.size())
 
 func draw_card():
 	var drawn_card = draw_pile.pop_front()
