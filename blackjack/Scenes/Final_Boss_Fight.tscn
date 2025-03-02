@@ -22,3 +22,5 @@ position = Vector2(537, 254)
 
 [node name="final_subject" parent="." instance=ExtResource("6_cwuoy")]
 script = ExtResource("1_22tir")
+
+[connection signal="round_over_main" from="." to="." method="_on_round_over_main"]
