@@ -5,6 +5,7 @@ var hud
 var scene_root 
 var result
 var finished 
+var player_hits = 0
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
@@ -39,6 +40,7 @@ func _process(delta: float) -> void:
 func play_round():
 	await get_tree().create_timer(0.5).timeout
 	$Dealer/Deck.check_reshuffle()
+	player_hits = 0
 	reset_players()
 	add_discard_pile()
 	clear_hands()
@@ -82,6 +84,7 @@ func deal_cards():
 	$Dealer.hand.append(draw_pile.pop_front())
 	$Player.hand.append(draw_pile.pop_front())
 	$Dealer.hide_face_down()
+
 	
 func clear_hand():
 	$Dealer.clear_hand()
@@ -149,17 +152,16 @@ func calculate_total_value():
 
 
 func _on_hit_pressed_main() -> void:
+	player_hits += 1
 	$Player.hit($Dealer.deal_card())
-	$Dealer.hit()
-	check_aces()
-	calculate_total_value()
+	if dealer_can_steal():
+		evalute_cards()
+		display_hands()
+		await get_tree().create_timer(0.5).timeout
+		steal_card()
+	evalute_cards()
 	display_hands()
 	$Player.has_bust()
-	$Dealer.has_bust()
-	if $Dealer.bust:
-		$Dealer.show_face_down()
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
 	if $Player.bust:
 		$Dealer.show_face_down()
 		await get_tree().create_timer(1.5).timeout
@@ -169,7 +171,7 @@ func _on_hit_pressed_main() -> void:
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
 	$Dealer.show_face_down()
-	#$Dealer.deal_themself()
+	$Dealer.deal_themself()
 	display_hands()
 	await get_tree().create_timer(1.5).timeout
 	calculate_total_value()
@@ -223,6 +225,26 @@ func reroll():
 func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_list[ability_key]
 	$Player.addAbility(ability_scene)
+
+func dealer_can_steal():
+	return player_hits == 1
+
+func steal_card():
+	var highest_value = -1
+	var highest_value_index 
+	for i in range($Player.hand.size()):
+		if ($Player.hand[i]).value > highest_value:
+			highest_value = $Player.hand[i].value
+			highest_value_index = i
+	var removed_card = $Player.hand.pop_at(highest_value_index)
+	$Dealer/Deck.discard_pile.append(removed_card)
+	print("Stealing" + str(removed_card))
+
+func evalute_cards():
+	check_aces()
+	calculate_total_value()
+	
+	
 
 	
 	

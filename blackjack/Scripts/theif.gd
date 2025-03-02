@@ -5,6 +5,7 @@ var chips: int = 3
 var total_card_value: int = 0
 var bust: bool = false
 var standing: bool = false
+var can_steal = false
 
 
 func _ready() -> void:
