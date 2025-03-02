@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_0w7xo"]
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_kw63l"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_r4yoe"]
-[ext_resource type="PackedScene" uid="uid://dqaksd75v213d" path="res://Scenes/dealer.tscn" id="6_btryx"]
+[ext_resource type="PackedScene" path="res://Scenes/dealer.tscn" id="6_btryx"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_cqmws")

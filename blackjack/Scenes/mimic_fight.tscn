@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_7yw7x"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_jmjdy"]
 [ext_resource type="Script" path="res://Scripts/mimic.gd" id="6_oy330"]
-[ext_resource type="PackedScene" uid="uid://dqaksd75v213d" path="res://Scenes/dealer.tscn" id="6_v4cv4"]
+[ext_resource type="PackedScene" path="res://Scenes/dealer.tscn" id="6_v4cv4"]
 
 [node name="First_Fight" type="Node2D"]
 script = ExtResource("1_agter")

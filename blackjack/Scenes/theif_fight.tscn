@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq3bk0lyrxaw"]
+
+[ext_resource type="Script" path="res://Scripts/second_boss.gd" id="1_cyx4h"]
+[ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="2_v8yx3"]
+[ext_resource type="PackedScene" path="res://Scenes/Mimic.tscn" id="3_l06e0"]
+[ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="4_cwphf"]
+[ext_resource type="Script" path="res://Scripts/theif.gd" id="4_ey87h"]
+
+[node name="SecondBoss" type="Node2D"]
+script = ExtResource("1_cyx4h")
+
+[node name="HUD" parent="." instance=ExtResource("2_v8yx3")]
+
+[node name="Theif" parent="." instance=ExtResource("3_l06e0")]
+script = ExtResource("4_ey87h")
+
+[node name="Player" parent="." instance=ExtResource("4_cwphf")]
