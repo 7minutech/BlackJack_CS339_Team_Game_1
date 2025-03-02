@@ -1,5 +1,6 @@
 extends Node2D
 class_name  Card
+var face_down = false
 @export var value: int 
 @export var rank: String
 @export var suit: String

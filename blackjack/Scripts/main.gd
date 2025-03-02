@@ -81,6 +81,8 @@ func deal_cards():
 	$Player.hand.append(draw_pile.pop_front())
 	$Dealer.hand.append(draw_pile.pop_front())
 	$Player.hand.append(draw_pile.pop_front())
+	$Dealer.hide_face_down()
+
 	
 func clear_hand():
 	$Dealer.clear_hand()
@@ -154,12 +156,14 @@ func _on_hit_pressed_main() -> void:
 	display_hands()
 	$Player.has_bust()
 	if $Player.bust:
+		$Dealer.show_face_down()
 		await get_tree().create_timer(1.5).timeout
 		round_over_main.emit()
 	pass # Replace with function body.
 
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
+	$Dealer.show_face_down()
 	$Dealer.deal_themself()
 	display_hands()
 	await get_tree().create_timer(1.5).timeout

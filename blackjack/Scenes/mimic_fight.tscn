@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm4r5rv8vdclq"]
+
+[ext_resource type="Script" path="res://Scripts/first_boss.gd" id="1_agter"]
+[ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_176k5"]
+[ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_mbu4j"]
+[ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_7yw7x"]
+[ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_jmjdy"]
+[ext_resource type="Script" path="res://Scripts/mimic.gd" id="6_oy330"]
+[ext_resource type="PackedScene" uid="uid://dqaksd75v213d" path="res://Scenes/dealer.tscn" id="6_v4cv4"]
+
+[node name="First_Fight" type="Node2D"]
+script = ExtResource("1_agter")
+
+[node name="Deck" parent="." instance=ExtResource("2_176k5")]
+
+[node name="Player" parent="." instance=ExtResource("3_mbu4j")]
+position = Vector2(537, 254)
+
+[node name="HUD" parent="." instance=ExtResource("4_7yw7x")]
+
+[node name="AbilityManager" parent="." instance=ExtResource("5_jmjdy")]
+
+[node name="Dealer" parent="." instance=ExtResource("6_v4cv4")]
+script = ExtResource("6_oy330")
+
+[connection signal="round_over_main" from="." to="." method="_on_round_over_main"]
