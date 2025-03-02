@@ -112,5 +112,7 @@ func hide_face_down():
 	hand[0].face_down = true
 func show_face_down():
 	hand[0].face_down = false
+
+
 		
 		
