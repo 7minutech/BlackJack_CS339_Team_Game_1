@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqaksd75v213d"]
+[gd_scene load_steps=3 format=3 uid="uid://dpifh77h8jhn3"]
 
 [ext_resource type="Script" path="res://Scripts/Dealer.gd" id="1_iyjcx"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_t5frr"]

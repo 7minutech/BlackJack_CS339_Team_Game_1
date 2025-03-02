@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_usixx"]
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_ly04a"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_f21at"]
-[ext_resource type="PackedScene" path="res://Scenes/dealer.tscn" id="6_x84xn"]
+[ext_resource type="PackedScene" uid="uid://dpifh77h8jhn3" path="res://Scenes/dealer.tscn" id="6_x84xn"]
 [ext_resource type="Script" path="res://Scripts/mute.gd" id="7_oj6d2"]
 
 [node name="ThirdBoss" type="Node2D"]
