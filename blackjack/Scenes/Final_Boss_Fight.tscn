@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsreiph1fjhvv"]
+
+[ext_resource type="Script" path="res://Scripts/final_subject.gd" id="1_22tir"]
+[ext_resource type="Script" path="res://Scripts/final_boss.gd" id="1_t2olp"]
+[ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_0hqy1"]
+[ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_6ad8a"]
+[ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_fn7xg"]
+[ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_5f5de"]
+[ext_resource type="PackedScene" uid="uid://dpifh77h8jhn3" path="res://Scenes/dealer.tscn" id="6_cwuoy"]
+
+[node name="FinalBoss" type="Node2D"]
+script = ExtResource("1_t2olp")
+
+[node name="Deck" parent="." instance=ExtResource("2_0hqy1")]
+
+[node name="Player" parent="." instance=ExtResource("3_6ad8a")]
+position = Vector2(537, 254)
+
+[node name="HUD" parent="." instance=ExtResource("4_fn7xg")]
+
+[node name="AbilityManager" parent="." instance=ExtResource("5_5f5de")]
+
+[node name="final_subject" parent="." instance=ExtResource("6_cwuoy")]
+script = ExtResource("1_22tir")
