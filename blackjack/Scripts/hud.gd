@@ -86,10 +86,10 @@ func _on_button_up_pressed() -> void:
 	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
 	SignalBus.up_pressed.emit(ablty[0].name)
 	pass # Replace with function body.
+
 ## Hit/Stand Buttons
 func _on_hit_button_pressed() -> void:
 	SignalBus.hit_pressed.emit()
 	# Any other HUD-specific logic can still go here
-
 func _on_stand_button_pressed() -> void:
 	SignalBus.stand_pressed.emit()
