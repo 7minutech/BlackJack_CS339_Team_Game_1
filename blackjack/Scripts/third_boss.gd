@@ -32,7 +32,7 @@ func _ready() -> void:
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
-	$AbilityManager.createSelection()
+	$AbilityManager.tesstSelection()
 	give_ability("Reroll")
 	#print($Player.abiliites)
 	$HUD.addAbilities()
@@ -47,7 +47,8 @@ func _process(delta: float) -> void:
 
 		
 func play_round():
-	mute_random_ability()
+	if not $Player.can_stun():
+		mute_random_ability()
 	await get_tree().create_timer(0.5).timeout
 	$Dealer/Deck.check_reshuffle()
 	reset_players()
@@ -208,6 +209,7 @@ func game_over():
 		pass
 
 func _on_round_over_main() -> void:
+	$Player.stun_timer += 1
 	pass # Replace with function body.
 
 func reset_players():

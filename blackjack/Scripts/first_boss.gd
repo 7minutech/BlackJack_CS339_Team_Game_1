@@ -24,7 +24,7 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	give_ability("Reroll")
-	#print($Player.abiliites)
+
 	$HUD.addAbilities()
 	play_round()
 	pass # Replace with function body.
@@ -150,7 +150,8 @@ func calculate_total_value():
 
 func _on_hit_pressed_main() -> void:
 	$Player.hit($Dealer.deal_card())
-	$Dealer.hit()
+	if not $Player.can_stun():
+		$Dealer.hit()
 	check_aces()
 	calculate_total_value()
 	display_hands()
@@ -196,6 +197,8 @@ func game_over():
 		pass
 
 func _on_round_over_main() -> void:
+	$Player.stun_timer += 1
+
 	pass # Replace with function body.
 
 func reset_players():
@@ -223,6 +226,7 @@ func reroll():
 func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_list[ability_key]
 	$Player.addAbility(ability_scene)
+
 
 	
 	

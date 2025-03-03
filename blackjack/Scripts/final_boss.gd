@@ -37,7 +37,7 @@ func _ready() -> void:
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
-	$AbilityManager.createSelection()
+	$AbilityManager.tesstSelection()
 	give_ability("Reroll")
 	#print($Player.abiliites)
 	$HUD.addAbilities()
@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 func play_round():
 	choose_boss_ability()
 	player_hits = 0
-	if mute:
+	if mute and not $Player.can_stun():
 		mute_random_ability()
 	await get_tree().create_timer(0.5).timeout
 	$Dealer/Deck.check_reshuffle()
@@ -171,9 +171,9 @@ func calculate_total_value():
 func _on_hit_pressed_main() -> void:
 	player_hits += 1
 	$Player.hit($Dealer.deal_card())
-	if mimic:
+	if mimic and not $Player.can_stun():
 		$Dealer.hit()
-	if dealer_can_steal and thief:
+	if dealer_can_steal and thief and not $Player.can_stun():
 		evalute_cards()
 		display_hands()
 		await get_tree().create_timer(0.5).timeout
@@ -229,6 +229,7 @@ func game_over():
 		pass
 
 func _on_round_over_main() -> void:
+	$Player.stun_timer += 1
 	pass # Replace with function body.
 
 func reset_players():

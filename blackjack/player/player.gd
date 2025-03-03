@@ -13,6 +13,8 @@ var bust = false
 var standing = false
 var is_split = false
 var has_reroll = false
+var stun_timer = 1
+
 # Called Swhen the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -118,6 +120,10 @@ func add_ability(ability_scene):
 
 func can_reroll():
 	return ability_names.has("Reroll")
+
+func can_stun():
+	print("Stun timer: " + str(stun_timer))
+	return ability_names.has("Stun") and stun_timer % 3 == 0
 
 
 	

@@ -9,7 +9,6 @@ var a_list: Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -18,6 +17,87 @@ func _process(delta: float) -> void:
 func add_To_Dict(key: String, value: Node2D) -> void:
 	#The keys should be the names of the abilities and the values should be the corresponding ability scene
 	a_list[key] = value
+
+func tesstSelection() -> void:
+	for num in range(1,13):
+		print("Ability Number " + str(num))
+		match num:
+			#Each option should set the name, description, and active status of the ability
+			1:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			2:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			3:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			4:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			5:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			6:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			7:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			8:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			9:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			10:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			11:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			12:
+				var a_scene = ability.instantiate()
+				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
+				fillAbility(details, a_scene)
+				self.add_child(a_scene)
+				add_To_Dict(a_scene.getName(), a_scene)
+			_:
+				print("Invalid number supplied to Abilities.createSelection()")
+
 	
 #Function to create the selection of abilities to show the player after each level
 func createSelection() -> void:

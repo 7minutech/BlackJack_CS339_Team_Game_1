@@ -24,6 +24,7 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	give_ability("Reroll")
+	give_ability("Stun")
 	#print($Player.abiliites)
 	$HUD.addAbilities()
 	play_round()
@@ -214,6 +215,9 @@ func reroll():
 		await get_tree().create_timer(1.5).timeout
 		round_over_main.emit()
 	pass # Replace with function body.
+
+
+	
 
 func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_list[ability_key]
