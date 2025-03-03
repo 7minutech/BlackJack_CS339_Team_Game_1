@@ -44,10 +44,15 @@ func setName(n: String) -> void:
 	self.name = n
 func getName() -> String:
 	return name
-	
+
 #Function to assign the correct ability sprite
-func setSkin(sprite: CompressedTexture2D) -> void:
-	$Skin.texture = sprite
+func setSkin(sprite: String) -> void:
+	if FileAccess.file_exists(sprite):
+		var file = FileAccess.open(sprite, FileAccess.READ)
+		$Skin.texture = load(sprite)
+		print($Skin.texture)
+	else:
+		print("Ability Sprite File not found")
 #Function to retrieve the ability's sprite
 func getSkin() -> CompressedTexture2D:
 	return $Skin.texture

@@ -2,6 +2,8 @@ extends Node2D
 
 const ability = preload("res://Scenes/Ability.tscn")
 const ABILITIES_FILE: String = "res://InformationFiles/AbilityInfo.txt";
+const ABILITY_SPRITES_INIT_PATH: String = "res://Assets/Sprites/Abilities/"
+const GUARANTEED_FIRST_ABILITY: int = 1
 const A_NUMS: Array[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 var a_available: Array[int] = A_NUMS.duplicate()
 var a_list: Dictionary = {}
@@ -26,78 +28,68 @@ func createSelection() -> void:
 		match num:
 			#Each option should set the name, description, and active status of the ability
 			1:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
-				add_To_Dict(a_scene.getName(), a_scene)
+				buildAbility(details)
 			2:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			3:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			4:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			5:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			6:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			7:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			8:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			9:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			10:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			11:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			12:
-				var a_scene = ability.instantiate()
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				fillAbility(details, a_scene)
-				self.add_child(a_scene)
+				buildAbility(details)
 			_:
 				print("Invalid number supplied to Abilities.createSelection()")
+
+# Function to create an ability for a player and add it to the dictionary
+func buildAbility(details: Array[String]) -> void:
+	var a_scene = ability.instantiate()
+	fillAbility(details, a_scene)
+	self.add_child(a_scene)
+	var a_name: String = a_scene.getName()
+	add_To_Dict(a_name, a_scene)
+	setAbilitySymbol(a_scene, a_name)
 	
 # Function to get the numbers for the next abilities to be shown to the player
 func getNums() -> Array[int]:
 	var tempArray: Array[int] = []
-	tempArray.append(1) ## These two lines are only for testing and should be removed later ##
-	a_available.erase(1) ##
-	for i in range(2): ## This range value should be 3 normally ##
-		var tempNum = a_available.pick_random()
-		tempArray.append(tempNum)
-		a_available.erase(tempNum)
+	if a_available.has(GUARANTEED_FIRST_ABILITY):	## This whole block is for testing and should be removed later
+		tempArray.append(GUARANTEED_FIRST_ABILITY) 	## 
+		a_available.erase(GUARANTEED_FIRST_ABILITY) ##
+		for i in range(2):							##
+			var tempNum = a_available.pick_random()	##
+			tempArray.append(tempNum)				##
+			a_available.erase(tempNum)				##
+	else:
+		for i in range(3): ## This range value should be 3 normally ##
+			var tempNum = a_available.pick_random()
+			tempArray.append(tempNum)
+			a_available.erase(tempNum)
 	return tempArray
 
 # Function to find a specific line in a file
@@ -120,15 +112,22 @@ func getLineFromFile(file_path: String, target: int) -> Array[String]:
 			else:
 				current_line += 1
 	else:
-		print("File could not be found")
+		print("Ability information file could not be found")
 	return []
 
 #Function to set values of an ability based on an array of strings
 func fillAbility(details: Array[String], ability: Node2D) -> void:
-	if details.size() > 0:
+	if details.size() > 0 && not details.size() > 4:
 		ability.setName(details[0])
 		ability.setDescription(details[1])
 		ability.setCooldown(details[2].to_int())
 		ability.setStatus(details[3])
+	elif details.size() > 4:
+		print("Too many arguments in ability attribute list")
 	else:
-		print("Empty attributes list")
+		print("Empty ability attributes list")
+
+#Function to set the new ability button skins
+func setAbilitySymbol(ability_scene: Node2D, name: String) -> void:
+	var a_path: String = ABILITY_SPRITES_INIT_PATH + name.to_lower() + ".png"
+	ability_scene.setSkin(a_path)
