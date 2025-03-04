@@ -54,7 +54,6 @@
 [ext_resource type="Texture2D" uid="uid://cpacti73pfdlm" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_jack_round.png" id="52_uwefr"]
 [ext_resource type="Texture2D" uid="uid://buh0xnp22g2qq" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_king_round.png" id="53_oeo8a"]
 [ext_resource type="Texture2D" uid="uid://hg2tpr6lmicu" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_queen_round.png" id="54_eglhf"]
-[ext_resource type="Texture2D" uid="uid://crrt4rnxptkab" path="res://Assets/Sprites/symbols/boss_symbols/mimic_symbol_opt.png" id="55_poe7v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0j21l"]
 animations = [{
@@ -483,6 +482,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rktwj"]
+load_path = "res://.godot/imported/mimic_symbol_opt.png-fae44fb544b57b399c84f8d256834b4a.ctex"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_liyqv"]
 animations = [{
 "frames": [],
@@ -492,7 +494,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("55_poe7v")
+"texture": SubResource("CompressedTexture2D_rktwj")
 }],
 "loop": true,
 "name": &"mimic",

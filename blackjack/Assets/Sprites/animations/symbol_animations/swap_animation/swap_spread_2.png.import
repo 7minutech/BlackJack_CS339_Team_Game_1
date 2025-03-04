@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://x0rq8kf4ojfi"
-path="res://.godot/imported/swap_spread_2.png-055c6ef5df6a1461e6c975767c09c904.ctex"
+path="res://.godot/imported/swap_spread_2.png-aa2c724461cdd84a9e6557b452456741.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/animations/symbol_animations/swap_animation/swap_spread_2.png"
-dest_files=["res://.godot/imported/swap_spread_2.png-055c6ef5df6a1461e6c975767c09c904.ctex"]
+source_file="res://Assets/Sprites/Animations/symbol_animations/swap_animation/swap_spread_2.png"
+dest_files=["res://.godot/imported/swap_spread_2.png-aa2c724461cdd84a9e6557b452456741.ctex"]
 
 [params]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsg28ofutkoft"]
 
-[ext_resource type="Texture2D" uid="uid://b6k1gc0h5g7oa" path="res://Assets/Sprites/animations/symbol_animations/ditto_animation/frame_0.png" id="1_7nbks"]
-[ext_resource type="Texture2D" uid="uid://bdffdq5vwjars" path="res://Assets/Sprites/animations/symbol_animations/ditto_animation/frame_1.png" id="2_d5g4l"]
-[ext_resource type="Texture2D" uid="uid://dipxgi4crn5gs" path="res://Assets/Sprites/animations/symbol_animations/ditto_animation/frame_2.png" id="3_3fg52"]
-[ext_resource type="Texture2D" uid="uid://m8kn64ko1rbn" path="res://Assets/Sprites/animations/symbol_animations/ditto_animation/frame_3.png" id="4_skbu3"]
-[ext_resource type="Texture2D" uid="uid://dpxle7ryskwvn" path="res://Assets/Sprites/animations/symbol_animations/ditto_animation/frame_4.png" id="5_ktjdx"]
-[ext_resource type="Texture2D" uid="uid://cbcifd8v6arqu" path="res://Assets/Sprites/animations/symbol_animations/ditto_animation/frame_5.png" id="6_q3mcj"]
+[ext_resource type="Texture2D" uid="uid://b6k1gc0h5g7oa" path="res://Assets/Sprites/Animations/symbol_animations/ditto_animation/frame_0.png" id="1_7nbks"]
+[ext_resource type="Texture2D" uid="uid://bdffdq5vwjars" path="res://Assets/Sprites/Animations/symbol_animations/ditto_animation/frame_1.png" id="2_d5g4l"]
+[ext_resource type="Texture2D" uid="uid://dipxgi4crn5gs" path="res://Assets/Sprites/Animations/symbol_animations/ditto_animation/frame_2.png" id="3_3fg52"]
+[ext_resource type="Texture2D" uid="uid://m8kn64ko1rbn" path="res://Assets/Sprites/Animations/symbol_animations/ditto_animation/frame_3.png" id="4_skbu3"]
+[ext_resource type="Texture2D" uid="uid://dpxle7ryskwvn" path="res://Assets/Sprites/Animations/symbol_animations/ditto_animation/frame_4.png" id="5_ktjdx"]
+[ext_resource type="Texture2D" uid="uid://cbcifd8v6arqu" path="res://Assets/Sprites/Animations/symbol_animations/ditto_animation/frame_5.png" id="6_q3mcj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fgsho"]
 animations = [{

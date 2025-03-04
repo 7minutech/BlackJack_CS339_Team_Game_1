@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqnekss64q2ty"
-path="res://.godot/imported/ani_foresight_3.png-2bc5f6cec1f5217d97aba2b05802a949.ctex"
+path="res://.godot/imported/ani_foresight_3.png-0eb4c03b0f3cfe11fe2a3cf46fce9115.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/animations/symbol_animations/foresight_animation/ani_foresight_3.png"
-dest_files=["res://.godot/imported/ani_foresight_3.png-2bc5f6cec1f5217d97aba2b05802a949.ctex"]
+source_file="res://Assets/Sprites/Animations/symbol_animations/foresight_animation/ani_foresight_3.png"
+dest_files=["res://.godot/imported/ani_foresight_3.png-0eb4c03b0f3cfe11fe2a3cf46fce9115.ctex"]
 
 [params]
 

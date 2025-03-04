@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://susx3f4px1a6"]
 
-[ext_resource type="Texture2D" uid="uid://0akc2vakrew7" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_0.png" id="1_pt8kl"]
-[ext_resource type="Texture2D" uid="uid://d356uejc42v84" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_1.png" id="2_b3xmu"]
-[ext_resource type="Texture2D" uid="uid://b5ojwgt8n6aux" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_2.png" id="3_x7b13"]
-[ext_resource type="Texture2D" uid="uid://c1gubceukji6a" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_3.png" id="4_khaev"]
-[ext_resource type="Texture2D" uid="uid://bt70x036r8mo4" path="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/frame_4.png" id="5_6hjsj"]
+[ext_resource type="Texture2D" uid="uid://0akc2vakrew7" path="res://Assets/Sprites/Animations/symbol_animations/sleight_of_hand_animation/frame_0.png" id="1_pt8kl"]
+[ext_resource type="Texture2D" uid="uid://d356uejc42v84" path="res://Assets/Sprites/Animations/symbol_animations/sleight_of_hand_animation/frame_1.png" id="2_b3xmu"]
+[ext_resource type="Texture2D" uid="uid://b5ojwgt8n6aux" path="res://Assets/Sprites/Animations/symbol_animations/sleight_of_hand_animation/frame_2.png" id="3_x7b13"]
+[ext_resource type="Texture2D" uid="uid://c1gubceukji6a" path="res://Assets/Sprites/Animations/symbol_animations/sleight_of_hand_animation/frame_3.png" id="4_khaev"]
+[ext_resource type="Texture2D" uid="uid://bt70x036r8mo4" path="res://Assets/Sprites/Animations/symbol_animations/sleight_of_hand_animation/frame_4.png" id="5_6hjsj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_egpqt"]
 animations = [{

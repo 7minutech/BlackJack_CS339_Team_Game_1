@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cth0lxnai3ibr"
-path="res://.godot/imported/soh_spread.png-812750ba21780a5f8f14647eccc4ed73.ctex"
+path="res://.godot/imported/soh_spread.png-3107fbb7450a7ed38ac832ccacf4afca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/animations/symbol_animations/sleight_of_hand_animation/soh_spread.png"
-dest_files=["res://.godot/imported/soh_spread.png-812750ba21780a5f8f14647eccc4ed73.ctex"]
+source_file="res://Assets/Sprites/Animations/symbol_animations/sleight_of_hand_animation/soh_spread.png"
+dest_files=["res://.godot/imported/soh_spread.png-3107fbb7450a7ed38ac832ccacf4afca.ctex"]
 
 [params]
 
