@@ -240,6 +240,6 @@ func switch_to_first_boss():
 
 	
 func restart():
-	get_tree().reload_current_scene()
+	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 	
 	
