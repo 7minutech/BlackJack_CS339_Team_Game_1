@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqa50s1vlosks"
-path="res://.godot/imported/default.png-87fcda792859e11212de2b8ca300d400.ctex"
+path="res://.godot/imported/default.png-f2583e33199a2ad4a596a0b7fec653d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Animations/symbol_animations/denied_animation/default.png"
-dest_files=["res://.godot/imported/default.png-87fcda792859e11212de2b8ca300d400.ctex"]
+source_file="res://Assets/Sprites/animations/symbol_animations/denied_animation/default.png"
+dest_files=["res://.godot/imported/default.png-f2583e33199a2ad4a596a0b7fec653d4.ctex"]
 
 [params]
 

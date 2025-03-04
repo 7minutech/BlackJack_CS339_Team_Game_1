@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc64ladgx53k6"
-path="res://.godot/imported/ani_reroll_0.png-3a58c743d7a90f17af5f68740970e4bb.ctex"
+uid="uid://bmvdwopj6tlyx"
+path="res://.godot/imported/PlayerHandArea.png-183d4bed81fd7683ef23099485c84c34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/animations/reroll_animation/ani_reroll_0.png"
-dest_files=["res://.godot/imported/ani_reroll_0.png-3a58c743d7a90f17af5f68740970e4bb.ctex"]
+source_file="res://Assets/Sprites/table/PlayerHandArea.png"
+dest_files=["res://.godot/imported/PlayerHandArea.png-183d4bed81fd7683ef23099485c84c34.ctex"]
 
 [params]
 

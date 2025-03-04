@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cspl1aq6wix6x"
-path="res://.godot/imported/ditto_spread.png-5bccad86deb5cfe894170e0e1a690b03.ctex"
+path="res://.godot/imported/ditto_spread.png-e51744e5edd49c40bd527463ce5dfef7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Animations/symbol_animations/ditto_animation/ditto_spread.png"
-dest_files=["res://.godot/imported/ditto_spread.png-5bccad86deb5cfe894170e0e1a690b03.ctex"]
+source_file="res://Assets/Sprites/animations/symbol_animations/ditto_animation/ditto_spread.png"
+dest_files=["res://.godot/imported/ditto_spread.png-e51744e5edd49c40bd527463ce5dfef7.ctex"]
 
 [params]
 

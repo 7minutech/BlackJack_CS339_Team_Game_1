@@ -82,17 +82,23 @@ func all_stand():
 	dealer_hand_value = $Dealer.stand()
 
 func deal_cards():
-	var draw_pile = $Dealer.deal_cards()
-	$Dealer.hand.append(draw_pile.pop_front())
-	$Player.hand.append(draw_pile.pop_front())
-	$Dealer.hand.append(draw_pile.pop_front())
-	$Player.hand.append(draw_pile.pop_front())
+	var draw_pile: Array[Node2D] = $Dealer.deal_cards()
+	for i in range(4):
+		var drawn: Node2D = draw_pile.pop_front()
+		if (i % 2) == 1:
+			$Dealer.hand.append(drawn)
+			$HUD/Hands.addCardToPlayerHand(drawn)
+		if (i % 2) == 0:
+			$Player.hand.append(drawn)
+			$HUD/Hands.addCardToDealerHand(drawn)
 	$Dealer.hide_face_down()
 
 	
 func clear_hand():
 	$Dealer.clear_hand()
 	$Player.clear_hand()
+	$HUD/Hands.reset()
+
 
 func determine_winner():
 	pass

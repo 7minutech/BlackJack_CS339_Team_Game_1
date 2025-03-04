@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmf6venj143rh"]
+
+[ext_resource type="Script" path="res://Scripts/hands.gd" id="1_p65rt"]
+[ext_resource type="Texture2D" uid="uid://bmvdwopj6tlyx" path="res://Assets/Sprites/table/PlayerHandArea.png" id="3_6b6h4"]
+
+[node name="Hands" type="Node2D"]
+script = ExtResource("1_p65rt")
+
+[node name="PlayerArea" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.756863, 1, 0.509804)
+position = Vector2(560, 427)
+scale = Vector2(12.2813, 2.60938)
+texture = ExtResource("3_6b6h4")
+
+[node name="DealerArea" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 1, 0.509804)
+position = Vector2(560, 111)
+scale = Vector2(12.2813, 2.60938)
+texture = ExtResource("3_6b6h4")

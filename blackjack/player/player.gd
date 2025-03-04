@@ -1,7 +1,7 @@
 extends Node
 
-var hand = []
-var hand_2 = []
+var hand: Array[Node2D] = []
+var hand_2: Array[Node2D] = []
 var abiliites: Array[Node2D] = []
 var ability_names = []
 var abs = []
@@ -42,7 +42,7 @@ func lose_chip() -> void:
 func clear_hand():
 	hand = []
 	
-func hit(card):
+func hit(card: Node2D):
 	if not bust: 
 		hand.append(card)
 	

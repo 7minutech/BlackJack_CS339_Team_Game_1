@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d356uejc42v84"
-path="res://.godot/imported/frame_1.png-68444156a25d0680060f41a717b834dc.ctex"
+path="res://.godot/imported/frame_1.png-1a5023a99b15ba271afbff13e3ff38f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Animations/sleight_of_hand_animation/frame_1.png"
-dest_files=["res://.godot/imported/frame_1.png-68444156a25d0680060f41a717b834dc.ctex"]
+source_file="res://Assets/Sprites/animations/sleight_of_hand_animation/frame_1.png"
+dest_files=["res://.godot/imported/frame_1.png-1a5023a99b15ba271afbff13e3ff38f9.ctex"]
 
 [params]
 

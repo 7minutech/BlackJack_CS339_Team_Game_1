@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csaa5e604nk4f"
-path="res://.godot/imported/ani_reroll_2.png-a20cb1cfb466f15e31a60320b6e46614.ctex"
+path="res://.godot/imported/ani_reroll_2.png-f51323c7a7e2b574fb3aa1ffd69ae3c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Animations/symbol_animations/reroll_animation/ani_reroll_2.png"
-dest_files=["res://.godot/imported/ani_reroll_2.png-a20cb1cfb466f15e31a60320b6e46614.ctex"]
+source_file="res://Assets/Sprites/animations/symbol_animations/reroll_animation/ani_reroll_2.png"
+dest_files=["res://.godot/imported/ani_reroll_2.png-f51323c7a7e2b574fb3aa1ffd69ae3c8.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 extends Node2D
 
 var card_scene = preload("res://card_deck/card.tscn")
-var draw_pile = []
-var discard_pile = []
+var draw_pile: Array[Node2D] = []
+var discard_pile: Array[Node2D] = []
 var royalty = ["jack", "queen", "king", "ace"]
 var numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]
 var suits = ["club", "heart", "spade", "diamond"]
@@ -49,6 +49,6 @@ func create_deck():
 func display_total_cards():
 	print(draw_pile.size())
 
-func draw_card():
+func draw_card() -> Node2D:
 	var drawn_card = draw_pile.pop_front()
 	return drawn_card	

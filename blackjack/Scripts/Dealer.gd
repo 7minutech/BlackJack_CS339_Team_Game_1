@@ -1,6 +1,6 @@
 extends Node
 
-var hand: Array = []
+var hand: Array[Node2D] = []
 var chips: int = 0
 var total_card_value: int = 0
 var bust: bool = false
@@ -11,13 +11,13 @@ func _ready() -> void:
 	reset()
 
 # Deal a single card to the dealer's hand
-func deal_card():
+func deal_card() -> Node2D:
 	var card = $Deck.draw_card()
-	return $Deck.draw_card()
-func deal_cards():
+	return card
+func deal_cards() -> Array[Node2D]:
 	var drawn_cards = []
 	for i in range(4):
-		var drawn_card = $Deck.draw_card()
+		var drawn_card: Array[Node2D] = $Deck.draw_card()
 		drawn_cards.append(drawn_card)	
 	return drawn_cards
 
