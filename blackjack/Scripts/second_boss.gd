@@ -5,6 +5,7 @@ var hud
 var scene_root 
 var result
 var finished 
+var chip_pile = 3
 var player_hits = 0
 signal hit_pressed_main
 signal stand_pressed_main
@@ -15,6 +16,7 @@ signal left_pressed_main
 signal right_pressed_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$HUD/BossName.text = "Thief Boss"
 	SignalBus.hit_pressed.connect(_on_hit_pressed_main)
 	SignalBus.stand_pressed.connect(_on_stand_pressed_main)
 	SignalBus.down_pressed.connect(_on_down_pressed_main)
@@ -25,6 +27,7 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	give_ability("Reroll")
+	#print($Player.abiliites)
 	$HUD.addAbilities()
 	play_round()
 	pass # Replace with function body.
@@ -111,11 +114,17 @@ func dealer_has_won():
 func player_win():
 	$HUD/RoundMessage.text = "You win!"
 	$Player.win_chip()
-	$Dealer.lose_chip()
+	if chip_pile <= 0:
+		$Dealer.lose_chip()
+	else:
+		chip_pile -= 1
 func dealer_win():
-	$HUD/RoundMessage.text = "You loss!"
-	$Player.lose_chip()
+	$HUD/RoundMessage.text = "You lose!"
 	$Dealer.win_chip()
+	if chip_pile <= 0:
+		$Player.lose_chip()
+	else:
+		chip_pile -= 1
 
 func tie():
 	$HUD/RoundMessage.text = "You tie!"
@@ -153,7 +162,7 @@ func calculate_total_value():
 func _on_hit_pressed_main() -> void:
 	player_hits += 1
 	$Player.hit($Dealer.deal_card())
-	if dealer_can_steal() and not $Player.can_stun():
+	if dealer_can_steal():
 		evalute_cards()
 		display_hands()
 		await get_tree().create_timer(0.5).timeout
@@ -192,12 +201,11 @@ func _on_right_pressed_main(name: String) -> void:
 	
 
 func game_over():
-	if $Player.has_lost() or $Dealer.has_lost():
-		#get_tree().quit() 
-		pass
-
+	if $Player.has_won():
+		switch_to_second_boss()
+	if $Dealer.has_won():
+		restart()
 func _on_round_over_main() -> void:
-	$Player.stun_timer += 1
 	pass # Replace with function body.
 
 func reset_players():
@@ -244,7 +252,12 @@ func evalute_cards():
 	check_aces()
 	calculate_total_value()
 	
+func switch_to_second_boss():
+	SceneSwitcher.switch_scene("res://Scenes/Third_Boss_Fight.tscn")
+
 	
+func restart():
+	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 
 	
 	

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bu54hho1om6dr"]
+
+[node name="EndGame" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 479.0
+offset_top = 180.0
+offset_right = 833.0
+offset_bottom = 397.0
+text = "You win"

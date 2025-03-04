@@ -1,7 +1,7 @@
 extends Node
 
 var hand: Array = []
-var chips: int = 3
+var chips: int = 0
 var total_card_value: int = 0
 var bust: bool = false
 var standing: bool = false
@@ -65,8 +65,8 @@ func lose_chip() -> void:
 	chips -= 1
 
 # Check if dealer has lost (no chips left)
-func has_lost() -> bool:
-	return chips <= 0
+func has_won() -> bool:
+	return chips >= 3
 
 # Reveal the face-down card (for display purposes)
 func reveal_face_down_card() -> void:

@@ -5,6 +5,7 @@ var hud
 var scene_root 
 var result
 var finished 
+var chip_pile = 3
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
@@ -14,6 +15,7 @@ signal left_pressed_main
 signal right_pressed_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$HUD/BossName.text = "Mimic Boss"
 	SignalBus.hit_pressed.connect(_on_hit_pressed_main)
 	SignalBus.stand_pressed.connect(_on_stand_pressed_main)
 	SignalBus.down_pressed.connect(_on_down_pressed_main)
@@ -109,11 +111,17 @@ func dealer_has_won():
 func player_win():
 	$HUD/RoundMessage.text = "You win!"
 	$Player.win_chip()
-	$Dealer.lose_chip()
+	if chip_pile <= 0:
+		$Dealer.lose_chip()
+	else:
+		chip_pile -= 1
 func dealer_win():
-	$HUD/RoundMessage.text = "You loss!"
-	$Player.lose_chip()
+	$HUD/RoundMessage.text = "You lose!"
 	$Dealer.win_chip()
+	if chip_pile <= 0:
+		$Player.lose_chip()
+	else:
+		chip_pile -= 1
 
 func tie():
 	$HUD/RoundMessage.text = "You tie!"
@@ -192,9 +200,10 @@ func _on_right_pressed_main(name: String) -> void:
 	
 
 func game_over():
-	if $Player.has_lost() or $Dealer.has_lost():
-		#get_tree().quit() 
-		pass
+	if $Player.has_won():
+		switch_to_second_boss()
+	if $Dealer.has_won():
+		restart()
 
 func _on_round_over_main() -> void:
 	$Player.stun_timer += 1
@@ -227,6 +236,12 @@ func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_list[ability_key]
 	$Player.addAbility(ability_scene)
 
+func switch_to_second_boss():
+	SceneSwitcher.switch_scene("res://Scenes/Second_Boss_Fight.tscn")
+
+	
+func restart():
+	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 
 	
 	

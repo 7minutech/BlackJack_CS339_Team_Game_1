@@ -1,7 +1,7 @@
 extends Node
 
 var hand: Array = []
-var chips: int = 3
+var chips: int = 0
 var total_card_value: int = 0
 var bust: bool = false
 var standing: bool = false
@@ -35,7 +35,8 @@ func sum_card_value() -> void:
 func stand() -> void:
 	standing = true
 
-
+func has_won() -> bool:
+	return chips >= 3
 func has_bust():
 	sum_card_value()
 	if total_card_value > 21:

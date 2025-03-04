@@ -34,7 +34,7 @@ func setPassivesDescription() -> void:
 
 #Functions to store information about an added ability
 func addAbilities() -> void:
-	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
+	var ablty: Array[Node2D] = SceneSwitcher.current_scene.find_child("Player").getAbilities()
 	var indexCounter: int = 0
 	for a in ablty:
 		if a.isActive():

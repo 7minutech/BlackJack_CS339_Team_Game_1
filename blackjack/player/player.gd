@@ -6,7 +6,7 @@ var abiliites: Array[Node2D] = []
 var ability_names = []
 var abs = []
 var abs_names = []
-var chips = 3
+var chips = 0
 var total_card_value = 0
 var selected_cards = []
 var bust = false
@@ -80,8 +80,8 @@ func stand():
 	standing = true
 	total_card_value
 	
-func has_lost():
-	if chips <= 0:
+func has_won():
+	if chips >= 3:
 		return true
 	return false
 	
