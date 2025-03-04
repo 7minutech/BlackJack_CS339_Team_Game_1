@@ -36,7 +36,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -87,10 +87,10 @@ func deal_cards():
 		var drawn: Node2D = draw_pile.pop_front()
 		if (i % 2) == 1:
 			$Dealer.hand.append(drawn)
-			$HUD/Hands.addCardToPlayerHand(drawn)
+			$HUD/Hands.addCardToDealerHand(drawn)
 		if (i % 2) == 0:
 			$Player.hand.append(drawn)
-			$HUD/Hands.addCardToDealerHand(drawn)
+			$HUD/Hands.addCardToPlayerHand(drawn)
 	$Dealer.hide_face_down()
 
 func determine_winner():
@@ -140,6 +140,7 @@ func clear_hands():
 	$Dealer.clear_hand()
 	$Player.clear_hand()
 	$HUD/Hands.reset()
+	$Deck.clearTable()
 
 func add_discard_pile():
 	for card in $Dealer.hand:
@@ -162,7 +163,8 @@ func calculate_total_value():
 
 
 func _on_hit_pressed_main() -> void:
-	$Player.hit($Dealer.deal_card())
+	var newCard: Node2D = $Dealer.deal_card()
+	$Player.hit(newCard)
 	check_aces()
 	calculate_total_value()
 	display_hands()
@@ -181,18 +183,17 @@ func _on_stand_pressed_main() -> void:
 	await get_tree().create_timer(1.5).timeout
 	calculate_total_value()
 	display_hands()
-
 	round_over_main.emit()
 	pass # Replace with function body.
 
-func _on_down_pressed_main(name: String) -> void:
-	if name == "Reroll" and $Player.can_reroll():
+func _on_down_pressed_main(a_name: String) -> void:
+	if a_name == "Reroll" and $Player.can_reroll():
 		reroll()
-func _on_up_pressed_main(name: String) -> void:
+func _on_up_pressed_main(a_name: String) -> void:
 	pass
-func _on_left_pressed_main(name: String) -> void:
+func _on_left_pressed_main(a_name: String) -> void:
 	pass
-func _on_right_pressed_main(name: String) -> void:
+func _on_right_pressed_main(a_name: String) -> void:
 	pass
 
 	

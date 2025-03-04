@@ -12,7 +12,7 @@ var a_list: Dictionary = {}
 func _ready() -> void:
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 #Function to build the dictionary of abilities
@@ -196,18 +196,18 @@ func getLineFromFile(file_path: String, target: int) -> Array[String]:
 	return []
 
 #Function to set values of an ability based on an array of strings
-func fillAbility(details: Array[String], ability: Node2D) -> void:
+func fillAbility(details: Array[String], ablty: Node2D) -> void:
 	if details.size() > 0 && not details.size() > 4:
-		ability.setName(details[0])
-		ability.setDescription(details[1])
-		ability.setCooldown(details[2].to_int())
-		ability.setStatus(details[3])
+		ablty.setName(details[0])
+		ablty.setDescription(details[1])
+		ablty.setCooldown(details[2].to_int())
+		ablty.setStatus(details[3])
 	elif details.size() > 4:
 		print("Too many arguments in ability attribute list")
 	else:
 		print("Empty ability attributes list")
 
 #Function to set the new ability button skins
-func setAbilitySymbol(ability_scene: Node2D, name: String) -> void:
-	var a_path: String = ABILITY_SPRITES_INIT_PATH + name.to_lower() + ".png"
+func setAbilitySymbol(ability_scene: Node2D, a_name: String) -> void:
+	var a_path: String = ABILITY_SPRITES_INIT_PATH + a_name.to_lower() + ".png"
 	ability_scene.setSkin(a_path)

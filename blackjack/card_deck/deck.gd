@@ -1,6 +1,7 @@
 extends Node2D
 
-var card_scene = preload("res://card_deck/card.tscn")
+const card_scene = preload("res://card_deck/card.tscn")
+const DECK_POSITION: Vector2 = Vector2(-1000, -1000)
 var draw_pile: Array[Node2D] = []
 var discard_pile: Array[Node2D] = []
 var royalty = ["jack", "queen", "king", "ace"]
@@ -9,7 +10,6 @@ var suits = ["club", "heart", "spade", "diamond"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	pass
 
 func shuffle():
@@ -43,7 +43,8 @@ func create_deck():
 
 			var card: Node2D = card_scene.instantiate()
 			card.create_card(value, rank, suit)
-			add_child(card)
+			card.position = DECK_POSITION
+			self.add_child(card)
 			draw_pile.append(card)
 
 func display_total_cards():
@@ -52,3 +53,9 @@ func display_total_cards():
 func draw_card() -> Node2D:
 	var drawn_card = draw_pile.pop_front()
 	return drawn_card	
+
+# Function to clear the cards from the table
+func clearTable() -> void:
+	for card in self.get_children():
+		card.position = DECK_POSITION
+	

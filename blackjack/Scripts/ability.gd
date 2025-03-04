@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 #Function to set and determine if this ability is an active ability or not
@@ -48,7 +48,6 @@ func getName() -> String:
 #Function to assign the correct ability sprite
 func setSkin(sprite: String) -> void:
 	if FileAccess.file_exists(sprite):
-		var file = FileAccess.open(sprite, FileAccess.READ)
 		$Skin.texture = load(sprite)
 		print($Skin.texture)
 	else:

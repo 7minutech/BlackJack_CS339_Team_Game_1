@@ -2,10 +2,10 @@ extends Node
 
 var hand: Array[Node2D] = []
 var hand_2: Array[Node2D] = []
-var abiliites: Array[Node2D] = []
-var ability_names = []
-var abs = []
-var abs_names = []
+var abilities: Array[Node2D] = []
+var ability_names: Array[String] = []
+#var abs = []
+#var abs_names = []
 var chips = 0
 var total_card_value = 0
 var selected_cards = []
@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func value_ace():
@@ -40,11 +40,12 @@ func lose_chip() -> void:
 	chips -= 1
 
 func clear_hand():
-	hand = []
+	hand.clear()
 	
 func hit(card: Node2D):
 	if not bust: 
 		hand.append(card)
+		get_parent().find_child("HUD").find_child("Hands").addCardToPlayerHand(card)
 	
 func clear_selected_cards():
 	selected_cards = []
@@ -78,7 +79,7 @@ func sum_card_value():
 
 func stand():
 	standing = true
-	total_card_value
+	#total_card_value
 	
 func has_won():
 	if chips >= 3:
@@ -98,25 +99,25 @@ func round_reset():
 
 #Functions to add and get abilities
 func addAbility(ability: Node2D) -> void:
-	abiliites.append(ability)
+	abilities.append(ability)
 	ability_names.append(ability.name)
 func getAbilities() -> Array[Node2D]:
-	return abiliites
+	return abilities
 
 func show_hand():
 	for card in hand:
 		print(card)
 
-func hand_str():
-	var str = ""
+func hand_str() -> String:
+	var card_str = ""
 	for card in hand:
-		str += card._to_string()
-	str += " Value: " + str(total_card_value)
-	return str
+		card_str += card._to_string()
+	card_str += " Value: " + str(total_card_value)
+	return card_str
 
 func add_ability(ability_scene):
-	abs.append(ability_scene)
-	abs_names.append(ability_scene.name)
+	abilities.append(ability_scene)
+	ability_names.append(ability_scene.name)
 
 func can_reroll():
 	return ability_names.has("Reroll")

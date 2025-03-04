@@ -483,7 +483,6 @@ animations = [{
 }]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rktwj"]
-load_path = "res://.godot/imported/mimic_symbol_opt.png-fae44fb544b57b399c84f8d256834b4a.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_liyqv"]
 animations = [{

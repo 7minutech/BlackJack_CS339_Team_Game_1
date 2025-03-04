@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 SignalBus="*res://Scripts/SignalBus.gd"
 SceneSwitcher="*res://Scripts/SceneSwitcher.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 UseLeft={

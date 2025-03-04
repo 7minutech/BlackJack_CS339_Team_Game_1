@@ -1,7 +1,7 @@
 extends Node2D
 
-var passivesList: Array[PackedScene] = []
-var activesList: Array[PackedScene] = []
+var passivesList: Array[Node2D] = []
+var activesList: Array[Node2D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 #Function to get input information
@@ -19,7 +19,7 @@ func getInputMethod() -> void:
 	pass
 	
 #Functions to get ability information from player
-func getAbilityDescription(ablty: PackedScene) -> void:
+func getAbilityDescription(ablty: Node2D) -> void:
 	pass
 func getAbilityTexture() -> void:
 	pass

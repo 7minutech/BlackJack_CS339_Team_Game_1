@@ -22,8 +22,9 @@ func deal_cards() -> Array[Node2D]:
 	return drawn_cards
 
 func hit():
-	var card = deal_card()
+	var card: Node2D = deal_card()
 	hand.append(card)
+	get_parent().find_child("HUD").find_child("Hands").addCardToDealerHand(card)
 
 # Sum the values of cards in the dealer's hand
 func sum_card_value() -> void:
@@ -73,25 +74,25 @@ func reveal_face_down_card() -> void:
 	# Implement visual reveal logic here if needed
 	pass
 func clear_hand():
-	hand = []
+	hand.clear()
 
 func show_hand():
 	for card in hand:
 		print(card)
 		
-func hand_str():
-	var str = ""
+func hand_str() -> String:
+	var card_str = ""
 	var known_value = 0
 	for card in hand:
 		if card.face_down:
-			str += "[hidden] "
+			card_str += "[hidden] "
 		else:
-			str += card._to_string()
+			card_str += card._to_string()
 	for card in hand:
 		if not card.face_down:
 			known_value += card.value
-	str += " Value: " + str(known_value)
-	return str
+	card_str += " Value: " + str(known_value)
+	return card_str
 
 func round_reset():
 	bust = false
@@ -101,7 +102,7 @@ func deal_themself():
 	sum_card_value()
 	while total_card_value < 17:
 		await get_tree().create_timer(1.0).timeout
-		hand.append(deal_card())
+		hit()
 		value_ace()
 		sum_card_value()
 		get_parent().display_hands()
@@ -111,6 +112,6 @@ func deal_themself():
 func hide_face_down():
 	hand[0].face_down = true
 func show_face_down():
-	hand[0].face_down = false
+	hand[0].face_down = false  
 		
 		
