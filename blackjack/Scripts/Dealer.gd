@@ -13,11 +13,11 @@ func _ready() -> void:
 # Deal a single card to the dealer's hand
 func deal_card() -> Node2D:
 	var card = $Deck.draw_card()
-	return card
+	return card 
 func deal_cards() -> Array[Node2D]:
-	var drawn_cards = []
+	var drawn_cards: Array[Node2D] = []
 	for i in range(4):
-		var drawn_card: Array[Node2D] = $Deck.draw_card()
+		var drawn_card: Node2D = $Deck.draw_card()
 		drawn_cards.append(drawn_card)	
 	return drawn_cards
 

@@ -1,0 +1,281 @@
+[gd_scene load_steps=31 format=3 uid="uid://c63m8tfiigc3"]
+
+[ext_resource type="Texture2D" uid="uid://ccm2u70hycoij" path="res://icon.svg" id="1_a1nua"]
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_u2ua6"]
+[ext_resource type="PackedScene" uid="uid://dmf6venj143rh" path="res://Scenes/Hands.tscn" id="2_31leu"]
+[ext_resource type="Texture2D" uid="uid://ljoe8kwsmqdr" path="res://Assets/Buttons/button_released.png" id="2_dpta6"]
+[ext_resource type="Texture2D" uid="uid://darkb6irbxswn" path="res://Assets/Buttons/button_pressed.png" id="3_7ww1t"]
+[ext_resource type="Texture2D" uid="uid://ch6cq82h0as7c" path="res://Assets/Buttons/Button_Focused.png" id="4_ux5es"]
+[ext_resource type="BitMap" uid="uid://dtf335br4pmn8" path="res://Assets/Buttons/Button_Bitmap.png" id="6_5ll0s"]
+[ext_resource type="Texture2D" uid="uid://bqsyltp0853ur" path="res://Assets/Buttons/h_released.png" id="8_p740d"]
+[ext_resource type="Texture2D" uid="uid://wnmr16bo0s0m" path="res://Assets/Buttons/h_pressed.png" id="9_05gbh"]
+[ext_resource type="Texture2D" uid="uid://cgw2pf75mdkgo" path="res://Assets/Sprites/chip/chip.png" id="9_hjerj"]
+[ext_resource type="Texture2D" uid="uid://dt4oglbm40e0p" path="res://Assets/Buttons/h_focused.png" id="10_i5ekl"]
+[ext_resource type="Texture2D" uid="uid://cuo2ca5okyjdy" path="res://Assets/Buttons/s_released.png" id="11_pnr26"]
+[ext_resource type="Texture2D" uid="uid://c1d0ylu44cpxy" path="res://Assets/Buttons/s_pressed.png" id="12_cmnr7"]
+[ext_resource type="Texture2D" uid="uid://bgviquxmv01mi" path="res://Assets/Buttons/s_focused.png" id="13_7gpwe"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_d7fav"]
+action = &"UseLeft"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_p62a0"]
+button_index = 2
+
+[sub_resource type="Shortcut" id="Shortcut_iehtw"]
+events = [SubResource("InputEventAction_d7fav"), SubResource("InputEventJoypadButton_p62a0")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_yd1gi"]
+action = &"UseDown"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_f16i0"]
+device = 1
+
+[sub_resource type="Shortcut" id="Shortcut_slnyq"]
+events = [SubResource("InputEventAction_yd1gi"), SubResource("InputEventJoypadButton_f16i0")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_5dhc6"]
+action = &"UseRight"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_07pu4"]
+device = 1
+button_index = 1
+
+[sub_resource type="Shortcut" id="Shortcut_1ax0q"]
+events = [SubResource("InputEventAction_5dhc6"), SubResource("InputEventJoypadButton_07pu4")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_orixy"]
+action = &"UseUp"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_2es5d"]
+device = 1
+button_index = 3
+
+[sub_resource type="Shortcut" id="Shortcut_52udb"]
+events = [SubResource("InputEventAction_orixy"), SubResource("InputEventJoypadButton_2es5d")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ergpa"]
+action = &"Hit"
+
+[sub_resource type="Shortcut" id="Shortcut_u8kjv"]
+events = [SubResource("InputEventAction_ergpa")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_c3b7o"]
+action = &"Stand"
+
+[sub_resource type="Shortcut" id="Shortcut_y2ttc"]
+events = [SubResource("InputEventAction_c3b7o")]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u2ua6")
+
+[node name="Hands" parent="." instance=ExtResource("2_31leu")]
+
+[node name="Button_Left" type="TextureButton" parent="."]
+offset_left = 65.0
+offset_top = 512.0
+offset_right = 153.0
+offset_bottom = 602.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_iehtw")
+texture_normal = ExtResource("2_dpta6")
+texture_pressed = ExtResource("3_7ww1t")
+texture_hover = ExtResource("4_ux5es")
+texture_disabled = ExtResource("3_7ww1t")
+texture_focused = ExtResource("4_ux5es")
+texture_click_mask = ExtResource("6_5ll0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="InputSymbol_Left" type="Sprite2D" parent="Button_Left"]
+self_modulate = Color(0.270588, 1, 0, 1)
+position = Vector2(-36, 42)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_a1nua")
+
+[node name="AbilitySymbol_Left" type="Sprite2D" parent="Button_Left"]
+position = Vector2(44, 34)
+texture = ExtResource("9_hjerj")
+
+[node name="Button_Down" type="TextureButton" parent="."]
+offset_left = 91.0
+offset_top = 528.0
+offset_right = 261.0
+offset_bottom = 630.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_slnyq")
+texture_normal = ExtResource("2_dpta6")
+texture_pressed = ExtResource("3_7ww1t")
+texture_hover = ExtResource("4_ux5es")
+texture_disabled = ExtResource("3_7ww1t")
+texture_focused = ExtResource("4_ux5es")
+texture_click_mask = ExtResource("6_5ll0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="InputSymbol_Down" type="Sprite2D" parent="Button_Down"]
+self_modulate = Color(0.270588, 1, 0, 1)
+position = Vector2(86, 148)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_a1nua")
+
+[node name="AbilitySymbol_Down" type="Sprite2D" parent="Button_Down"]
+position = Vector2(86, 42)
+texture = ExtResource("9_hjerj")
+
+[node name="Button_Right" type="TextureButton" parent="."]
+offset_left = 162.0
+offset_top = 512.0
+offset_right = 246.0
+offset_bottom = 606.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_1ax0q")
+texture_normal = ExtResource("2_dpta6")
+texture_pressed = ExtResource("3_7ww1t")
+texture_hover = ExtResource("4_ux5es")
+texture_disabled = ExtResource("3_7ww1t")
+texture_focused = ExtResource("4_ux5es")
+texture_click_mask = ExtResource("6_5ll0s")
+stretch_mode = 5
+
+[node name="InputSymbol_Right" type="Sprite2D" parent="Button_Right"]
+self_modulate = Color(0.270588, 1, 0, 1)
+position = Vector2(128, 46)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_a1nua")
+
+[node name="AbilitySymbol_Right" type="Sprite2D" parent="Button_Right"]
+position = Vector2(42, 38)
+texture = ExtResource("9_hjerj")
+
+[node name="Button_Up" type="TextureButton" parent="."]
+offset_left = 115.0
+offset_top = 476.0
+offset_right = 193.0
+offset_bottom = 570.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_52udb")
+texture_normal = ExtResource("2_dpta6")
+texture_pressed = ExtResource("3_7ww1t")
+texture_hover = ExtResource("4_ux5es")
+texture_disabled = ExtResource("3_7ww1t")
+texture_focused = ExtResource("4_ux5es")
+texture_click_mask = ExtResource("6_5ll0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="InputSymbol_Up" type="Sprite2D" parent="Button_Up"]
+self_modulate = Color(0.270588, 1, 0, 1)
+position = Vector2(40, -44)
+scale = Vector2(0.59375, 0.5625)
+texture = ExtResource("1_a1nua")
+
+[node name="AbilitySymbol_Up" type="Sprite2D" parent="Button_Up"]
+position = Vector2(40, 36)
+texture = ExtResource("9_hjerj")
+
+[node name="Info_Active" type="RichTextLabel" parent="."]
+offset_left = 960.0
+offset_top = 5.0
+offset_right = 1144.0
+offset_bottom = 215.0
+tooltip_text = "Active Abilities Detailed:
+
+
+f"
+focus_mode = 1
+mouse_default_cursor_shape = 16
+text = "Active Abilities:
+"
+scroll_active = false
+drag_and_drop_selection_enabled = false
+
+[node name="Info_Passive" type="RichTextLabel" parent="."]
+offset_left = 964.0
+offset_top = 435.0
+offset_right = 1148.0
+offset_bottom = 645.0
+tooltip_text = "Passive Abilities Detailed:
+
+
+"
+focus_mode = 1
+mouse_default_cursor_shape = 16
+text = "Passive Abilities:
+"
+scroll_active = false
+drag_and_drop_selection_enabled = false
+
+[node name="HitButton" type="TextureButton" parent="."]
+offset_left = 416.0
+offset_top = 529.0
+offset_right = 648.0
+offset_bottom = 709.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_u8kjv")
+texture_normal = ExtResource("8_p740d")
+texture_pressed = ExtResource("9_05gbh")
+texture_hover = ExtResource("10_i5ekl")
+texture_disabled = ExtResource("9_05gbh")
+texture_focused = ExtResource("10_i5ekl")
+texture_click_mask = ExtResource("6_5ll0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="StandButton" type="TextureButton" parent="."]
+offset_left = 637.0
+offset_top = 529.0
+offset_right = 869.0
+offset_bottom = 709.0
+scale = Vector2(0.5, 0.5)
+shortcut = SubResource("Shortcut_y2ttc")
+texture_normal = ExtResource("11_pnr26")
+texture_pressed = ExtResource("12_cmnr7")
+texture_hover = ExtResource("13_7gpwe")
+texture_disabled = ExtResource("12_cmnr7")
+texture_focused = ExtResource("13_7gpwe")
+texture_click_mask = ExtResource("6_5ll0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="DealerHand" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 215.0
+offset_right = 208.0
+offset_bottom = 238.0
+
+[node name="PlayerHand" type="Label" parent="."]
+offset_left = 173.0
+offset_top = 306.0
+offset_right = 213.0
+offset_bottom = 329.0
+
+[node name="RoundMessage" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 36.0
+offset_right = 149.0
+offset_bottom = 79.0
+
+[node name="PlayerChip" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 333.0
+offset_right = 83.0
+offset_bottom = 356.0
+
+[node name="DealerChip" type="Label" parent="."]
+offset_left = 46.0
+offset_top = 147.0
+offset_right = 86.0
+offset_bottom = 170.0
+
+[node name="BossName" type="Label" parent="."]
+offset_left = 333.0
+offset_top = 8.0
+offset_right = 373.0
+offset_bottom = 31.0
+
+[connection signal="pressed" from="Button_Left" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="Button_Down" to="." method="_on_button_down_pressed"]
+[connection signal="pressed" from="Button_Right" to="." method="_on_button_right_pressed"]
+[connection signal="pressed" from="Button_Up" to="." method="_on_button_up_pressed"]
+[connection signal="pressed" from="HitButton" to="." method="_on_hit_button_pressed"]
+[connection signal="pressed" from="StandButton" to="." method="_on_stand_button_pressed"]

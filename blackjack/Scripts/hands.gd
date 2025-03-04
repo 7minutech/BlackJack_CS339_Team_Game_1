@@ -36,12 +36,12 @@ func addCardToPlayerHand(newCard: Node2D) -> void:
 	newCard.apply_scale(Vector2(CARD_SCALAR,CARD_SCALAR))
 	if playerCards == 1:
 		newCard.position = Vector2(ROWS_INIT_X, PLAYER_ROW_ONE_Y)
-	elif playerCards <= 9:
+	elif playerCards <= 8:
 		var newX: int = ROWS_INIT_X + (NEW_CARD_OFFSET * (playerCards - 1))
 		newCard.position = Vector2(newX, PLAYER_ROW_ONE_Y)
-	elif playerCards == 10:
+	elif playerCards == 9:
 		newCard.position = Vector2(ROWS_INIT_X, PLAYER_ROW_TWO_Y)
-	elif playerCards <= 18:
+	elif playerCards <= 16:
 		var newX: int = ROWS_INIT_X + (NEW_CARD_OFFSET * (playerCards - 1))
 		newCard.position = Vector2(newX, PLAYER_ROW_TWO_Y)
 	else:

@@ -20,6 +20,10 @@ func create_card(value, rank, suit):
 	self.rank = rank 
 	self.value = value 
 	self.suit = suit
+	if value != null:
+		$card_sprite.animation = suit +"s_" + str(value)
+	elif rank != null:
+		$card_sprite.animation = suit +"s_" + rank[0]
 
 func _to_string() -> String:
 	if rank in royalty:

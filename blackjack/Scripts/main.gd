@@ -93,13 +93,6 @@ func deal_cards():
 			$HUD/Hands.addCardToDealerHand(drawn)
 	$Dealer.hide_face_down()
 
-	
-func clear_hand():
-	$Dealer.clear_hand()
-	$Player.clear_hand()
-	$HUD/Hands.reset()
-
-
 func determine_winner():
 	pass
 	
@@ -146,6 +139,7 @@ func round_over():
 func clear_hands():
 	$Dealer.clear_hand()
 	$Player.clear_hand()
+	$HUD/Hands.reset()
 
 func add_discard_pile():
 	for card in $Dealer.hand:

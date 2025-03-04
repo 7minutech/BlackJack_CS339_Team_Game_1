@@ -41,7 +41,7 @@ func create_deck():
 				value = 10  # Face draw_pile are worth 10
 				rank = royalty[j - 9]  # Assign face card rank (jack, queen, king, ace)
 
-			var card = card_scene.instantiate()
+			var card: Node2D = card_scene.instantiate()
 			card.create_card(value, rank, suit)
 			add_child(card)
 			draw_pile.append(card)
