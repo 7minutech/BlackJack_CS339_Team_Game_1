@@ -189,7 +189,7 @@ func _on_stand_pressed_main() -> void:
 	pass # Replace with function body.
 
 func _on_down_pressed_main(a_name: String) -> void:
-	if a_name == "Reroll" and $Player.can_reroll():
+	if a_name == "Reroll" and $Player.has_ability(a_name):
 		reroll()
 func _on_up_pressed_main(a_name: String) -> void:
 	pass

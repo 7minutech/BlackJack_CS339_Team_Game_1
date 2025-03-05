@@ -71,21 +71,17 @@ func setInputType() -> void:
 #Functions to trigger events when the buttons are pressed
 ## Ability Buttons
 func _on_button_left_pressed() -> void:
-	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
-	SignalBus.left_pressed.emit(ablty[0].name)
-	pass # Replace with function body.
+	var ablty: Array[Node2D] = activesList
+	SignalBus.left_pressed.emit(ablty[2].name)
 func _on_button_down_pressed() -> void:
-	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
+	var ablty: Array[Node2D] = activesList
 	SignalBus.down_pressed.emit(ablty[0].name)
-	pass # Replace with function body.
 func _on_button_right_pressed() -> void:
-	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
-	SignalBus.right_pressed.emit(ablty[0].name)
-	pass # Replace with function body.
+	var ablty: Array[Node2D] = activesList
+	SignalBus.right_pressed.emit(ablty[1].name)
 func _on_button_up_pressed() -> void:
-	var ablty: Array[Node2D] = get_tree().current_scene.find_child("Player").getAbilities()
-	SignalBus.up_pressed.emit(ablty[0].name)
-	pass # Replace with function body.
+	var ablty: Array[Node2D] = activesList
+	SignalBus.up_pressed.emit(ablty[3].name)
 
 ## Hit/Stand Buttons
 func _on_hit_button_pressed() -> void:

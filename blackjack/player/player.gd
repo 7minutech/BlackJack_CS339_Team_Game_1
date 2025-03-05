@@ -121,8 +121,8 @@ func add_ability(ability_scene):
 	abilities.append(ability_scene)
 	ability_names.append(ability_scene.name)
 
-func can_reroll():
-	return ability_names.has("Reroll")
+func has_ability(a_name: String) -> bool:
+	return ability_names.has(a_name)
 
 func can_stun():
 	print("Stun timer: " + str(stun_timer))
