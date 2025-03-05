@@ -222,6 +222,7 @@ func reroll():
 	var discarded_card = $Player.hand.pop_back()
 	$Dealer/Deck.discard_pile.append(discarded_card)
 	$Dealer/Deck.removeOneFromPlayer(discarded_card)
+	$Player.has_bust()
 	$Player.hit($Dealer.deal_card())
 	check_aces()
 	calculate_total_value()
@@ -232,18 +233,16 @@ func reroll():
 	var truth: bool = $Player.bust
 	pass # Replace with function body.
 
-
-	
-
+# Function to add an ability to the player's abilities list
 func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
-	$Player.addAbility(ability_scene)
-	print(ability_key)
+	if not $Player.abilities.has(ability_scene):
+		$Player.addAbility(ability_scene)
+		print($Player.abilities)
 
 func switch_to_first_boss():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 
-	
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 	
