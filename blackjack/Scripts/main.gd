@@ -137,10 +137,10 @@ func round_over():
 	return false
 
 func clear_hands():
+	$Deck.clearTable($Player.hand, $Dealer.hand)
 	$Dealer.clear_hand()
 	$Player.clear_hand()
 	$HUD/Hands.reset()
-	$Deck.clearTable()
 
 func add_discard_pile():
 	for card in $Dealer.hand:
@@ -219,6 +219,7 @@ func reroll():
 	print("rerolling")
 	var discarded_card = $Player.hand.pop_back()
 	$Dealer/Deck.discard_pile.append(discarded_card)
+	$Dealer/Deck.removeOneFromPlayer(discarded_card)
 	$Player.hit($Dealer.deal_card())
 	check_aces()
 	calculate_total_value()

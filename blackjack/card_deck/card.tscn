@@ -511,6 +511,7 @@ animations = [{
 }]
 
 [node name="Card" type="Node2D"]
+z_index = 2
 script = ExtResource("1_8i1o8")
 
 [node name="card_sprite" type="AnimatedSprite2D" parent="."]

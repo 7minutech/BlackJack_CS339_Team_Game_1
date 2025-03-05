@@ -55,7 +55,17 @@ func draw_card() -> Node2D:
 	return drawn_card	
 
 # Function to clear the cards from the table
-func clearTable() -> void:
-	for card in self.get_children():
+func clearTable(p_hand: Array[Node2D], d_hand: Array[Node2D]) -> void:
+	for card in p_hand:
 		card.position = DECK_POSITION
+	for card in d_hand:
+		card.position = DECK_POSITION
+
+# Functions to clear one card from the dealer or player area
+func removeOneFromPlayer(card: Node2D) -> void:
+	card.position = DECK_POSITION
+	get_parent().get_parent().find_child("HUD").find_child("Hands").reduceCards(1,0)
+func removeOneFromDealer(card: Node2D) -> void:
+	card.position = DECK_POSITION
+	get_parent().get_parent().find_child("HUD").find_child("Hands").reduceCards(0,1)
 	
