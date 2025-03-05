@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpgjxvuee1p7s"]
+[gd_scene load_steps=7 format=3 uid="uid://cpgjxvuee1p7s"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_cqmws"]
+[ext_resource type="Texture2D" uid="uid://b6u7jxmfhl3d0" path="res://Assets/Sprites/table/spr_table.png" id="2_0lskf"]
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_0w7xo"]
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_kw63l"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_r4yoe"]
@@ -8,6 +9,11 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_cqmws")
+
+[node name="Table" type="Sprite2D" parent="."]
+self_modulate = Color(0.254902, 1, 0, 1)
+position = Vector2(577, 325)
+texture = ExtResource("2_0lskf")
 
 [node name="Player" parent="." instance=ExtResource("3_0w7xo")]
 position = Vector2(537, 254)
