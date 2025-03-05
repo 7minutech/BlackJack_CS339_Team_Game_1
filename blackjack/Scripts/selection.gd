@@ -4,11 +4,13 @@ const SCREEN_WIDTH: int = 1152
 const SCREEN_HEIGHT: int = 648
 const BUTTON_X_COORDS: Array[float] = [6, 2.07, 1.25]
 var bgArea: Rect2
+var currentNums: Array[int]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	placeButtons()
 	#hideOptions()
+	#showOptions()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -33,10 +35,16 @@ func setOptions(options: Array[Node2D]) -> void:
 
 # Functions to show and hide the menu
 func showOptions() -> void:
+	var d_hand = get_parent().get_parent().find_child("Dealer").hand
+	var p_hand = get_parent().get_parent().find_child("Player").hand
+	var deck = self.get_parent().get_parent().find_child("Dealer").find_child("Deck")
+	print(deck)
+	self.get_parent().get_parent().find_child("HUD").hide()
 	self.show()
 	for child in self.get_children():
 		if child is Button:
 			child.disabled = false
+
 func hideOptions() -> void:
 	self.hide()
 	for child in self.get_children():
@@ -45,8 +53,8 @@ func hideOptions() -> void:
 			
 # Functions to handle button presses
 func _on_option_1_pressed() -> void:
-	$Option1.get_text()
+	self.get_parent().get_parent().give_ability($Option1.get_text())
 func _on_option_2_pressed() -> void:
-	pass # Replace with function body.
+	self.get_parent().get_parent().give_ability($Option2.get_text())
 func _on_option_3_pressed() -> void:
-	pass # Replace with function body.
+	self.get_parent().get_parent().give_ability($Option3.get_text())

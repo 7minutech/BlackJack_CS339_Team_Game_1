@@ -70,7 +70,6 @@ func loadAllAbs() -> void:
 func createSelection() -> void:
 	var list: Array[Node2D] = []
 	for num in getNums():
-		print("Ability Number " + str(num))
 		match num:
 			# Each option should retrieve the correct ability from the file
 			# then it should call the selection node to display the correct info
