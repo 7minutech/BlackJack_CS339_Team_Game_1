@@ -26,6 +26,7 @@ func _ready() -> void:
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
+	$AbilityManager.loadAllAbs()
 	$AbilityManager.createSelection()
 	give_ability("Reroll")
 	#print($Player.abiliites)
@@ -237,6 +238,7 @@ func reroll():
 func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	$Player.addAbility(ability_scene)
+	print(ability_key)
 
 func switch_to_first_boss():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")

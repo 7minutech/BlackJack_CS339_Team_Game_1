@@ -1,13 +1,13 @@
 "Name","Description","cooldown(turns)","status(a,p)"
-Reroll,"Before the player stands, this ability allows the player to pick any one card in their hand to be redrawn.",3,a
+Reroll,"Before the player stands, the player can redraw their most recent card.",3,a
 Clairvoyance,"View the card on the top of the deck",-1,a
 Stun,"Disable the boss ability for one hand",-1,p
-Gambler,"Swap any card in your hand with the dealer's face down card",-1,a
+Gambler,"Swap the lowest value card in your hand with the dealer's face down card",-1,a
 Lucky Doubles,"Gain a chip if your hand contains two consecutively drawn cards with the same value",0,p
 Cheapskate,"Face cards have a value of 1",0,p
 Time Rewind,"Undo your last hit if it would have made you bust and the dealer would have won the game",0,p
-Joker,"Get a card of your choosing (ANY CARD)",-1,p
-Ditto,"Copy a card you can see on the board and add it to your hand. (If you have an ability that allows you to see the dealer's face down card, you can copy that too)",-1,a
+Joker,"Get a card that would make your hand value equal 21",5,p
+Ditto,"Gain a copy of the highest value card that can be seen. (If you have an ability that allows you to see the dealer's face down card, you can copy that too)",-1,a
 Peeping Tom,"Allows you to see the dealer's face down cards",0,p
 Reversal,"Make the dealer do the opposite action. (If they hit, they stand; vice versa)",-1,a
 Sleight Of Hand,"Steal the dealer's most recently drawn card and add it to your hand. The dealer then draws another card.",-1,a
