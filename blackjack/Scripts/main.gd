@@ -177,6 +177,7 @@ func _on_hit_pressed_main() -> void:
 
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
+	disable_stand()
 	$Dealer.show_face_down()
 	$Dealer.deal_themself()
 	display_hands()
@@ -238,10 +239,16 @@ func give_ability(ability_key: String):
 	$Player.addAbility(ability_scene)
 
 func switch_to_first_boss():
-	SceneSwitcher.switch_scene("res://Scenes/First_Boss_Fight.tscn")
+	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 
 	
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
+	
+func disable_stand():
+	$HUD/StandButton.disabled = true
+	await get_tree().create_timer(2).timeout
+	$HUD/StandButton.disabled = false
+
 	
 	
