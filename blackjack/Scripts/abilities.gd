@@ -4,6 +4,7 @@ const ability = preload("res://Scenes/Ability.tscn")
 const ABILITIES_FILE: String = "res://InformationFiles/AbilityInfo.txt";
 const ABILITY_SPRITES_INIT_PATH: String = "res://Assets/Sprites/Abilities/"
 const GUARANTEED_FIRST_ABILITY: int = 1
+const ABILITIES_POSITION: Vector2 = Vector2(-1000,-1000)
 const A_NUMS: Array[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 var a_available: Array[int] = A_NUMS.duplicate()
 var a_dict: Dictionary = {}
@@ -120,6 +121,7 @@ func buildAbility(details: Array[String]) -> void:
 	self.add_child(a_scene)
 	var a_name: String = a_scene.getName()
 	setAbilitySymbol(a_scene, a_name)
+	a_scene.position = ABILITIES_POSITION
 	add_To_Dict(a_name, a_scene)
 	
 # Function to get the numbers for the next abilities to be shown to the player

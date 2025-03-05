@@ -268,10 +268,10 @@ offset_right = 86.0
 offset_bottom = 170.0
 
 [node name="BossName" type="Label" parent="."]
-offset_left = 333.0
-offset_top = 8.0
-offset_right = 373.0
-offset_bottom = 31.0
+offset_left = 519.0
+offset_top = 3.0
+offset_right = 559.0
+offset_bottom = 26.0
 
 [connection signal="pressed" from="Button_Left" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="Button_Down" to="." method="_on_button_down_pressed"]
