@@ -177,6 +177,7 @@ func _on_hit_pressed_main() -> void:
 
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
+	disable_stand()
 	$Dealer.show_face_down()
 	#$Dealer.deal_themself()
 	display_hands()
@@ -242,6 +243,11 @@ func switch_to_second_boss():
 	
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
+
+func disable_stand():
+	$HUD/StandButton.disabled = true
+	await get_tree().create_timer(2).timeout
+	$HUD/StandButton.disabled = false
 
 	
 	

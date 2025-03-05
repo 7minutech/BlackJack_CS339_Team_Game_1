@@ -40,6 +40,8 @@ func has_bust():
 	sum_card_value()
 	if total_card_value > 21:
 		bust = true
+	else:
+		bust = false
 
 func has_won() -> bool:
 	return chips >= 3

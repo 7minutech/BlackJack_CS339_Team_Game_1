@@ -175,13 +175,10 @@ func _on_hit_pressed_main() -> void:
 	calculate_total_value()
 	display_hands()
 	$Player.has_bust()
-	if $Player.bust:
-		$Dealer.show_face_down()
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
 	pass # Replace with function body.
 
 func _on_stand_pressed_main() -> void:
+	disable_stand()
 	$Player.stand()
 	$Dealer.show_face_down()
 	$Dealer.deal_themself()
@@ -238,9 +235,6 @@ func reroll():
 	calculate_total_value()
 	display_hands()
 	$Player.has_bust()
-	if $Player.bust:
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
 	pass # Replace with function body.
 
 func give_ability(ability_key: String):
@@ -274,4 +268,7 @@ func switch_to_second_boss():
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 	
-	
+func disable_stand():
+	$HUD/StandButton.disabled = true
+	await get_tree().create_timer(2).timeout
+	$HUD/StandButton.disabled = false

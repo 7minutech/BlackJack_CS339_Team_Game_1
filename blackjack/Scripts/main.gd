@@ -169,10 +169,6 @@ func _on_hit_pressed_main() -> void:
 	calculate_total_value()
 	display_hands()
 	$Player.has_bust()
-	if $Player.bust:
-		$Dealer.show_face_down()
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
 	pass # Replace with function body.
 
 func _on_stand_pressed_main() -> void:
@@ -225,10 +221,10 @@ func reroll():
 	check_aces()
 	calculate_total_value()
 	display_hands()
+	var player_hand = $Player.hand_str()
+	var hand_value = $Player.total_card_value
 	$Player.has_bust()
-	if $Player.bust:
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
+	var truth: bool = $Player.bust
 	pass # Replace with function body.
 
 
