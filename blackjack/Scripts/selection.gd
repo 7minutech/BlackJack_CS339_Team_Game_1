@@ -7,8 +7,8 @@ var bgArea: Rect2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#$Background.hide()
 	placeButtons()
+	hideOptions()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -31,6 +31,18 @@ func setOptions(options: Array[Node2D]) -> void:
 		get_node("Option" + str(index)).set_text(option.getName())
 		get_node("Option" + str(index)).icon = option.getSkin()
 
+# Functions to show and hide the menu
+func showOptions() -> void:
+	self.show()
+	for child in self.get_children():
+		if child is Button:
+			child.disabled = false
+func hideOptions() -> void:
+	self.hide()
+	for child in self.get_children():
+		if child is Button:
+			child.disabled = true
+			
 # Functions to handle button presses
 func _on_option_1_pressed() -> void:
 	$Option1.get_text()
