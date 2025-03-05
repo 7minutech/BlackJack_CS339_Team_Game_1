@@ -6,11 +6,12 @@ const ABILITY_SPRITES_INIT_PATH: String = "res://Assets/Sprites/Abilities/"
 const GUARANTEED_FIRST_ABILITY: int = 1
 const A_NUMS: Array[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 var a_available: Array[int] = A_NUMS.duplicate()
-var a_list: Dictionary = {}
+var a_dict: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	loadAllAbs()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -18,10 +19,10 @@ func _process(_delta: float) -> void:
 #Function to build the dictionary of abilities
 func add_To_Dict(key: String, value: Node2D) -> void:
 	#The keys should be the names of the abilities and the values should be the corresponding ability scene
-	a_list[key] = value
+	a_dict[key] = value
 
-# Function to test adding all abilities
-func tesstSelection() -> void:
+# Function to load all of the abilities from their file into the ability dictionary
+func loadAllAbs() -> void:
 	for num in range(1,13):
 		print("Ability Number " + str(num))
 		match num:
@@ -63,52 +64,55 @@ func tesstSelection() -> void:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
 				buildAbility(details)
 			_:
-				print("Invalid number supplied to Abilities.testSelection()")
+				print("Invalid number supplied to Abilities.loadAllAbs()")
 
 #Function to create the selection of abilities to show the player after each level
 func createSelection() -> void:
+	var list: Array[Node2D] = []
 	for num in getNums():
 		print("Ability Number " + str(num))
 		match num:
-			#Each option should set the name, description, and active status of the ability
+			# Each option should retrieve the correct ability from the file
+			# then it should call the selection node to display the correct info
 			1:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Reroll"])
 			2:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Clairvoyance"])
 			3:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Stun"])
 			4:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Gambler"])
 			5:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Lucky Doubles"])
 			6:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Cheapskate"])
 			7:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Time Rewind"])
 			8:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Joker"])
 			9:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Ditto"])
 			10:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Peeping Tom"])
 			11:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Reversal"])
 			12:
 				var details: Array[String] = getLineFromFile(ABILITIES_FILE, num)
-				buildAbility(details)
+				list.append(a_dict["Sleight Of Hand"])
 			_:
 				print("Invalid number supplied to Abilities.createSelection()")
+	$Selection.setOptions(list)
 
 # Function to create an ability for a player and add it to the dictionary
 func buildAbility(details: Array[String]) -> void:
@@ -116,8 +120,8 @@ func buildAbility(details: Array[String]) -> void:
 	fillAbility(details, a_scene)
 	self.add_child(a_scene)
 	var a_name: String = a_scene.getName()
-	add_To_Dict(a_name, a_scene)
 	setAbilitySymbol(a_scene, a_name)
+	add_To_Dict(a_name, a_scene)
 	
 # Function to get the numbers for the next abilities to be shown to the player
 func getNums() -> Array[int]:

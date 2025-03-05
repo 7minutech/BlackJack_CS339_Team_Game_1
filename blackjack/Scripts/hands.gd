@@ -35,17 +35,18 @@ func reduceCards(p_cards: int, d_cards: int) -> void:
 func addCardToPlayerHand(nextCard: Node2D) -> void:
 	playerCards += 1
 	nextCard.apply_scale(Vector2(CARD_SCALAR,CARD_SCALAR))
+	nextCard.z_index = 3
 	if playerCards == 1:
 		nextCard.position = Vector2(ROWS_INIT_X, PLAYER_ROW_ONE_Y)
 	elif playerCards <= 8:
 		var newX: int = ROWS_INIT_X + (NEW_CARD_OFFSET * (playerCards - 1))
 		nextCard.position = Vector2(newX, PLAYER_ROW_ONE_Y)
 	elif playerCards == 9:
-		nextCard.z_index += 1
+		nextCard.z_index = 4
 		nextCard.position = Vector2(ROWS_INIT_X, PLAYER_ROW_TWO_Y)
 	elif playerCards <= 16:
 		var newX: int = ROWS_INIT_X + (NEW_CARD_OFFSET * (playerCards - 9))
-		nextCard.z_index += 1
+		nextCard.z_index = 4
 		nextCard.position = Vector2(newX, PLAYER_ROW_TWO_Y)
 	else:
 		print("Out of bounds error! Too many cards in player Hand!")
@@ -53,17 +54,18 @@ func addCardToPlayerHand(nextCard: Node2D) -> void:
 func addCardToDealerHand(nextCard: Node2D) -> void:
 	dealerCards += 1
 	nextCard.apply_scale(Vector2(CARD_SCALAR,CARD_SCALAR))
+	nextCard.z_index = 3
 	if dealerCards == 1:
 		nextCard.position = Vector2(ROWS_INIT_X, DEALER_ROW_ONE_Y)
 	elif dealerCards <= 8:
 		var newX: int = ROWS_INIT_X + (NEW_CARD_OFFSET * (dealerCards - 1))
 		nextCard.position = Vector2(newX, DEALER_ROW_ONE_Y)
 	elif dealerCards == 9:
-		nextCard.z_index += 1
+		nextCard.z_index = 4
 		nextCard.position = Vector2(ROWS_INIT_X, DEALER_ROW_TWO_Y)
 	elif dealerCards <= 16:
 		var newX: int = ROWS_INIT_X + (NEW_CARD_OFFSET * (dealerCards - 9))
-		nextCard.z_index += 1
+		nextCard.z_index  = 4
 		nextCard.position = Vector2(newX, DEALER_ROW_TWO_Y)
 	else:
 		print("Out of bounds error! Too many cards in dealer Hand!")

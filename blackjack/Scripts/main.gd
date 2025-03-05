@@ -38,7 +38,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
-
+	
+# Function to handle input events
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("exit"):
+		get_tree().quit()
 
 		
 func play_round():
@@ -235,7 +239,7 @@ func reroll():
 	
 
 func give_ability(ability_key: String):
-	var ability_scene = $AbilityManager.a_list[ability_key]
+	var ability_scene = $AbilityManager.a_dict[ability_key]
 	$Player.addAbility(ability_scene)
 
 func switch_to_first_boss():
