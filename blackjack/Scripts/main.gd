@@ -234,7 +234,7 @@ func reroll():
 	
 
 func give_ability(ability_key: String):
-	var ability_scene = $AbilityManager.a_list[ability_key]
+	var ability_scene = $AbilityManager.a_dict[ability_key]
 	$Player.addAbility(ability_scene)
 
 func switch_to_first_boss():

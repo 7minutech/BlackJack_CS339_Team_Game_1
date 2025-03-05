@@ -10,7 +10,10 @@ func _ready() -> void:
 	#$Background.hide()
 	placeButtons()
 	
-	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+
 # Function to properly position buttons on screen
 func placeButtons() -> void:
 	$Background.position = Vector2(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
@@ -19,10 +22,14 @@ func placeButtons() -> void:
 		var X: int = (SCREEN_WIDTH/i) * $Background.scale.x #6, 2, 1.3
 		var Y: int = (SCREEN_HEIGHT/2.5) * $Background.scale.y
 		button.position = Vector2(X, Y)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+
+# Function to adjust the information displayed by the buttons
+func setOptions(options: Array[Node2D]) -> void:
+	var index: int = 0
+	for option in options:
+		index += 1
+		get_node("Option" + str(index)).set_text(option.getName())
+		get_node("Option" + str(index)).icon = option.getSkin()
 
 # Functions to handle button presses
 func _on_option_1_pressed() -> void:
