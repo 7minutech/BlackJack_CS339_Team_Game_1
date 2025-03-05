@@ -137,7 +137,7 @@ func round_over():
 	return false
 
 func clear_hands():
-	$Deck.clearTable($Player.hand, $Dealer.hand)
+	$Dealer/Deck.clearTable($Player.hand, $Dealer.hand)
 	$Dealer.clear_hand()
 	$Player.clear_hand()
 	$HUD/Hands.reset()
