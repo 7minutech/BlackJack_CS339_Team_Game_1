@@ -20,7 +20,7 @@ func add_To_Dict(key: String, value: Node2D) -> void:
 	#The keys should be the names of the abilities and the values should be the corresponding ability scene
 	a_list[key] = value
 
-# Function to test adding all abilities
+# Function to test the creation of all abilities
 func tesstSelection() -> void:
 	for num in range(1,13):
 		print("Ability Number " + str(num))

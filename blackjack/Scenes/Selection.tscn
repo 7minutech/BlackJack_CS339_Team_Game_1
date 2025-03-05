@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1vb76ucncjgs"]
+
+[ext_resource type="Script" path="res://Scripts/selection.gd" id="1_etwyq"]
+[ext_resource type="Texture2D" uid="uid://b6u7jxmfhl3d0" path="res://Assets/Sprites/table/spr_table.png" id="2_tudxt"]
+[ext_resource type="Texture2D" uid="uid://bmvdwopj6tlyx" path="res://Assets/Sprites/table/PlayerHandArea.png" id="3_7wqum"]
+
+[node name="Selection" type="Node2D"]
+script = ExtResource("1_etwyq")
+
+[node name="Background" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0.482353, 0.552941)
+position = Vector2(560, 324)
+scale = Vector2(0.8, 0.618)
+texture = ExtResource("2_tudxt")
+
+[node name="Option1" type="Button" parent="."]
+offset_left = 132.0
+offset_top = 158.0
+offset_right = 407.0
+offset_bottom = 489.0
+text = "Ability One"
+icon = ExtResource("3_7wqum")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Option2" type="Button" parent="."]
+offset_left = 430.0
+offset_top = 152.0
+offset_right = 705.0
+offset_bottom = 483.0
+text = "Ability Two"
+icon = ExtResource("3_7wqum")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Option3" type="Button" parent="."]
+offset_left = 728.0
+offset_top = 150.0
+offset_right = 1003.0
+offset_bottom = 481.0
+text = "Ability Three"
+icon = ExtResource("3_7wqum")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="Option3" to="." method="_on_option_3_pressed"]
