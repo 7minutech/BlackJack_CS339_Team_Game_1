@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3iy0mq2x54fd"
-path="res://.godot/imported/gamble.png-c05fc142527bb432e168d71f7d5a9a79.ctex"
+path="res://.godot/imported/gambler.png-9f745aaa2288502ddcc63a7eae42630b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Abilities/gamble.png"
-dest_files=["res://.godot/imported/gamble.png-c05fc142527bb432e168d71f7d5a9a79.ctex"]
+source_file="res://Assets/Sprites/Abilities/gambler.png"
+dest_files=["res://.godot/imported/gambler.png-9f745aaa2288502ddcc63a7eae42630b.ctex"]
 
 [params]
 

@@ -54,7 +54,10 @@ func hideOptions() -> void:
 # Functions to handle button presses
 func _on_option_1_pressed() -> void:
 	self.get_parent().get_parent().give_ability($Option1.get_text())
+	hideOptions()
 func _on_option_2_pressed() -> void:
 	self.get_parent().get_parent().give_ability($Option2.get_text())
+	hideOptions()
 func _on_option_3_pressed() -> void:
 	self.get_parent().get_parent().give_ability($Option3.get_text())
+	hideOptions()
