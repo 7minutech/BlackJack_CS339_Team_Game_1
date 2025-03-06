@@ -2,10 +2,11 @@ extends Node2D
 
 var passivesList: Array[Node2D] = []
 var activesList: Array[Node2D] = []
+var numActive: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	numActive = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -23,49 +24,54 @@ func getAbilityTexture() -> void:
 
 #Function to adjust displayed info based on current abilities
 func setActivesDescriptions() -> void:
+	$Info_Active.clear()
+	$Info_Active.tooltip_text = "Active Abilities Detailed:\n"
+	$Info_Active.add_text("Active Abilities:\n")
 	for ablty in activesList:
-		$Info_Active.append_text(str(activesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
+		$Info_Active.add_text(str(activesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
 		$Info_Active.tooltip_text += str(activesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
 func setPassivesDescriptions() -> void:
-	for ablty in activesList:
-		$Info_Passive.append_text(str(activesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
-		$Info_Passive.tooltip_text += str(activesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
+	$Info_Passive.clear()
+	$Info_Passive.tooltip_text = "Passive Abilities Detailed:\n"
+	$Info_Passive.add_text("Passive Abilities:\n")
+	for ablty in passivesList:
+		$Info_Passive.add_text(str(passivesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
+		$Info_Passive.tooltip_text += str(passivesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
 
 #Functions to store information about an added ability
 func addAbilities(a_list: Array[Node2D]) -> void:
-	var indexCounter: int = 0
 	for a in a_list:
-		if a.isActive():
+		if a.isActive() and not activesList.has(a):
+			numActive += 1
 			activesList.append(a)
 			setActivesDescriptions()
-		else:
+		elif not a.isActive() and not passivesList.has(a):
 			passivesList.append(a)
 			setPassivesDescriptions()
-		match indexCounter:
+		match numActive:
 			0:
-				$Button_Down.disabled = false
 				setDown(a.getSkin())
 			1:
-				$Button_Right.disabled = false
 				setRight(a.getSkin())
 			2:
-				$Button_Left.disabled = false
 				setLeft(a.getSkin())
 			3:
-				$Button_Up.disabled = false
 				setUp(a.getSkin())
 			_:
-				print("Invalid value")
-		indexCounter += 1
+				print("Invalid value provided in HUD.addAbilities()")
 
 #Functions to assign an ability and a skin to a button
 func setLeft(skin: CompressedTexture2D) -> void:
+	$Button_Left.disabled = false
 	$Button_Left/AbilitySymbol_Left.texture = skin
 func setDown(skin: CompressedTexture2D) -> void:
+	$Button_Down.disabled = false
 	$Button_Down/AbilitySymbol_Down.texture = skin
 func setRight(skin: CompressedTexture2D) -> void:
+	$Button_Right.disabled = false
 	$Button_Right/AbilitySymbol_Right.texture = skin
 func setUp(skin: CompressedTexture2D) -> void:
+	$Button_Up.disabled = false
 	$Button_Up/AbilitySymbol_Up.texture = skin
 
 #Function to set InputSymbol Sprite textures

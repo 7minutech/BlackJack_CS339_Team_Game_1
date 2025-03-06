@@ -5,7 +5,7 @@ const ABILITIES_FILE: String = "res://InformationFiles/AbilityInfo.txt";
 const ABILITY_SPRITES_INIT_PATH: String = "res://Assets/Sprites/Abilities/"
 const GUARANTEED_FIRST_ABILITY: int = 1
 const ABILITIES_POSITION: Vector2 = Vector2(-1000,-1000)
-const A_NUMS: Array[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const A_NUMS: Array[int] = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 var a_available: Array[int] = A_NUMS.duplicate()
 var a_dict: Dictionary = {}
 
@@ -127,18 +127,10 @@ func buildAbility(details: Array[String]) -> void:
 # Function to get the numbers for the next abilities to be shown to the player
 func getNums() -> Array[int]:
 	var tempArray: Array[int] = []
-	if a_available.has(GUARANTEED_FIRST_ABILITY):	## This whole block is for testing and should be removed later
-		tempArray.append(GUARANTEED_FIRST_ABILITY) 	## 
-		a_available.erase(GUARANTEED_FIRST_ABILITY) ##
-		for i in range(2):							##
-			var tempNum = a_available.pick_random()	##
-			tempArray.append(tempNum)				##
-			a_available.erase(tempNum)				##
-	else:
-		for i in range(3): ## This range value should be 3 normally ##
-			var tempNum = a_available.pick_random()
-			tempArray.append(tempNum)
-			a_available.erase(tempNum)
+	for i in range(3): ## This range value should be 3 normally ##
+		var tempNum = a_available.pick_random()
+		tempArray.append(tempNum)
+		a_available.erase(tempNum)
 	return tempArray
 
 # Function to find a specific line in a file
