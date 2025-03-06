@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvvli3li83svy"]
+[gd_scene load_steps=8 format=3 uid="uid://be42t2ynnsn3m"]
 
 [ext_resource type="Script" path="res://Scripts/second_boss.gd" id="1_kidoo"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_0i8cv"]
