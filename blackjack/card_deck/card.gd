@@ -44,17 +44,17 @@ func setSprites() -> void:
 		"Mimic Boss":
 			$card_sprite/boss_symbol.animation = "mimic"
 			$card_sprite/boss_symbol2.animation = "mimic"
-			$card_sprite/boss_symbol.scale.x = MIMIC_SCALE
+			$card_sprite/boss_symbol.scale = MIMIC_SCALE
 			$card_sprite/boss_symbol2.scale = MIMIC_SCALE
 		"Mute Boss":
 			$card_sprite/boss_symbol.animation = "mute"
 			$card_sprite/boss_symbol2.animation = "mute"
-			$card_sprite/boss_symbol.scale.x = MIMIC_SCALE
+			$card_sprite/boss_symbol.scale = MIMIC_SCALE
 			$card_sprite/boss_symbol2.scale = MIMIC_SCALE
 		"Thief Boss":
 			$card_sprite/boss_symbol.animation = "thief"
 			$card_sprite/boss_symbol2.animation = "thief"
-			$card_sprite/boss_symbol.scale.x = THIEF_SCALE
+			$card_sprite/boss_symbol.scale = THIEF_SCALE
 			$card_sprite/boss_symbol2.scale = THIEF_SCALE
 		"Final Boss":
 			$card_sprite/boss_symbol.animation = "final_default"
