@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://Scripts/SignalBus.gd"
 SceneSwitcher="*res://Scripts/SceneSwitcher.gd"
+AbilityObserver="*res://Scripts/AbilityObserver.gd"
 
 [display]
 

@@ -17,6 +17,7 @@ var stun_timer = 1
 
 # Called Swhen the node enters the scene tree for the first time.
 func _ready() -> void:
+	AbilityObserver.player = self  
 	pass # Replace with function body.
 
 
@@ -128,5 +129,7 @@ func display_abilities():
 	for ability in ability_names:
 		print(ability)
 
-
+func reset_abilites():
+	abilities = []
+	ability_names = []
 	

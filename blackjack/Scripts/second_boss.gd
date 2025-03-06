@@ -16,6 +16,8 @@ signal left_pressed_main
 signal right_pressed_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AbilityObserver.main = self
+	AbilityObserver.load_abilities()
 	$HUD/BossName.text = "Thief Boss"
 	SignalBus.hit_pressed.connect(_on_hit_pressed_main)
 	SignalBus.stand_pressed.connect(_on_stand_pressed_main)
@@ -226,8 +228,12 @@ func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	if not $Player.abilities.has(ability_scene):
 		$Player.addAbility(ability_scene)
-		print("Active:\n " + str($HUD.activesList))
-		print("Passive:\n" + str($HUD.passivesList))
+		print("Active: ")
+		for a in $HUD.activesList:
+			print(a)
+		print("Passive: ")
+		for a in $HUD.passivesList:
+			print(a)
 
 func dealer_can_steal():
 	return player_hits == 1
@@ -248,6 +254,7 @@ func evalute_cards():
 	calculate_total_value()
 	
 func switch_to_second_boss():
+	AbilityObserver.save_abilities()
 	SceneSwitcher.switch_scene("res://Scenes/Third_Boss_Fight.tscn")
 
 	

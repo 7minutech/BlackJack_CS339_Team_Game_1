@@ -15,8 +15,12 @@ signal down_pressed_main
 signal up_pressed_main
 signal left_pressed_main
 signal right_pressed_main
+signal option_pressed_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AbilityObserver.main = self
+	$Player.reset_abilites()
+	AbilityObserver.save_abilities()
 	$HUD/BossName.text = "Tutorial Boss"
 	SignalBus.hit_pressed.connect(_on_hit_pressed_main)
 	SignalBus.stand_pressed.connect(_on_stand_pressed_main)
@@ -24,6 +28,7 @@ func _ready() -> void:
 	SignalBus.up_pressed.connect(_on_up_pressed_main)
 	SignalBus.left_pressed.connect(_on_left_pressed_main)
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
+	SignalBus.option_pressed.connect(_on_option_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
@@ -203,6 +208,7 @@ func game_over():
 		restart()
 
 func _on_round_over_main() -> void:
+	switch_to_first_boss()
 	pass # Replace with function body.
 
 func reset_players():
@@ -242,7 +248,8 @@ func give_ability(ability_key: String):
 			print(a)
 
 func switch_to_first_boss():
-	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
+	AbilityObserver.save_abilities()
+	SceneSwitcher.switch_scene("res://Scenes/First_Boss_Fight.tscn")
 
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
@@ -252,5 +259,6 @@ func disable_stand():
 	await get_tree().create_timer(2).timeout
 	$HUD/StandButton.disabled = false
 
-	
-	
+func _on_option_pressed_main() -> void:
+	$AbilityManager/Selection.hideOptions()
+	pass # Replace with function body.

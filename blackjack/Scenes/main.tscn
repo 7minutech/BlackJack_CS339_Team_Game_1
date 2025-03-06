@@ -21,4 +21,5 @@ position = Vector2(537, 254)
 
 [node name="Dealer" parent="." instance=ExtResource("6_btryx")]
 
+[connection signal="option_pressed_main" from="." to="." method="_on_option_pressed_main"]
 [connection signal="round_over_main" from="." to="." method="_on_round_over_main"]

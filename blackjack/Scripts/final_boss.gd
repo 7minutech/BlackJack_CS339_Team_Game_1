@@ -30,6 +30,7 @@ signal left_pressed_main
 signal right_pressed_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AbilityObserver.load_abilities()
 	$HUD/BossName.text = "Final Boss"
 	SignalBus.hit_pressed.connect(_on_hit_pressed_main)
 	SignalBus.stand_pressed.connect(_on_stand_pressed_main)
@@ -319,7 +320,7 @@ func reset_boss_ability():
 
 func switch_to_second_boss():
 	SceneSwitcher.switch_scene("res://Scenes/End_Game.tscn")
-
+ 
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
 	
