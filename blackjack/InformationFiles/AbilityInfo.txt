@@ -7,7 +7,7 @@ Lucky Doubles,"Gain a chip if your hand contains two consecutively drawn cards w
 Cheapskate,"Face cards have a value of 1",0,p
 Time Rewind,"Undo your last hit if it would have made you bust and the dealer would have won the game",0,p
 Joker,"Get a card that would make your hand value equal 21",5,p
-Ditto,"Gain a copy of the highest value card that can be seen. (If you have an ability that allows you to see the dealer's face down card, you can copy that too)",-1,a
+Ditto,"Gain a copy of the highest value card that can be seen. (If you can see face down cards, you can copy them too)",-1,a
 Peeping Tom,"Allows you to see the dealer's face down cards",0,p
 Reversal,"Make the dealer do the opposite action. (If they hit, they stand; vice versa)",-1,a
 Sleight Of Hand,"Steal the dealer's most recently drawn card and add it to your hand. The dealer then draws another card.",-1,a

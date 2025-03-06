@@ -76,6 +76,7 @@ offset_top = 512.0
 offset_right = 153.0
 offset_bottom = 602.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 shortcut = SubResource("Shortcut_iehtw")
 texture_normal = ExtResource("2_dpta6")
 texture_pressed = ExtResource("3_7ww1t")
@@ -102,6 +103,7 @@ offset_top = 528.0
 offset_right = 261.0
 offset_bottom = 630.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 shortcut = SubResource("Shortcut_slnyq")
 texture_normal = ExtResource("2_dpta6")
 texture_pressed = ExtResource("3_7ww1t")
@@ -128,6 +130,7 @@ offset_top = 512.0
 offset_right = 246.0
 offset_bottom = 606.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 shortcut = SubResource("Shortcut_1ax0q")
 texture_normal = ExtResource("2_dpta6")
 texture_pressed = ExtResource("3_7ww1t")
@@ -153,6 +156,7 @@ offset_top = 476.0
 offset_right = 193.0
 offset_bottom = 570.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 shortcut = SubResource("Shortcut_52udb")
 texture_normal = ExtResource("2_dpta6")
 texture_pressed = ExtResource("3_7ww1t")
@@ -173,38 +177,6 @@ texture = ExtResource("1_a1nua")
 position = Vector2(40, 36)
 texture = ExtResource("9_hjerj")
 
-[node name="Info_Active" type="RichTextLabel" parent="."]
-offset_left = 960.0
-offset_top = 5.0
-offset_right = 1144.0
-offset_bottom = 215.0
-tooltip_text = "Active Abilities Detailed:
-
-
-f"
-focus_mode = 1
-mouse_default_cursor_shape = 16
-text = "Active Abilities:
-"
-scroll_active = false
-drag_and_drop_selection_enabled = false
-
-[node name="Info_Passive" type="RichTextLabel" parent="."]
-offset_left = 964.0
-offset_top = 435.0
-offset_right = 1148.0
-offset_bottom = 645.0
-tooltip_text = "Passive Abilities Detailed:
-
-
-"
-focus_mode = 1
-mouse_default_cursor_shape = 16
-text = "Passive Abilities:
-"
-scroll_active = false
-drag_and_drop_selection_enabled = false
-
 [node name="HitButton" type="TextureButton" parent="."]
 offset_left = 416.0
 offset_top = 529.0
@@ -221,6 +193,12 @@ texture_click_mask = ExtResource("6_5ll0s")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="InputSymbol_Hit" type="Sprite2D" parent="HitButton"]
+self_modulate = Color(0.270588, 1, 0, 1)
+position = Vector2(-32, 84)
+scale = Vector2(0.59375, 0.5625)
+texture = ExtResource("1_a1nua")
+
 [node name="StandButton" type="TextureButton" parent="."]
 offset_left = 637.0
 offset_top = 529.0
@@ -236,6 +214,38 @@ texture_focused = ExtResource("13_7gpwe")
 texture_click_mask = ExtResource("6_5ll0s")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="InputSymbol_Stand" type="Sprite2D" parent="StandButton"]
+self_modulate = Color(0.270588, 1, 0, 1)
+position = Vector2(266, 78)
+scale = Vector2(0.59375, 0.5625)
+texture = ExtResource("1_a1nua")
+
+[node name="Info_Active" type="RichTextLabel" parent="."]
+offset_left = 960.0
+offset_top = 5.0
+offset_right = 1144.0
+offset_bottom = 239.0
+tooltip_text = "Active Abilities Detailed:
+"
+mouse_default_cursor_shape = 16
+text = "Active Abilities:
+"
+scroll_active = false
+drag_and_drop_selection_enabled = false
+
+[node name="Info_Passive" type="RichTextLabel" parent="."]
+offset_left = 960.0
+offset_top = 333.0
+offset_right = 1144.0
+offset_bottom = 594.0
+tooltip_text = "Passive Abilities Detailed:
+"
+mouse_default_cursor_shape = 16
+text = "Passive Abilities:
+"
+scroll_active = false
+drag_and_drop_selection_enabled = false
 
 [node name="DealerHand" type="Label" parent="."]
 offset_left = 168.0
@@ -273,9 +283,20 @@ offset_top = 3.0
 offset_right = 559.0
 offset_bottom = 26.0
 
+[node name="Rules" type="RichTextLabel" parent="."]
+offset_left = 1038.0
+offset_top = 265.0
+offset_right = 1141.0
+offset_bottom = 305.0
+tooltip_text = "To draw a card you perform a \"Hit\" and to end your turn you perform a \"Stand\".
+The person whose hand's value is closer to 21 after both players stand is the winner of the hand. (If both players have the same value it is a tie)"
+text = "RULES"
+drag_and_drop_selection_enabled = false
+
 [connection signal="pressed" from="Button_Left" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="Button_Down" to="." method="_on_button_down_pressed"]
 [connection signal="pressed" from="Button_Right" to="." method="_on_button_right_pressed"]
 [connection signal="pressed" from="Button_Up" to="." method="_on_button_up_pressed"]
 [connection signal="pressed" from="HitButton" to="." method="_on_hit_button_pressed"]
 [connection signal="pressed" from="StandButton" to="." method="_on_stand_button_pressed"]
+[connection signal="focus_entered" from="Info_Passive" to="." method="_on_info_passive_focus_entered"]

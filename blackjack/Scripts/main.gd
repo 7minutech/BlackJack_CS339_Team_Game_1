@@ -26,11 +26,9 @@ func _ready() -> void:
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
-	$AbilityManager.loadAllAbs()
 	$AbilityManager.createSelection()
 	give_ability("Reroll")
 	#print($Player.abiliites)
-	$HUD.addAbilities()
 	round_timer = get_tree().create_timer(0.5)
 	play_round()
 	pass # Replace with function body.
@@ -238,7 +236,8 @@ func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	if not $Player.abilities.has(ability_scene):
 		$Player.addAbility(ability_scene)
-		print($Player.abilities)
+		print("Active:\n " + str($HUD.activesList))
+		print("Passive:\n" + str($HUD.passivesList))
 
 func switch_to_first_boss():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")

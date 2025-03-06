@@ -99,12 +99,15 @@ func reset():
 func round_reset():
 	bust = false
 
-#Functions to add and get abilities
+#Functions to add an ability; get the list of abilities; and check for specific abilities
 func addAbility(ability: Node2D) -> void:
 	abilities.append(ability)
 	ability_names.append(ability.name)
+	get_parent().find_child("HUD").addAbilities(abilities)
 func getAbilities() -> Array[Node2D]:
 	return abilities
+func has_ability(a_name: String) -> bool:
+	return ability_names.has(a_name)
 
 func show_hand():
 	for card in hand:
@@ -116,13 +119,6 @@ func hand_str() -> String:
 		card_str += card._to_string()
 	card_str += " Value: " + str(total_card_value)
 	return card_str
-
-func add_ability(ability_scene):
-	abilities.append(ability_scene)
-	ability_names.append(ability_scene.name)
-
-func has_ability(a_name: String) -> bool:
-	return ability_names.has(a_name)
 
 func can_stun():
 	print("Stun timer: " + str(stun_timer))

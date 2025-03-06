@@ -5,10 +5,7 @@ var activesList: Array[Node2D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	addAbilities()
-	setActivesDescriptions()
-	setPassivesDescription()
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -27,28 +24,35 @@ func getAbilityTexture() -> void:
 #Function to adjust displayed info based on current abilities
 func setActivesDescriptions() -> void:
 	for ablty in activesList:
-		$Info_Active.append_text(ablty.getDescription() + "\n")
-func setPassivesDescription() -> void:
+		$Info_Active.append_text(str(activesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
+		$Info_Active.tooltip_text += str(activesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
+func setPassivesDescriptions() -> void:
 	for ablty in activesList:
-		$Info_Passive.append_text(ablty.getDescription() + "\n")
+		$Info_Passive.append_text(str(activesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
+		$Info_Passive.tooltip_text += str(activesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
 
 #Functions to store information about an added ability
-func addAbilities() -> void:
-	var ablty: Array[Node2D] = SceneSwitcher.current_scene.find_child("Player").getAbilities()
+func addAbilities(a_list: Array[Node2D]) -> void:
 	var indexCounter: int = 0
-	for a in ablty:
+	for a in a_list:
 		if a.isActive():
 			activesList.append(a)
+			setActivesDescriptions()
 		else:
 			passivesList.append(a)
+			setPassivesDescriptions()
 		match indexCounter:
 			0:
+				$Button_Down.disabled = false
 				setDown(a.getSkin())
 			1:
+				$Button_Right.disabled = false
 				setRight(a.getSkin())
 			2:
+				$Button_Left.disabled = false
 				setLeft(a.getSkin())
 			3:
+				$Button_Up.disabled = false
 				setUp(a.getSkin())
 			_:
 				print("Invalid value")
@@ -89,3 +93,7 @@ func _on_hit_button_pressed() -> void:
 	# Any other HUD-specific logic can still go here
 func _on_stand_button_pressed() -> void:
 	SignalBus.stand_pressed.emit()
+
+
+func _on_info_passive_focus_entered() -> void:
+	$Info_Passive.get_menu()

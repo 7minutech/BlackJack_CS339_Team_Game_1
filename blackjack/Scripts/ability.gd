@@ -7,8 +7,8 @@ var cooldown: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(self)
-	print()
+	print(self._to_string())
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,10 +17,10 @@ func _process(_delta: float) -> void:
 
 #Function to set and determine if this ability is an active ability or not
 func setStatus(state: String) -> void:
-	if (state == "a") or (state == "A"):
+	if (state == 'a') or (state == 'A'):
 		active = true
 		status = "Active"
-	elif (state == "p") or (state == "P"):
+	elif (state == 'p') or (state == 'P'):
 		active = false
 		status = "Passive"
 
@@ -51,7 +51,7 @@ func setSkin(sprite: String) -> void:
 		$Skin.texture = load(sprite)
 		print($Skin.texture)
 	else:
-		print("Ability Sprite File not found")
+		print("Ability Sprite File not found\n")
 #Function to retrieve the ability's sprite
 func getSkin() -> CompressedTexture2D:
 	return $Skin.texture
