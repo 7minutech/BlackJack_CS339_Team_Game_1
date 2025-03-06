@@ -1,2 +1,7 @@
 Added By Jordan:
 	Basic Button PNGs and Button_bitmap.png
+
+Sprites for input symbols:
+	Creator: MegaCrash
+	Link to Source: https://megacrash.itch.io/keyboard-pixel-art
+	License: Creative Commons Zero v1.0 Universal

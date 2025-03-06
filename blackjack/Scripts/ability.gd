@@ -49,7 +49,7 @@ func getName() -> String:
 func setSkin(sprite: String) -> void:
 	if FileAccess.file_exists(sprite):
 		$Skin.texture = load(sprite)
-		print($Skin.texture)
+		#print($Skin.texture)
 	else:
 		print("Ability Sprite File not found\n")
 #Function to retrieve the ability's sprite
