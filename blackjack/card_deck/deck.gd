@@ -45,6 +45,7 @@ func create_deck():
 			card.create_card(value, rank, suit)
 			card.position = DECK_POSITION
 			self.add_child(card)
+			card.setSprites()
 			draw_pile.append(card)
 
 func display_total_cards():
@@ -64,8 +65,6 @@ func clearTable(p_hand: Array[Node2D], d_hand: Array[Node2D]) -> void:
 # Functions to clear one card from the dealer or player area
 func removeOneFromPlayer(card: Node2D) -> void:
 	card.position = DECK_POSITION
-	get_parent().get_parent().find_child("HUD").find_child("Hands").reduceCards(1,0)
 func removeOneFromDealer(card: Node2D) -> void:
 	card.position = DECK_POSITION
-	get_parent().get_parent().find_child("HUD").find_child("Hands").reduceCards(0,1)
 	

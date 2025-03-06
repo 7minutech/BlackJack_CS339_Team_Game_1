@@ -230,6 +230,7 @@ func reroll():
 	var discarded_card = $Player.hand.pop_back()
 	$Dealer/Deck.discard_pile.append(discarded_card)
 	$Dealer/Deck.removeOneFromPlayer(discarded_card)
+	$HUD.find_child("Hands").reduceCards(1,0)
 	$Player.has_bust()
 	$Player.hit($Dealer.deal_card())
 	check_aces()

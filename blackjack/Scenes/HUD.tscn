@@ -1,19 +1,24 @@
-[gd_scene load_steps=32 format=3 uid="uid://c63m8tfiigc3"]
+[gd_scene load_steps=37 format=3 uid="uid://c63m8tfiigc3"]
 
-[ext_resource type="Texture2D" uid="uid://ccm2u70hycoij" path="res://icon.svg" id="1_a1nua"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_u2ua6"]
 [ext_resource type="PackedScene" uid="uid://dmf6venj143rh" path="res://Scenes/Hands.tscn" id="2_31leu"]
 [ext_resource type="Texture2D" uid="uid://ljoe8kwsmqdr" path="res://Assets/Buttons/button_released.png" id="2_dpta6"]
 [ext_resource type="Texture2D" uid="uid://darkb6irbxswn" path="res://Assets/Buttons/button_pressed.png" id="3_7ww1t"]
 [ext_resource type="Texture2D" uid="uid://ch6cq82h0as7c" path="res://Assets/Buttons/Button_Focused.png" id="4_ux5es"]
 [ext_resource type="BitMap" uid="uid://br7q72rgj6yar" path="res://Assets/Buttons/new_button_bitmap.png" id="6_4b1un"]
+[ext_resource type="Texture2D" uid="uid://dcrwl3771okdr" path="res://Assets/Buttons/MegaCrash_Assets/C. Key 19.png" id="7_x71fe"]
 [ext_resource type="Texture2D" uid="uid://bqsyltp0853ur" path="res://Assets/Buttons/h_released.png" id="8_p740d"]
 [ext_resource type="Texture2D" uid="uid://wnmr16bo0s0m" path="res://Assets/Buttons/h_pressed.png" id="9_05gbh"]
 [ext_resource type="Texture2D" uid="uid://cgw2pf75mdkgo" path="res://Assets/Sprites/chip/chip.png" id="9_hjerj"]
+[ext_resource type="Texture2D" uid="uid://d2nkud20jfst" path="res://Assets/Buttons/MegaCrash_Assets/C. Key 20.png" id="9_ytqa8"]
+[ext_resource type="Texture2D" uid="uid://dvtxhmft3hbo5" path="res://Assets/Buttons/MegaCrash_Assets/C. Key 17.png" id="10_88r08"]
 [ext_resource type="Texture2D" uid="uid://dt4oglbm40e0p" path="res://Assets/Buttons/h_focused.png" id="10_i5ekl"]
+[ext_resource type="Texture2D" uid="uid://v23qc27ui352" path="res://Assets/Buttons/MegaCrash_Assets/C. Key 18.png" id="11_di51u"]
 [ext_resource type="Texture2D" uid="uid://cuo2ca5okyjdy" path="res://Assets/Buttons/s_released.png" id="11_pnr26"]
 [ext_resource type="Texture2D" uid="uid://c1d0ylu44cpxy" path="res://Assets/Buttons/s_pressed.png" id="12_cmnr7"]
 [ext_resource type="Texture2D" uid="uid://bgviquxmv01mi" path="res://Assets/Buttons/s_focused.png" id="13_7gpwe"]
+[ext_resource type="Texture2D" uid="uid://bt3sbu3ntdni6" path="res://Assets/Buttons/MegaCrash_Assets/L. Key 25.png" id="15_0o6bv"]
+[ext_resource type="Texture2D" uid="uid://otiouidxby3i" path="res://Assets/Buttons/MegaCrash_Assets/L. Key 23.png" id="19_qivwf"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_d7fav"]
 action = &"UseLeft"
@@ -93,10 +98,9 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="InputSymbol_Left" type="Sprite2D" parent="Button_Left"]
-self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(-36, 42)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_a1nua")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_x71fe")
 
 [node name="AbilitySymbol_Left" type="Sprite2D" parent="Button_Left"]
 position = Vector2(1742, -774)
@@ -131,10 +135,9 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="InputSymbol_Down" type="Sprite2D" parent="Button_Down"]
-self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(86, 148)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_a1nua")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_ytqa8")
 
 [node name="AbilitySymbol_Down" type="Sprite2D" parent="Button_Down"]
 position = Vector2(1688, -970)
@@ -170,10 +173,9 @@ texture_click_mask = ExtResource("6_4b1un")
 stretch_mode = 5
 
 [node name="InputSymbol_Right" type="Sprite2D" parent="Button_Right"]
-self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(128, 46)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_a1nua")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("10_88r08")
 
 [node name="AbilitySymbol_Right" type="Sprite2D" parent="Button_Right"]
 position = Vector2(1548, -860)
@@ -209,10 +211,9 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="InputSymbol_Up" type="Sprite2D" parent="Button_Up"]
-self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(40, -44)
-scale = Vector2(0.59375, 0.5625)
-texture = ExtResource("1_a1nua")
+scale = Vector2(2.5, 2.37)
+texture = ExtResource("11_di51u")
 
 [node name="AbilitySymbol_Up" type="Sprite2D" parent="Button_Up"]
 position = Vector2(1642, -626)
@@ -247,10 +248,9 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="InputSymbol_Hit" type="Sprite2D" parent="HitButton"]
-self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(-32, 84)
-scale = Vector2(0.59375, 0.5625)
-texture = ExtResource("1_a1nua")
+scale = Vector2(3, 2.844)
+texture = ExtResource("15_0o6bv")
 
 [node name="StandButton" type="TextureButton" parent="."]
 offset_left = 637.0
@@ -269,10 +269,9 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="InputSymbol_Stand" type="Sprite2D" parent="StandButton"]
-self_modulate = Color(0.270588, 1, 0, 1)
 position = Vector2(266, 78)
-scale = Vector2(0.59375, 0.5625)
-texture = ExtResource("1_a1nua")
+scale = Vector2(3, 2.844)
+texture = ExtResource("19_qivwf")
 
 [node name="Info_Active" type="RichTextLabel" parent="."]
 offset_left = 960.0
