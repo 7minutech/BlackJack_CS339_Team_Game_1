@@ -209,7 +209,6 @@ func game_over():
 		restart()
 
 func _on_round_over_main() -> void:
-	switch_to_next_boss()
 	pass # Replace with function body.
 
 func reset_players():
