@@ -2,11 +2,11 @@ extends Node2D
 
 var passivesList: Array[Node2D] = []
 var activesList: Array[Node2D] = []
-var numActive: int
+var numActive: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	numActive = 1
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -42,23 +42,23 @@ func setPassivesDescriptions() -> void:
 func addAbilities(a_list: Array[Node2D]) -> void:
 	for a in a_list:
 		if a.isActive() and not activesList.has(a):
-			numActive += 1
 			activesList.append(a)
 			setActivesDescriptions()
+			numActive += 1
+			match numActive:
+				1:
+					setDown(a.getSkin())
+				2:
+					setRight(a.getSkin())
+				3:
+					setLeft(a.getSkin())
+				4:
+					setUp(a.getSkin())
+				_:
+					print("Invalid value provided in HUD.addAbilities()")
 		elif not a.isActive() and not passivesList.has(a):
 			passivesList.append(a)
 			setPassivesDescriptions()
-		match numActive:
-			0:
-				setDown(a.getSkin())
-			1:
-				setRight(a.getSkin())
-			2:
-				setLeft(a.getSkin())
-			3:
-				setUp(a.getSkin())
-			_:
-				print("Invalid value provided in HUD.addAbilities()")
 
 #Functions to assign an ability and a skin to a button
 func setLeft(skin: CompressedTexture2D) -> void:
