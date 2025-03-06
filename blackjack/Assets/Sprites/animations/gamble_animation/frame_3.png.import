@@ -1,0 +1,43 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://sm1fop3xyarm"
+<<<<<<< HEAD:blackjack/Assets/Sprites/animations/swap_animation/frame_3.png.import
+path="res://.godot/imported/frame_3.png-936b864567b52c2bdf97770d3131a5c6.ctex"
+=======
+path="res://.godot/imported/frame_3.png-d4a3ac5f29dc4a358beb7e9f6835bdb1.ctex"
+>>>>>>> sprites:blackjack/Assets/Sprites/animations/gamble_animation/frame_3.png.import
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+<<<<<<< HEAD:blackjack/Assets/Sprites/animations/swap_animation/frame_3.png.import
+source_file="res://Assets/Sprites/animations/swap_animation/frame_3.png"
+dest_files=["res://.godot/imported/frame_3.png-936b864567b52c2bdf97770d3131a5c6.ctex"]
+=======
+source_file="res://Assets/Sprites/Animations/gamble_animation/frame_3.png"
+dest_files=["res://.godot/imported/frame_3.png-d4a3ac5f29dc4a358beb7e9f6835bdb1.ctex"]
+>>>>>>> sprites:blackjack/Assets/Sprites/animations/gamble_animation/frame_3.png.import
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
