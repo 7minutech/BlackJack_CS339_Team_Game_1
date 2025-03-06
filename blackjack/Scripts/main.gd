@@ -32,6 +32,7 @@ func _ready() -> void:
 	SignalBus.option_pressed.connect(_on_option_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
+	give_ability("Reroll")
 	$AbilityManager.createSelection()
 	round_timer = get_tree().create_timer(0.5)
 	play_round()
