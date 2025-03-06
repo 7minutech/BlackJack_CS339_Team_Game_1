@@ -15,7 +15,7 @@ var up_disabled = false
 var right_disabled = false
 var down_disabled = false
 var left_disabled = false
-
+var ability_selected
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
@@ -24,6 +24,7 @@ signal up_pressed_main
 signal left_pressed_main
 signal right_pressed_main
 signal option_pressed_main
+var round_timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AbilityObserver.main = self
@@ -39,6 +40,7 @@ func _ready() -> void:
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
+	round_timer = get_tree().create_timer(0.5)
 	play_round()
 	pass # Replace with function body.
 
@@ -47,6 +49,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+# Function to handle input events
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("exit"):
+		get_tree().quit()
 
 		
 func play_round():
@@ -91,11 +97,15 @@ func all_stand():
 	dealer_hand_value = $Dealer.stand()
 
 func deal_cards():
-	var draw_pile = $Dealer.deal_cards()
-	$Dealer.hand.append(draw_pile.pop_front())
-	$Player.hand.append(draw_pile.pop_front())
-	$Dealer.hand.append(draw_pile.pop_front())
-	$Player.hand.append(draw_pile.pop_front())
+	var draw_pile: Array[Node2D] = $Dealer.deal_cards()
+	for i in range(4):
+		var drawn: Node2D = draw_pile.pop_front()
+		if (i % 2) == 1:
+			$Dealer.hand.append(drawn)
+			$HUD/Hands.addCardToDealerHand(drawn)
+		if (i % 2) == 0:
+			$Player.hand.append(drawn)
+			$HUD/Hands.addCardToPlayerHand(drawn)
 	$Dealer.hide_face_down()
 
 	
@@ -147,8 +157,10 @@ func round_over():
 	return false
 
 func clear_hands():
+	$Dealer/Deck.clearTable($Player.hand, $Dealer.hand)
 	$Dealer.clear_hand()
 	$Player.clear_hand()
+	$HUD/Hands.reset()
 
 func add_discard_pile():
 	for card in $Dealer.hand:
@@ -171,7 +183,8 @@ func calculate_total_value():
 
 
 func _on_hit_pressed_main() -> void:
-	$Player.hit($Dealer.deal_card())
+	var newCard: Node2D = $Dealer.deal_card()
+	$Player.hit(newCard)
 	check_aces()
 	calculate_total_value()
 	display_hands()
@@ -179,8 +192,8 @@ func _on_hit_pressed_main() -> void:
 	pass # Replace with function body.
 
 func _on_stand_pressed_main() -> void:
-	disable_stand()
 	$Player.stand()
+	disable_stand()
 	$Dealer.show_face_down()
 	$Dealer.deal_themself()
 	display_hands()
@@ -191,23 +204,22 @@ func _on_stand_pressed_main() -> void:
 	round_over_main.emit()
 	pass # Replace with function body.
 
-func _on_down_pressed_main(name: String) -> void:
-	if name == "Reroll" and $Player.can_reroll() and not down_disabled:
-		reroll()
-func _on_up_pressed_main(name: String) -> void:
-	if name == "Reroll" and $Player.can_reroll() and not up_disabled:
-		reroll()
-	pass
-func _on_left_pressed_main(name: String) -> void:
-	if name == "Reroll" and $Player.can_reroll() and not left_disabled:
-		reroll()
-	pass
-func _on_right_pressed_main(name: String) -> void:
-	if name == "Reroll" and $Player.can_reroll() and not right_disabled:
-		reroll()
-	pass
+func _on_down_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
+func _on_up_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
+func _on_left_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
+func _on_right_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
 
-	
+func checkAbility(a_name: String) -> void:
+	match a_name:
+		"Reroll":
+			if $Player.has_ability(a_name):
+				reroll()
+		_:
+			print("Invalid name supplied to main.gd checkAbility() method")
 
 func game_over():
 	if $Player.has_won():
@@ -232,13 +244,20 @@ func reroll():
 	print("rerolling")
 	var discarded_card = $Player.hand.pop_back()
 	$Dealer/Deck.discard_pile.append(discarded_card)
+	$Dealer/Deck.removeOneFromPlayer(discarded_card)
+	$HUD.find_child("Hands").reduceCards(1,0)
+	$Player.has_bust()
 	$Player.hit($Dealer.deal_card())
 	check_aces()
 	calculate_total_value()
 	display_hands()
+	var player_hand = $Player.hand_str()
+	var hand_value = $Player.total_card_value
 	$Player.has_bust()
+	var truth: bool = $Player.bust
 	pass # Replace with function body.
 
+# Function to add an ability to the player's abilities list
 func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	if not $Player.abilities.has(ability_scene):
@@ -280,6 +299,7 @@ func disable_stand():
 	$HUD/StandButton.disabled = false
 	
 func _on_option_pressed_main() -> void:
+	ability_selected = true
 	$AbilityManager/Selection.hideOptions()
 	option_pressed_main.emit()
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kjkjl73se88t"]
+[gd_scene load_steps=7 format=3 uid="uid://kjkjl73se88t"]
 
 [ext_resource type="Script" path="res://Scripts/second_boss.gd" id="1_rewwu"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_ke8ff"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_asqm6"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_sg3oo"]
 [ext_resource type="PackedScene" uid="uid://dpifh77h8jhn3" path="res://Scenes/dealer.tscn" id="6_mys2p"]
-[ext_resource type="Script" path="res://Scripts/theif.gd" id="7_48301"]
 
 [node name="SecondBoss" type="Node2D"]
 script = ExtResource("1_rewwu")
@@ -21,6 +20,5 @@ position = Vector2(537, 254)
 [node name="AbilityManager" parent="." instance=ExtResource("5_sg3oo")]
 
 [node name="Dealer" parent="." instance=ExtResource("6_mys2p")]
-script = ExtResource("7_48301")
 
 [connection signal="round_over_main" from="." to="." method="_on_round_over_main"]

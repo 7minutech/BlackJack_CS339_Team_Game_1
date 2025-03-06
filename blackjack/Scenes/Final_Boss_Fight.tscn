@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp5jedooof6sl"]
+[gd_scene load_steps=7 format=3 uid="uid://cp5jedooof6sl"]
 
-[ext_resource type="Script" path="res://Scripts/final_subject.gd" id="1_22tir"]
 [ext_resource type="Script" path="res://Scripts/final_boss.gd" id="1_t2olp"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_0hqy1"]
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_6ad8a"]
@@ -21,6 +20,5 @@ position = Vector2(537, 254)
 [node name="AbilityManager" parent="." instance=ExtResource("5_5f5de")]
 
 [node name="Dealer" parent="." instance=ExtResource("6_cwuoy")]
-script = ExtResource("1_22tir")
 
 [connection signal="round_over_main" from="." to="." method="_on_round_over_main"]

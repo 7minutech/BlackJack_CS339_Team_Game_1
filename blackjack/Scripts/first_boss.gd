@@ -6,6 +6,9 @@ var scene_root
 var result
 var finished 
 var chip_pile = 3
+var switching = false
+var round_timer
+var ability_selected = false
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
@@ -14,7 +17,6 @@ signal up_pressed_main
 signal left_pressed_main
 signal right_pressed_main
 signal option_pressed_main
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AbilityObserver.main = self
@@ -27,22 +29,27 @@ func _ready() -> void:
 	SignalBus.left_pressed.connect(_on_left_pressed_main)
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	SignalBus.option_pressed.connect(_on_option_pressed_main)
-
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
+	round_timer = get_tree().create_timer(0.5)
 	play_round()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
-
+	
+# Function to handle input events
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("exit"):
+		get_tree().quit()
 
 		
 func play_round():
-	await get_tree().create_timer(0.5).timeout
+	round_timer = get_tree().create_timer(0.5)
+	await round_timer.timeout
 	$Dealer/Deck.check_reshuffle()
 	reset_players()
 	add_discard_pile()
@@ -52,6 +59,7 @@ func play_round():
 	calculate_total_value()
 	display_hands()
 	display_chips()
+	#print("before")
 	await round_over_main
 	#print("after")
 	if player_has_won():
@@ -80,16 +88,16 @@ func all_stand():
 	dealer_hand_value = $Dealer.stand()
 
 func deal_cards():
-	var draw_pile = $Dealer.deal_cards()
-	$Dealer.hand.append(draw_pile.pop_front())
-	$Player.hand.append(draw_pile.pop_front())
-	$Dealer.hand.append(draw_pile.pop_front())
-	$Player.hand.append(draw_pile.pop_front())
+	var draw_pile: Array[Node2D] = $Dealer.deal_cards()
+	for i in range(4):
+		var drawn: Node2D = draw_pile.pop_front()
+		if (i % 2) == 1:
+			$Dealer.hand.append(drawn)
+			$HUD/Hands.addCardToDealerHand(drawn)
+		if (i % 2) == 0:
+			$Player.hand.append(drawn)
+			$HUD/Hands.addCardToPlayerHand(drawn)
 	$Dealer.hide_face_down()
-	
-func clear_hand():
-	$Dealer.clear_hand()
-	$Player.clear_hand()
 
 func determine_winner():
 	pass
@@ -135,8 +143,10 @@ func round_over():
 	return false
 
 func clear_hands():
+	$Dealer/Deck.clearTable($Player.hand, $Dealer.hand)
 	$Dealer.clear_hand()
 	$Player.clear_hand()
+	$HUD/Hands.reset()
 
 func add_discard_pile():
 	for card in $Dealer.hand:
@@ -159,48 +169,43 @@ func calculate_total_value():
 
 
 func _on_hit_pressed_main() -> void:
-	$Player.hit($Dealer.deal_card())
-	if not $Player.can_stun():
-		$Dealer.hit()
+	var newCard: Node2D = $Dealer.deal_card()
+	$Player.hit(newCard)
+	var newCard2: Node2D = $Dealer.deal_card()
+	$Dealer.hit()
 	check_aces()
 	calculate_total_value()
 	display_hands()
 	$Player.has_bust()
-	$Dealer.has_bust()
-	if $Dealer.bust:
-		$Dealer.show_face_down()
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
-	if $Player.bust:
-		$Dealer.show_face_down()
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
 	pass # Replace with function body.
 
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
 	disable_stand()
 	$Dealer.show_face_down()
-	#$Dealer.deal_themself()
 	display_hands()
 	await get_tree().create_timer(1.5).timeout
 	calculate_total_value()
 	display_hands()
-
 	round_over_main.emit()
 	pass # Replace with function body.
 
-func _on_down_pressed_main(name: String) -> void:
-	if name == "Reroll" and $Player.can_reroll():
-		reroll()
-func _on_up_pressed_main(name: String) -> void:
-	pass
-func _on_left_pressed_main(name: String) -> void:
-	pass
-func _on_right_pressed_main(name: String) -> void:
-	pass
+func _on_down_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
+func _on_up_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
+func _on_left_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
+func _on_right_pressed_main(a_name: String) -> void:
+	checkAbility(a_name)
 
-	
+func checkAbility(a_name: String) -> void:
+	match a_name:
+		"Reroll":
+			if $Player.has_ability(a_name):
+				reroll()
+		_:
+			print("Invalid name supplied to main.gd checkAbility() method")
 
 func game_over():
 	if $Player.has_won():
@@ -209,8 +214,6 @@ func game_over():
 		restart()
 
 func _on_round_over_main() -> void:
-	$Player.stun_timer += 1
-
 	pass # Replace with function body.
 
 func reset_players():
@@ -225,16 +228,20 @@ func reroll():
 	print("rerolling")
 	var discarded_card = $Player.hand.pop_back()
 	$Dealer/Deck.discard_pile.append(discarded_card)
+	$Dealer/Deck.removeOneFromPlayer(discarded_card)
+	$HUD.find_child("Hands").reduceCards(1,0)
+	$Player.has_bust()
 	$Player.hit($Dealer.deal_card())
 	check_aces()
 	calculate_total_value()
 	display_hands()
+	var player_hand = $Player.hand_str()
+	var hand_value = $Player.total_card_value
 	$Player.has_bust()
-	if $Player.bust:
-		await get_tree().create_timer(1.5).timeout
-		round_over_main.emit()
+	var truth: bool = $Player.bust
 	pass # Replace with function body.
 
+# Function to add an ability to the player's abilities list
 func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	if not $Player.abilities.has(ability_scene):
@@ -246,18 +253,14 @@ func switch_to_next_boss():
 	AbilityObserver.save_abilities()
 	SceneSwitcher.switch_scene("res://Scenes/Second_Boss_Fight.tscn", false)
 
-	
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn", true)
-
+	
 func disable_stand():
 	$HUD/StandButton.disabled = true
 	await get_tree().create_timer(2).timeout
 	$HUD/StandButton.disabled = false
 
 func _on_option_pressed_main() -> void:
+	ability_selected = true
 	$AbilityManager/Selection.hideOptions()
-	option_pressed_main.emit()
-	pass # Replace with function body.
-	
-	

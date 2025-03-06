@@ -34,6 +34,7 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	round_timer = get_tree().create_timer(0.5)
+	give_ability("Reroll")
 	play_round()
 	pass # Replace with function body.
 
@@ -229,6 +230,7 @@ func reroll():
 	var discarded_card = $Player.hand.pop_back()
 	$Dealer/Deck.discard_pile.append(discarded_card)
 	$Dealer/Deck.removeOneFromPlayer(discarded_card)
+	$HUD.find_child("Hands").reduceCards(1,0)
 	$Player.has_bust()
 	$Player.hit($Dealer.deal_card())
 	check_aces()

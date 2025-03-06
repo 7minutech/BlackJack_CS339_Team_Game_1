@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5f66xx2u887"]
+[gd_scene load_steps=7 format=3 uid="uid://b5f66xx2u887"]
 
 [ext_resource type="Script" path="res://Scripts/first_boss.gd" id="1_gnro6"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_l1xbe"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_s464f"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_iaxgd"]
 [ext_resource type="PackedScene" uid="uid://dpifh77h8jhn3" path="res://Scenes/dealer.tscn" id="6_u6y3p"]
-[ext_resource type="Script" path="res://Scripts/mimic.gd" id="7_ip78o"]
 
 [node name="FirstBoss" type="Node2D"]
 script = ExtResource("1_gnro6")
@@ -21,6 +20,5 @@ position = Vector2(537, 254)
 [node name="AbilityManager" parent="." instance=ExtResource("5_iaxgd")]
 
 [node name="Dealer" parent="." instance=ExtResource("6_u6y3p")]
-script = ExtResource("7_ip78o")
 
 [connection signal="round_over_main" from="." to="." method="_on_round_over_main"]
