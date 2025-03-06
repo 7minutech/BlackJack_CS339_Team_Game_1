@@ -31,7 +31,6 @@ func _ready() -> void:
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
-	await option_pressed_main
 	play_round()
 	pass # Replace with function body.
 
@@ -53,7 +52,6 @@ func play_round():
 	calculate_total_value()
 	display_hands()
 	display_chips()
-	#print("before")
 	await round_over_main
 	#print("after")
 	if player_has_won():
@@ -241,12 +239,8 @@ func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	if not $Player.abilities.has(ability_scene):
 		$Player.addAbility(ability_scene)
-		print("Active: ")
-		for a in $HUD.activesList:
-			print(a)
-		print("Passive: ")
-		for a in $HUD.passivesList:
-			print(a)
+		print("Active:\n " + str($HUD.activesList))
+		print("Passive:\n" + str($HUD.passivesList))
 
 func switch_to_next_boss():
 	AbilityObserver.save_abilities()

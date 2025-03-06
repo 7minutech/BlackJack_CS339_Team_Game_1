@@ -8,6 +8,7 @@ var finished
 var chip_pile = 3
 var switching = false
 var round_timer
+var ability_selected = false
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
@@ -33,7 +34,6 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	round_timer = get_tree().create_timer(0.5)
-	await option_pressed_main
 	play_round()
 	pass # Replace with function body.
 
@@ -240,12 +240,8 @@ func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	if not $Player.abilities.has(ability_scene):
 		$Player.addAbility(ability_scene)
-		print("Active: ")
-		for a in $HUD.activesList:
-			print(a)
-		print("Passive: ")
-		for a in $HUD.passivesList:
-			print(a)
+		print("Active:\n " + str($HUD.activesList))
+		print("Passive:\n" + str($HUD.passivesList))
 
 func switch_to_next_boss():
 	AbilityObserver.save_abilities()
@@ -260,5 +256,5 @@ func disable_stand():
 	$HUD/StandButton.disabled = false
 
 func _on_option_pressed_main() -> void:
+	ability_selected = true
 	$AbilityManager/Selection.hideOptions()
-	pass # Replace with function body.
