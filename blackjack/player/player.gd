@@ -123,6 +123,10 @@ func hand_str() -> String:
 func can_stun():
 	print("Stun timer: " + str(stun_timer))
 	return ability_names.has("Stun") and stun_timer % 3 == 0
+	
+func display_abilities():
+	for ability in ability_names:
+		print(ability)
 
 
 	
