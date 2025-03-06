@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2lnjcs1u6ck0"
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/denied_animation/frame_1.png.import
-path="res://.godot/imported/frame_1.png-f9b18891a45bf989ebdbe31b5ca204a6.ctex"
-=======
-path="res://.godot/imported/frame_1.png-ff81ed9644dbdd9d508fd5a980c9f8c8.ctex"
->>>>>>> sprites:blackjack/Assets/Sprites/animations/reversal_animation/frame_1.png.import
+uid="uid://gru2r5jkhecs"
+path="res://.godot/imported/frame_1.png-fae63d888e7cb0896722e787444411f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/denied_animation/frame_1.png.import
-source_file="res://Assets/Sprites/animations/denied_animation/frame_1.png"
-dest_files=["res://.godot/imported/frame_1.png-f9b18891a45bf989ebdbe31b5ca204a6.ctex"]
-=======
-source_file="res://Assets/Sprites/Animations/reversal_animation/frame_1.png"
-dest_files=["res://.godot/imported/frame_1.png-ff81ed9644dbdd9d508fd5a980c9f8c8.ctex"]
->>>>>>> sprites:blackjack/Assets/Sprites/animations/reversal_animation/frame_1.png.import
+source_file="res://Assets/Sprites/animations/reversal_animation/frame_1.png"
+dest_files=["res://.godot/imported/frame_1.png-fae63d888e7cb0896722e787444411f7.ctex"]
 
 [params]
 

@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x0rq8kf4ojfi"
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/swap_animation/swap_spread_2.png.import
-path="res://.godot/imported/swap_spread_2.png-fa53dcde0ac6e5064418e87db5a8fc29.ctex"
-=======
-path="res://.godot/imported/swap_spread_2.png-abd618f5efae98ec1eafd55e5f0b0386.ctex"
->>>>>>> sprites:blackjack/Assets/Sprites/animations/gamble_animation/swap_spread_2.png.import
+uid="uid://2xqdrx2ulsn5"
+path="res://.godot/imported/swap_spread_2.png-b560e22f16b43399144a2381a6be6ded.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/swap_animation/swap_spread_2.png.import
-source_file="res://Assets/Sprites/animations/swap_animation/swap_spread_2.png"
-dest_files=["res://.godot/imported/swap_spread_2.png-fa53dcde0ac6e5064418e87db5a8fc29.ctex"]
-=======
-source_file="res://Assets/Sprites/Animations/gamble_animation/swap_spread_2.png"
-dest_files=["res://.godot/imported/swap_spread_2.png-abd618f5efae98ec1eafd55e5f0b0386.ctex"]
->>>>>>> sprites:blackjack/Assets/Sprites/animations/gamble_animation/swap_spread_2.png.import
+source_file="res://Assets/Sprites/animations/gamble_animation/swap_spread_2.png"
+dest_files=["res://.godot/imported/swap_spread_2.png-b560e22f16b43399144a2381a6be6ded.ctex"]
 
 [params]
 

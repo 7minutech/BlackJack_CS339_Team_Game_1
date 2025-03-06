@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgmj5fp8qbot5"
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/foresight_animation/ani_foresight_8.png.import
-path="res://.godot/imported/ani_foresight_8.png-ae7e1d3e1377b539ab57bd6c6f75c47b.ctex"
-=======
-path="res://.godot/imported/ani_foresight_8.png-56afa18d91ad7d0ce3f483479f07bd99.ctex"
->>>>>>> sprites:blackjack/Assets/Sprites/animations/clairvoyance_animation/ani_foresight_8.png.import
+uid="uid://5ru1cci3jrjn"
+path="res://.godot/imported/ani_foresight_8.png-e2e1a6bef5d86c4d19925f3e2b9029ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/foresight_animation/ani_foresight_8.png.import
-source_file="res://Assets/Sprites/animations/foresight_animation/ani_foresight_8.png"
-dest_files=["res://.godot/imported/ani_foresight_8.png-ae7e1d3e1377b539ab57bd6c6f75c47b.ctex"]
-=======
-source_file="res://Assets/Sprites/Animations/clairvoyance_animation/ani_foresight_8.png"
-dest_files=["res://.godot/imported/ani_foresight_8.png-56afa18d91ad7d0ce3f483479f07bd99.ctex"]
->>>>>>> sprites:blackjack/Assets/Sprites/animations/clairvoyance_animation/ani_foresight_8.png.import
+source_file="res://Assets/Sprites/animations/clairvoyance_animation/ani_foresight_8.png"
+dest_files=["res://.godot/imported/ani_foresight_8.png-e2e1a6bef5d86c4d19925f3e2b9029ac.ctex"]
 
 [params]
 

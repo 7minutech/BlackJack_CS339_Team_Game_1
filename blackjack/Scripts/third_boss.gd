@@ -34,10 +34,8 @@ func _ready() -> void:
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
-	$AbilityManager.tesstSelection()
 	give_ability("Reroll")
 	#print($Player.abiliites)
-	$HUD.addAbilities()
 	play_round()
 	pass # Replace with function body.
 
@@ -238,8 +236,11 @@ func reroll():
 	pass # Replace with function body.
 
 func give_ability(ability_key: String):
-	var ability_scene = $AbilityManager.a_list[ability_key]
-	$Player.addAbility(ability_scene)
+	var ability_scene = $AbilityManager.a_dict[ability_key]
+	if not $Player.abilities.has(ability_scene):
+		$Player.addAbility(ability_scene)
+		print("Active:\n " + str($HUD.activesList))
+		print("Passive:\n" + str($HUD.passivesList))
 
 func mute_random_ability():
 	reset_disabled_abilities()

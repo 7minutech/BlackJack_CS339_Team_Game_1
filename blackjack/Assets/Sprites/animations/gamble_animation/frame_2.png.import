@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coabwr0d73y3h"
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/swap_animation/frame_2.png.import
-path="res://.godot/imported/frame_2.png-f309249efecdce9736489a4b4a4681c9.ctex"
-=======
-path="res://.godot/imported/frame_2.png-b05f920205e06eb01dfcd19f402800d4.ctex"
->>>>>>> sprites:blackjack/Assets/Sprites/animations/gamble_animation/frame_2.png.import
+uid="uid://c7llm44lp0yqt"
+path="res://.godot/imported/frame_2.png-d82303d877765f0c9fd86d60c5bce7de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:blackjack/Assets/Sprites/animations/swap_animation/frame_2.png.import
-source_file="res://Assets/Sprites/animations/swap_animation/frame_2.png"
-dest_files=["res://.godot/imported/frame_2.png-f309249efecdce9736489a4b4a4681c9.ctex"]
-=======
-source_file="res://Assets/Sprites/Animations/gamble_animation/frame_2.png"
-dest_files=["res://.godot/imported/frame_2.png-b05f920205e06eb01dfcd19f402800d4.ctex"]
->>>>>>> sprites:blackjack/Assets/Sprites/animations/gamble_animation/frame_2.png.import
+source_file="res://Assets/Sprites/animations/gamble_animation/frame_2.png"
+dest_files=["res://.godot/imported/frame_2.png-d82303d877765f0c9fd86d60c5bce7de.ctex"]
 
 [params]
 

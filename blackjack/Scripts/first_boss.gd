@@ -26,8 +26,6 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	give_ability("Reroll")
-
-	$HUD.addAbilities()
 	play_round()
 	pass # Replace with function body.
 
@@ -234,8 +232,11 @@ func reroll():
 	pass # Replace with function body.
 
 func give_ability(ability_key: String):
-	var ability_scene = $AbilityManager.a_list[ability_key]
-	$Player.addAbility(ability_scene)
+	var ability_scene = $AbilityManager.a_dict[ability_key]
+	if not $Player.abilities.has(ability_scene):
+		$Player.addAbility(ability_scene)
+		print("Active:\n " + str($HUD.activesList))
+		print("Passive:\n" + str($HUD.passivesList))
 
 func switch_to_second_boss():
 	SceneSwitcher.switch_scene("res://Scenes/Second_Boss_Fight.tscn")

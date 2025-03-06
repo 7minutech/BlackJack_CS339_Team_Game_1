@@ -28,7 +28,6 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	give_ability("Reroll")
-	#print($Player.abiliites)
 	round_timer = get_tree().create_timer(0.5)
 	play_round()
 	pass # Replace with function body.
