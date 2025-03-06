@@ -191,16 +191,21 @@ func _on_stand_pressed_main() -> void:
 	pass # Replace with function body.
 
 func _on_down_pressed_main(a_name: String) -> void:
-	if a_name == "Reroll" and $Player.has_ability(a_name):
-		reroll()
+	checkAbility(a_name)
 func _on_up_pressed_main(a_name: String) -> void:
-	pass
+	checkAbility(a_name)
 func _on_left_pressed_main(a_name: String) -> void:
-	pass
+	checkAbility(a_name)
 func _on_right_pressed_main(a_name: String) -> void:
-	pass
+	checkAbility(a_name)
 
-	
+func checkAbility(a_name: String) -> void:
+	match a_name:
+		"Reroll":
+			if $Player.has_ability(a_name):
+				reroll()
+		_:
+			print("Invalid name supplied to main.gd checkAbility() method")
 
 func game_over():
 	if $Player.has_won():

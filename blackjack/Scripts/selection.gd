@@ -10,7 +10,7 @@ var currentNums: Array[int]
 func _ready() -> void:
 	placeButtons()
 	#hideOptions()
-	#showOptions()
+	showOptions()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -35,10 +35,7 @@ func setOptions(options: Array[Node2D]) -> void:
 
 # Functions to show and hide the menu
 func showOptions() -> void:
-	var d_hand = get_parent().get_parent().find_child("Dealer").hand
-	var p_hand = get_parent().get_parent().find_child("Player").hand
-	var deck = self.get_parent().get_parent().find_child("Dealer").find_child("Deck")
-	print(deck)
+	self.get_parent().get_parent().find_child("Dealer").find_child("Deck").hide()
 	self.get_parent().get_parent().find_child("HUD").hide()
 	self.show()
 	for child in self.get_children():
@@ -46,6 +43,8 @@ func showOptions() -> void:
 			child.disabled = false
 
 func hideOptions() -> void:
+	self.get_parent().get_parent().find_child("Dealer").find_child("Deck").show()
+	self.get_parent().get_parent().find_child("HUD").show()
 	self.hide()
 	for child in self.get_children():
 		if child is Button:

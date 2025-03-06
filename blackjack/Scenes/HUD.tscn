@@ -104,11 +104,11 @@ texture = ExtResource("9_hjerj")
 
 [node name="Number_Left" type="Label" parent="Button_Left"]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 22.0
 offset_top = 12.0
-offset_right = 64.0
+offset_right = 62.0
 offset_bottom = 54.0
-text = "3"
+text = "A3"
 label_settings = SubResource("LabelSettings_0q7t3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -148,7 +148,7 @@ offset_left = 62.0
 offset_top = 22.0
 offset_right = 102.0
 offset_bottom = 64.0
-text = "1"
+text = "A1"
 label_settings = SubResource("LabelSettings_0q7t3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -182,11 +182,11 @@ texture = ExtResource("9_hjerj")
 [node name="Number_Right" type="Label" parent="Button_Right"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 24.0
-offset_top = 26.0
-offset_right = 64.0
-offset_bottom = 68.0
-text = "2"
+offset_left = 22.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 50.0
+text = "A2"
 label_settings = SubResource("LabelSettings_0q7t3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -221,11 +221,11 @@ texture = ExtResource("9_hjerj")
 [node name="Number_Up" type="Label" parent="Button_Up"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 16.0
-offset_top = 22.0
-offset_right = 56.0
-offset_bottom = 64.0
-text = "4"
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 58.0
+offset_bottom = 52.0
+text = "A4"
 label_settings = SubResource("LabelSettings_0q7t3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -349,7 +349,7 @@ drag_and_drop_selection_enabled = false
 [node name="Passive_Abilities" type="Node2D" parent="."]
 
 [node name="AbilitySymbol_Passive1" type="Sprite2D" parent="Passive_Abilities"]
-position = Vector2(936, 384)
+position = Vector2(936, 380)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_hjerj")
 

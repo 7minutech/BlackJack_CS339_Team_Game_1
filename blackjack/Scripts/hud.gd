@@ -3,6 +3,7 @@ extends Node2D
 var passivesList: Array[Node2D] = []
 var activesList: Array[Node2D] = []
 var numActive: int = 0
+var numPassive: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,15 +29,15 @@ func setActivesDescriptions() -> void:
 	$Info_Active.tooltip_text = "Active Abilities Detailed:\n"
 	$Info_Active.add_text("Active Abilities:\n")
 	for ablty in activesList:
-		$Info_Active.add_text(str(activesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
-		$Info_Active.tooltip_text += str(activesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
+		$Info_Active.add_text("A" + str(activesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
+		$Info_Active.tooltip_text += "A" + str(activesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
 func setPassivesDescriptions() -> void:
 	$Info_Passive.clear()
 	$Info_Passive.tooltip_text = "Passive Abilities Detailed:\n"
 	$Info_Passive.add_text("Passive Abilities:\n")
 	for ablty in passivesList:
-		$Info_Passive.add_text(str(passivesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
-		$Info_Passive.tooltip_text += str(passivesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
+		$Info_Passive.add_text("P" + str(passivesList.find(ablty) + 1) + ": " + ablty.getName() + "\n")
+		$Info_Passive.tooltip_text += "P" + str(passivesList.find(ablty) + 1) + ": " + ablty.getDescription() + "\n"
 
 #Functions to store information about an added ability
 func addAbilities(a_list: Array[Node2D]) -> void:
@@ -55,10 +56,22 @@ func addAbilities(a_list: Array[Node2D]) -> void:
 				4:
 					setUp(a.getSkin())
 				_:
-					print("Invalid value provided in HUD.addAbilities()")
+					print("Invalid value provided to numActive in HUD.addAbilities()")
 		elif not a.isActive() and not passivesList.has(a):
 			passivesList.append(a)
 			setPassivesDescriptions()
+			numPassive += 1
+			match numPassive:
+				1:
+					$Passive_Abilities/AbilitySymbol_Passive1.texture = a.getSkin()
+				2:
+					$Passive_Abilities/AbilitySymbol_Passive2.texture = a.getSkin()
+				3:
+					$Passive_Abilities/AbilitySymbol_Passive3.texture = a.getSkin()
+				4:
+					$Passive_Abilities/AbilitySymbol_Passive4.texture = a.getSkin()
+				_:
+					print("Invalid value provided to numPassive in HUD.addAbilities()")
 
 #Functions to assign an ability and a skin to a button
 func setLeft(skin: CompressedTexture2D) -> void:
