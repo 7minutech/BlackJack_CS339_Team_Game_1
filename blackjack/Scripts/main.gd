@@ -235,8 +235,12 @@ func give_ability(ability_key: String):
 	var ability_scene = $AbilityManager.a_dict[ability_key]
 	if not $Player.abilities.has(ability_scene):
 		$Player.addAbility(ability_scene)
-		print("Active:\n " + str($HUD.activesList))
-		print("Passive:\n" + str($HUD.passivesList))
+		print("Active: ")
+		for a in $HUD.activesList:
+			print(a)
+		print("Passive: ")
+		for a in $HUD.passivesList:
+			print(a)
 
 func switch_to_first_boss():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
