@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch6cq82h0as7c"
-path="res://.godot/imported/Button_Focused.png-1c13cb0bc89e3c513676cb52dc4c9a25.ctex"
+uid="uid://cvxlqqkbyukbe"
+path="res://.godot/imported/clairvoyance.png-829c370b89be771450c05a89165d889d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/Button_Focused.png"
-dest_files=["res://.godot/imported/Button_Focused.png-1c13cb0bc89e3c513676cb52dc4c9a25.ctex"]
+source_file="res://Assets/Sprites/Abilities/clairvoyance.png"
+dest_files=["res://.godot/imported/clairvoyance.png-829c370b89be771450c05a89165d889d.ctex"]
 
 [params]
 

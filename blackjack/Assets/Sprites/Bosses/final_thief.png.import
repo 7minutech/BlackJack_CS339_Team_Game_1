@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch6cq82h0as7c"
-path="res://.godot/imported/Button_Focused.png-1c13cb0bc89e3c513676cb52dc4c9a25.ctex"
+uid="uid://bn1f1jf2j6eg2"
+path="res://.godot/imported/final_thief.png-2b91fe0151b787133c62f6e63a8e78e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/Button_Focused.png"
-dest_files=["res://.godot/imported/Button_Focused.png-1c13cb0bc89e3c513676cb52dc4c9a25.ctex"]
+source_file="res://Assets/Sprites/Bosses/final_thief.png"
+dest_files=["res://.godot/imported/final_thief.png-2b91fe0151b787133c62f6e63a8e78e3.ctex"]
 
 [params]
 

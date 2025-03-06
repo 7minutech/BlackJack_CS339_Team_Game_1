@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch6cq82h0as7c"
-path="res://.godot/imported/Button_Focused.png-1c13cb0bc89e3c513676cb52dc4c9a25.ctex"
+uid="uid://bq6br4b3yxh36"
+path="res://.godot/imported/frame_5.png-1472f74e9c97f3695ccfeebd65e55c49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/Button_Focused.png"
-dest_files=["res://.godot/imported/Button_Focused.png-1c13cb0bc89e3c513676cb52dc4c9a25.ctex"]
+source_file="res://Assets/Sprites/Animations/gamble_animation/frame_5.png"
+dest_files=["res://.godot/imported/frame_5.png-1472f74e9c97f3695ccfeebd65e55c49.ctex"]
 
 [params]
 
