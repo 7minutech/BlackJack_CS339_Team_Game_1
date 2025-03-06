@@ -13,6 +13,8 @@ signal down_pressed_main
 signal up_pressed_main
 signal left_pressed_main
 signal right_pressed_main
+signal option_pressed_main
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AbilityObserver.main = self
@@ -24,9 +26,12 @@ func _ready() -> void:
 	SignalBus.up_pressed.connect(_on_up_pressed_main)
 	SignalBus.left_pressed.connect(_on_left_pressed_main)
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
+	SignalBus.option_pressed.connect(_on_option_pressed_main)
+
 	$Dealer/Deck.create_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
+	await option_pressed_main
 	play_round()
 	pass # Replace with function body.
 
@@ -201,12 +206,11 @@ func _on_right_pressed_main(name: String) -> void:
 
 func game_over():
 	if $Player.has_won():
-		switch_to_second_boss()
+		switch_to_next_boss()
 	if $Dealer.has_won():
 		restart()
 
 func _on_round_over_main() -> void:
-	switch_to_second_boss()
 	$Player.stun_timer += 1
 
 	pass # Replace with function body.
@@ -244,7 +248,7 @@ func give_ability(ability_key: String):
 		for a in $HUD.passivesList:
 			print(a)
 
-func switch_to_second_boss():
+func switch_to_next_boss():
 	AbilityObserver.save_abilities()
 	SceneSwitcher.switch_scene("res://Scenes/Second_Boss_Fight.tscn")
 
@@ -257,6 +261,9 @@ func disable_stand():
 	await get_tree().create_timer(2).timeout
 	$HUD/StandButton.disabled = false
 
-	
+func _on_option_pressed_main() -> void:
+	$AbilityManager/Selection.hideOptions()
+	option_pressed_main.emit()
+	pass # Replace with function body.
 	
 	

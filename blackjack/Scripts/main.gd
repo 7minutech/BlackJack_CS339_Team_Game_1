@@ -33,6 +33,7 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	round_timer = get_tree().create_timer(0.5)
+	await option_pressed_main
 	play_round()
 	pass # Replace with function body.
 
@@ -203,12 +204,12 @@ func _on_right_pressed_main(a_name: String) -> void:
 
 func game_over():
 	if $Player.has_won():
-		switch_to_first_boss()
+		switch_to_next_boss()
 	if $Dealer.has_won():
 		restart()
 
 func _on_round_over_main() -> void:
-	switch_to_first_boss()
+	switch_to_next_boss()
 	pass # Replace with function body.
 
 func reset_players():
@@ -247,7 +248,7 @@ func give_ability(ability_key: String):
 		for a in $HUD.passivesList:
 			print(a)
 
-func switch_to_first_boss():
+func switch_to_next_boss():
 	AbilityObserver.save_abilities()
 	SceneSwitcher.switch_scene("res://Scenes/First_Boss_Fight.tscn")
 
