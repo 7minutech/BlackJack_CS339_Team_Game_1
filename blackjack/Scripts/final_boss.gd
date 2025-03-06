@@ -321,10 +321,10 @@ func reset_boss_ability():
 	mute = false
 
 func switch_to_next_boss():
-	SceneSwitcher.switch_scene("res://Scenes/End_Game.tscn")
+	SceneSwitcher.switch_scene("res://Scenes/End_Game.tscn", true)
  
 func restart():
-	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
+	SceneSwitcher.switch_scene("res://Scenes/main.tscn", true)
 	
 func disable_stand():
 	$HUD/StandButton.disabled = true

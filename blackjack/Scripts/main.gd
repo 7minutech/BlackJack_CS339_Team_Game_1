@@ -245,10 +245,10 @@ func give_ability(ability_key: String):
 
 func switch_to_next_boss():
 	AbilityObserver.save_abilities()
-	SceneSwitcher.switch_scene("res://Scenes/First_Boss_Fight.tscn")
+	SceneSwitcher.switch_scene("res://Scenes/First_Boss_Fight.tscn", false)
 
 func restart():
-	SceneSwitcher.switch_scene("res://Scenes/main.tscn")
+	SceneSwitcher.switch_scene("res://Scenes/main.tscn", true)
 	
 func disable_stand():
 	$HUD/StandButton.disabled = true
