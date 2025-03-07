@@ -5,9 +5,9 @@ Stun,"Disable the boss ability for one hand",-1,p
 Gambler,"Swap the lowest value card in your hand with the dealer's face down card",3,a
 Lucky Doubles,"Gain a chip if your hand contains two consecutively drawn cards with the same value",0,p
 Cheapskate,"Face cards have a value of 1",0,p
-Time Rewind,"Undo your last hit if it would have made you bust and the dealer would have won the game",0,p
+Time Rewind,"Undo your last hit if it would have made you bust and the dealer would have won the game",3,p
 Joker,"Get a card that would make your hand value equal 21",5,p
 Ditto,"Gain a copy of the highest value card that can be seen. (If you can see face down cards, you can copy them too)",-1,a
-Peeping Tom,"Allows you to see the dealer's face down cards",0,p
+Peeping Tom,"Allows you to see the dealer's face down cards",3,a
 Reversal,"Make the dealer do the opposite action. (If they hit, they stand; vice versa)",-1,a
 Sleight Of Hand,"Steal the dealer's most recently drawn card and add it to your hand. The dealer then draws another card.",-1,a

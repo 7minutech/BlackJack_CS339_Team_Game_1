@@ -30,7 +30,9 @@ var round_timer
 var ability_selected
 var ability_1 = 0
 var ability_2 = 0
-var ability_3 = 0
+var joker_cd = 0
+var peeping_tom_cd = 0
+var rewind_cd = 0
 var ability_4 = 0
 var turns = 0
 signal hit_pressed_main
@@ -106,6 +108,7 @@ func play_round():
 	deal_cards()
 	check_aces()
 	calculate_total_value()
+	
 	display_hands()
 	display_chips()
 	#print("before")
@@ -222,7 +225,12 @@ func calculate_total_value():
 func _on_hit_pressed_main() -> void:
 	player_hits += 1
 	var newCard: Node2D = $Dealer.deal_card()
-	$Player.hit(newCard)
+	if AbilityLogic.can_use_joker():
+		AbilityLogic.joker()
+	else:
+		$Player.hit(newCard)
+	if AbilityLogic.can_use_rewind() and not (dealer_can_steal() and (thief or thief_boss)):
+		AbilityLogic.rewind_time_ability()
 	check_aces()
 	calculate_total_value()
 	if (mimic or mimic_boss) and not $Player.can_stun():
@@ -270,7 +278,18 @@ func checkAbility(a_name: String) -> void:
 		"Gambler":
 			if $Player.has_ability(a_name) and (turns - ability_2>= cd or ability_2== 0):
 				AbilityLogic.gambler()
+				display_hands()
 				ability_2 = turns
+		"Peeping Tom":
+			var turh =  $Player.has_ability(a_name)
+			var ts = turns
+			if $Player.has_ability(a_name) and (turns - peeping_tom_cd >= cd 
+				or peeping_tom_cd == 0):
+				AbilityLogic.peeping_tom_ability()
+				display_hands()
+				peeping_tom_cd = turns
+
+				
 		_:
 			print("Invalid name supplied to main.gd checkAbility() method")
 
@@ -310,6 +329,8 @@ func dealer_can_steal():
 	return player_hits == 1
 
 func steal_card():
+	disable_hit(1)
+	disable_stand(1)
 	var highest_value = -1
 	var highest_value_index 
 	for i in range($Player.hand.size()):
@@ -370,6 +391,7 @@ func reset_boss_ability():
 	mute = false
 
 func switch_to_next_boss():
+	AbilityObserver.save_abilities()
 	if tutorial_boss:
 		SceneSwitcher.switch_scene("res://Scenes/First_Boss_Fight.tscn", true)
 	elif mimic_boss:
@@ -401,6 +423,10 @@ func disable_stand(duration):
 	$HUD/StandButton.disabled = true
 	await get_tree().create_timer(duration).timeout
 	$HUD/StandButton.disabled = false
+func disable_hit(duration):
+	$HUD/HitButton.disabled = true
+	await get_tree().create_timer(duration).timeout
+	$HUD/HitButton.disabled = false
 
 func _on_option_pressed_main() -> void:
 	ability_selected = true

@@ -28,6 +28,8 @@ func load_abilities():
 
 func update_hud():
 	for ability_key in player_ability_names:
+		print("Loading...")
+		print(ability_key)
 		main.give_ability(ability_key)
 		
 func update_abilites_left():

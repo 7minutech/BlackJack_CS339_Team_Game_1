@@ -74,7 +74,7 @@ func lose_chip() -> void:
 
 # Check if dealer has lost (no chips left)
 func has_won() -> bool:
-	return chips >= 3
+	return chips >= 9
 
 # Reveal the face-down card (for display purposes)
 func reveal_face_down_card() -> void:
@@ -128,5 +128,10 @@ func show_face_down():
 	hand[0].face_down = false  
 	hand[0].flipCard()
 	
-	
+func get_card_that_sums_to(target_value):
+	if target_value == 1:
+		target_value = 11
+	for i in range($Deck.draw_pile.size()):
+		if $Deck.draw_pile[i].value == target_value:
+			return $Deck.draw_card_at(i)
 		

@@ -57,6 +57,10 @@ func draw_card() -> Node2D:
 	var drawn_card = draw_pile.pop_front()
 	return drawn_card	
 
+func draw_card_at(index) -> Node2D:
+	var drawn_card = draw_pile.pop_at(index)
+	return drawn_card	
+
 # Function to clear the cards from the table
 func clearTable(p_hand: Array[Node2D], d_hand: Array[Node2D]) -> void:
 	for card in p_hand:
