@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_sg3oo"]
 [ext_resource type="PackedScene" uid="uid://dpifh77h8jhn3" path="res://Scenes/dealer.tscn" id="6_mys2p"]
 
-[node name="SecondBoss" type="Node2D"]
+[node name="Thief" type="Node2D"]
 script = ExtResource("1_rwd2b")
 
 [node name="Table" type="Sprite2D" parent="."]
