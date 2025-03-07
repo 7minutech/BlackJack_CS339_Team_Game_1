@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5f66xx2u887"]
+[gd_scene load_steps=7 format=3 uid="uid://b5f66xx2u887"]
 
 [ext_resource type="Script" path="res://Scripts/BossLogic.gd" id="1_8231u"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_l1xbe"]
-[ext_resource type="Texture2D" uid="uid://boi5jybit6w1q" path="res://Assets/Sprites/table/spr_table_pink_pastel.png" id="2_oww5d"]
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_fs1c3"]
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_s464f"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_iaxgd"]
@@ -10,11 +9,6 @@
 
 [node name="FirstBoss" type="Node2D"]
 script = ExtResource("1_8231u")
-
-[node name="Table" type="Sprite2D" parent="."]
-position = Vector2(573, 322.5)
-scale = Vector2(1, 1.00772)
-texture = ExtResource("2_oww5d")
 
 [node name="Deck" parent="." instance=ExtResource("2_l1xbe")]
 

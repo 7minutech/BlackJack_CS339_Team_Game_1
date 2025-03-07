@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cp5jedooof6sl"]
 
-[ext_resource type="Script" path="res://Scripts/final_boss.gd" id="1_t2olp"]
+[ext_resource type="Script" path="res://Scripts/BossLogic.gd" id="1_t2olp"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_0hqy1"]
 [ext_resource type="Texture2D" uid="uid://dmxs5ny1y4n6s" path="res://Assets/Sprites/table/spr_table_concrete.png" id="2_lshmj"]
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_6ad8a"]
