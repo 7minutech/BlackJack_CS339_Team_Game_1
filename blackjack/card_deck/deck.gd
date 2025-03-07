@@ -24,7 +24,9 @@ func check_reshuffle():
 	if draw_pile.size() < 10:
 		reshuffle()
 
-
+func create_big_deck():
+	for i in range(4):
+		create_deck()
 func create_deck():
 	for suit in suits:
 		for j in range(13):
@@ -66,4 +68,7 @@ func removeOneFromPlayer(card: Node2D) -> void:
 	card.position = DECK_POSITION
 func removeOneFromDealer(card: Node2D) -> void:
 	card.position = DECK_POSITION
-	
+
+func reset_deck():
+	discard_pile.shuffle()
+	draw_pile = discard_pile

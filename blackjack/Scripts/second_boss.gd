@@ -31,7 +31,7 @@ func _ready() -> void:
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	SignalBus.option_pressed.connect(_on_option_pressed_main)
 
-	$Dealer/Deck.create_deck()
+	$Dealer/Deck.create_big_deck()	
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	play_round()

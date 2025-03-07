@@ -30,7 +30,7 @@ func _ready() -> void:
 	SignalBus.left_pressed.connect(_on_left_pressed_main)
 	SignalBus.right_pressed.connect(_on_right_pressed_main)
 	SignalBus.option_pressed.connect(_on_option_pressed_main)
-	$Dealer/Deck.create_deck()
+	$Dealer/Deck.create_big_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	round_timer = get_tree().create_timer(0.5)
@@ -227,6 +227,7 @@ func check_aces():
 
 func reroll():
 	print("rerolling")
+	print($Dealer/Deck.draw_pile.size())
 	var discarded_card = $Player.hand.pop_back()
 	$Dealer/Deck.discard_pile.append(discarded_card)
 	$Dealer/Deck.removeOneFromPlayer(discarded_card)

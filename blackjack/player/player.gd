@@ -44,6 +44,7 @@ func clear_hand():
 	hand.clear()
 	
 func hit(card: Node2D):
+	var deck = get_parent().get_node("Dealer/Deck")
 	if not bust: 
 		hand.append(card)
 		get_parent().find_child("HUD").find_child("Hands").addCardToPlayerHand(card)
