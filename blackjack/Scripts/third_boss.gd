@@ -27,6 +27,7 @@ signal option_pressed_main
 var round_timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AbilityLogic.current_scene = self
 	AbilityObserver.main = self
 	AbilityObserver.load_abilities()
 	$HUD/BossName.text = "Mute Boss"
@@ -41,6 +42,7 @@ func _ready() -> void:
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
 	round_timer = get_tree().create_timer(0.5)
+	give_ability("Reroll")
 	play_round()
 	pass # Replace with function body.
 
@@ -217,7 +219,7 @@ func checkAbility(a_name: String) -> void:
 	match a_name:
 		"Reroll":
 			if $Player.has_ability(a_name):
-				reroll()
+				AbilityLogic.reroll()
 		_:
 			print("Invalid name supplied to main.gd checkAbility() method")
 
@@ -228,7 +230,6 @@ func game_over():
 		restart()
 
 func _on_round_over_main() -> void:
-	switch_to_next_boss()
 	$Player.stun_timer += 1
 	pass # Replace with function body.
 
@@ -239,23 +240,6 @@ func reset_players():
 func check_aces():
 	$Player.value_ace()
 	$Dealer.value_ace()
-
-func reroll():
-	print("rerolling")
-	var discarded_card = $Player.hand.pop_back()
-	$Dealer/Deck.discard_pile.append(discarded_card)
-	$Dealer/Deck.removeOneFromPlayer(discarded_card)
-	$HUD.find_child("Hands").reduceCards(1,0)
-	$Player.has_bust()
-	$Player.hit($Dealer.deal_card())
-	check_aces()
-	calculate_total_value()
-	display_hands()
-	var player_hand = $Player.hand_str()
-	var hand_value = $Player.total_card_value
-	$Player.has_bust()
-	var truth: bool = $Player.bust
-	pass # Replace with function body.
 
 # Function to add an ability to the player's abilities list
 func give_ability(ability_key: String):
@@ -271,20 +255,19 @@ func mute_random_ability():
 	print(rnum)
 	match rnum:
 		UP:
-			up_disabled = true
-			print(up_disabled)
+			$HUD/Button_Up.disabled = true
 		DOWN:
-			down_disabled = true
+			$HUD/Button_Down.disabled = true 
 		RIGHT:
-			right_disabled = true
+			$HUD/Button_Right.disabled = true
 		LEFT:
-			left_disabled = true
+			$HUD/Button_Left.disabled = true 
 
 func reset_disabled_abilities():
-	up_disabled = false
-	right_disabled = false
-	down_disabled = false 
-	left_disabled = false
+	$HUD/Button_Up.disabled = false
+	$HUD/Button_Down.disabled = false 
+	$HUD/Button_Right.disabled = false
+	$HUD/Button_Left.disabled = false 
 			
 func switch_to_next_boss():
 	AbilityObserver.save_abilities()

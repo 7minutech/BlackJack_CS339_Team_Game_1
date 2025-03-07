@@ -103,12 +103,13 @@ func round_reset():
 func deal_themself():
 	sum_card_value()
 	while total_card_value < 17:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		hit()
 		value_ace()
 		sum_card_value()
 		get_parent().display_hands()
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.5).timeout
 	has_bust()
 	
 func hide_face_down():

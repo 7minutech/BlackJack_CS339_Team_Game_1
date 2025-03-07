@@ -33,6 +33,7 @@ signal right_pressed_main
 signal option_pressed_main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AbilityLogic.current_scene = self
 	AbilityObserver.main = self
 	AbilityObserver.load_abilities()
 	$HUD/BossName.text = "Final Boss"
@@ -230,7 +231,7 @@ func checkAbility(a_name: String) -> void:
 	match a_name:
 		"Reroll":
 			if $Player.has_ability(a_name):
-				reroll()
+				AbilityLogic.reroll()
 		_:
 			print("Invalid name supplied to main.gd checkAbility() method")
 
@@ -252,22 +253,6 @@ func check_aces():
 	$Player.value_ace()
 	$Dealer.value_ace()
 
-func reroll():
-	print("rerolling")
-	var discarded_card = $Player.hand.pop_back()
-	$Dealer/Deck.discard_pile.append(discarded_card)
-	$Dealer/Deck.removeOneFromPlayer(discarded_card)
-	$HUD.find_child("Hands").reduceCards(1,0)
-	$Player.has_bust()
-	$Player.hit($Dealer.deal_card())
-	check_aces()
-	calculate_total_value()
-	display_hands()
-	var player_hand = $Player.hand_str()
-	var hand_value = $Player.total_card_value
-	$Player.has_bust()
-	var truth: bool = $Player.bust
-	pass # Replace with function body.
 
 # Function to add an ability to the player's abilities list
 func give_ability(ability_key: String):
