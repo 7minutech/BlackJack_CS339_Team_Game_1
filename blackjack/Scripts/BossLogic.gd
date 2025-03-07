@@ -141,7 +141,7 @@ func determine_winner():
 func player_has_won():
 	var diff = $Player.total_card_value - $Dealer.total_card_value
 	$Dealer.has_bust()
-	if $Dealer.bust:
+	if $Dealer.bust and not $Player.bust:
 		return true
 	if not $Player.bust and diff > 0:
 		return true
@@ -149,7 +149,7 @@ func player_has_won():
 
 func dealer_has_won():
 	var diff = $Dealer.total_card_value - $Player.total_card_value
-	if $Player.bust:
+	if $Player.bust and $Dealer.bust:
 		return true
 	if not $Dealer.bust and diff > 0:
 		return true
@@ -381,7 +381,7 @@ func determin_boss():
 		final_boss = true
 
 func restart():
-	SceneSwitcher.switch_scene("res://Scenes/main.tscn", true)
+	get_tree().quit()
 	
 func disable_stand(duration):
 	$HUD/StandButton.disabled = true
