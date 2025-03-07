@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp5jedooof6sl"]
+[gd_scene load_steps=8 format=3 uid="uid://b3qtqdk1h67ja"]
 
 [ext_resource type="Script" path="res://Scripts/BossLogic.gd" id="1_t2olp"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_0hqy1"]
