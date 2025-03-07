@@ -31,3 +31,29 @@ func reroll():
 	player.has_bust()
 	var truth: bool = player.bust
 	pass # Replace with function body.
+
+func gambler():
+	var deck = current_scene.get_node("Dealer/Deck")
+	var player = current_scene.get_node("Player")
+	var dealer = current_scene.get_node("Dealer")
+	var hud = current_scene.get_node("HUD")
+	var loweset_value = 100
+	var lowest_index
+	var hand = current_scene.get_node("HUD/Hands")
+	for i in range(player.hand.size()):
+		if loweset_value > player.hand[i].value:
+			loweset_value = player.hand[i].value
+			lowest_index = i
+	var player_lowest_card = player.hand.pop_at(lowest_index)
+	var dealers_face_down = dealer.hand.pop_at(0)
+	dealers_face_down.face_down = false
+	dealers_face_down.flipCard()
+	deck.removeOneFromPlayer(player_lowest_card)
+	deck.removeOneFromDealer(dealers_face_down)
+	hand.addCardToPlayerHand(dealers_face_down)
+	hand.addCardToDealerHand(player_lowest_card)
+	player.hand.append(dealers_face_down)
+	dealer.hand.append(player_lowest_card)
+	
+	
+	
