@@ -208,6 +208,9 @@ func checkAbility(a_name: String) -> void:
 				AbilityLogic.reroll()
 		_:
 			print("Invalid name supplied to main.gd checkAbility() method")
+		"Reversal":
+			if $Player.has_ability(a_name):
+				$Dealer.reversed = true
 
 func game_over():
 	if $Player.has_won():

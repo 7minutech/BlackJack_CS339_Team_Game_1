@@ -5,6 +5,7 @@ var chips: int = 0
 var total_card_value: int = 0
 var bust: bool = false
 var standing: bool = false
+var reversed: bool = false
 
 
 func _ready() -> void:
@@ -34,7 +35,11 @@ func sum_card_value() -> void:
 
 # Dealer stands with the current hand
 func stand() -> void:
-	standing = true
+	if reversed:
+		standing = false
+		reversed = true
+	else:
+		standing = true
 
 
 func has_bust():
@@ -116,5 +121,4 @@ func hide_face_down():
 	hand[0].face_down = true
 func show_face_down():
 	hand[0].face_down = false  
-		
 		
