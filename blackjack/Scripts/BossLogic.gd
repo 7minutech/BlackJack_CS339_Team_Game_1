@@ -61,9 +61,10 @@ func _ready() -> void:
 	$Dealer/Deck.create_big_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
-	if tutorial_boss:
+	if tutorial_boss or mute_boss:
 		give_ability("Reroll")
 	round_timer = get_tree().create_timer(0.5)
+	disable_stand(1)
 	play_round()
 	pass # Replace with function body.
 
@@ -224,7 +225,7 @@ func _on_hit_pressed_main() -> void:
 
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
-	disable_stand()
+	disable_stand(2)
 	$Dealer.show_face_down()
 	if not mimic:
 		$Dealer.deal_themself()
@@ -382,9 +383,9 @@ func determin_boss():
 func restart():
 	SceneSwitcher.switch_scene("res://Scenes/main.tscn", true)
 	
-func disable_stand():
+func disable_stand(duration):
 	$HUD/StandButton.disabled = true
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(duration).timeout
 	$HUD/StandButton.disabled = false
 
 func _on_option_pressed_main() -> void:

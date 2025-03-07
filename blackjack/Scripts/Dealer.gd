@@ -123,4 +123,6 @@ func hide_face_down():
 func show_face_down():
 	hand[0].face_down = false  
 	hand[0].flipCard()
+	
+	
 		
