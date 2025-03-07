@@ -34,7 +34,8 @@ func reduceCards(p_cards: int, d_cards: int) -> void:
 # Function to order cards when they are added to the player's and Dealer's hands
 func addCardToPlayerHand(nextCard: Node2D) -> void:
 	playerCards += 1
-	nextCard.apply_scale(Vector2(CARD_SCALAR,CARD_SCALAR))
+	if nextCard.scale != Vector2(CARD_SCALAR,CARD_SCALAR):
+		nextCard.apply_scale(Vector2(CARD_SCALAR,CARD_SCALAR))
 	nextCard.z_index = 3
 	if playerCards == 1:
 		nextCard.position = Vector2(ROWS_INIT_X, PLAYER_ROW_ONE_Y)
@@ -53,7 +54,8 @@ func addCardToPlayerHand(nextCard: Node2D) -> void:
 	
 func addCardToDealerHand(nextCard: Node2D) -> void:
 	dealerCards += 1
-	nextCard.apply_scale(Vector2(CARD_SCALAR,CARD_SCALAR))
+	if nextCard.scale != Vector2(CARD_SCALAR,CARD_SCALAR):
+		nextCard.apply_scale(Vector2(CARD_SCALAR,CARD_SCALAR))
 	nextCard.z_index = 3
 	if dealerCards == 1:
 		nextCard.position = Vector2(ROWS_INIT_X, DEALER_ROW_ONE_Y)

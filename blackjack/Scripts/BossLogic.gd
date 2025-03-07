@@ -28,6 +28,11 @@ var thief_boss = false
 var mute_boss = false
 var round_timer
 var ability_selected
+var ability_1 = 0
+var ability_2 = 0
+var ability_3 = 0
+var ability_4 = 0
+var turns = 0
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
@@ -58,6 +63,7 @@ func _ready() -> void:
 	$AbilityManager.createSelection()
 	if tutorial_boss:
 		give_ability("Reroll")
+		give_ability("Gambler")
 	round_timer = get_tree().create_timer(0.5)
 	play_round()
 	pass # Replace with function body.
@@ -74,6 +80,7 @@ func _input(event: InputEvent) -> void:
 
 		
 func play_round():
+	turns += 1
 	if final_boss:
 		choose_boss_ability()
 	player_hits = 0
@@ -240,10 +247,16 @@ func _on_right_pressed_main(a_name: String) -> void:
 	checkAbility(a_name)
 
 func checkAbility(a_name: String) -> void:
+	var cd = $AbilityManager.a_dict[a_name].cooldown
 	match a_name:
 		"Reroll":
-			if $Player.has_ability(a_name):
+			if $Player.has_ability(a_name) and (turns - ability_1 >= cd or ability_1 == 0):
 				AbilityLogic.reroll()
+				ability_1 = turns
+		"Gambler":
+			if $Player.has_ability(a_name) and (turns - ability_2>= cd or ability_2== 0):
+				AbilityLogic.gambler()
+				ability_2 = turns
 		_:
 			print("Invalid name supplied to main.gd checkAbility() method")
 

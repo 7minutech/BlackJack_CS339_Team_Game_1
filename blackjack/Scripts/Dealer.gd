@@ -74,7 +74,7 @@ func lose_chip() -> void:
 
 # Check if dealer has lost (no chips left)
 func has_won() -> bool:
-	return chips >= 3
+	return chips >= 10
 
 # Reveal the face-down card (for display purposes)
 func reveal_face_down_card() -> void:
