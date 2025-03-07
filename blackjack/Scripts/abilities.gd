@@ -26,7 +26,7 @@ func add_To_Dict(key: String, value: Node2D) -> void:
 # Function to load all of the abilities from their file into the ability dictionary
 func loadAllAbs() -> void:
 	for num in range(1,13):
-		print("Ability Number " + str(num))
+		#print("Ability Number " + str(num))
 		match num:
 			#Each option should set the name, description, and active status of the ability
 			1:

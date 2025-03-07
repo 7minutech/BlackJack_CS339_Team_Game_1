@@ -9,7 +9,7 @@ var currentNums: Array[int]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	placeButtons()
-	hideOptions()
+	#hideOptions()
 	#showOptions()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,6 +33,17 @@ func setOptions(options: Array[Node2D]) -> void:
 		get_node("Option" + str(index)).set_text(option.getName())
 		get_node("Option" + str(index)).icon = option.getSkin()
 
+func showAll() -> void:
+	$Option1.show()
+	$Option2.show()
+	$Option3.show()
+
+func setOneOption(option: Node2D) -> void:
+	$Option1.hide()
+	$Option3.hide()
+	$Option2.set_text(option.getName())
+	$Option2.icon = option.getSkin()
+	
 # Functions to show and hide the menu
 func showOptions() -> void:
 	self.get_parent().get_parent().find_child("Dealer").find_child("Deck").hide()

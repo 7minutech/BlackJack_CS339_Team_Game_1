@@ -60,9 +60,25 @@ func _ready() -> void:
 	SignalBus.option_pressed.connect(_on_option_pressed_main)
 	$Dealer/Deck.create_big_deck()
 	$Dealer/Deck.shuffle()
-	$AbilityManager.createSelection()
-	if tutorial_boss or mute_boss:
+	#$AbilityManager.createSelection()
+	if tutorial_boss:
 		give_ability("Reroll")
+	elif mimic_boss:
+		var a_dict: Dictionary = $AbilityManager.a_dict
+		$AbilityManager/Selection.setOneOption(a_dict["Gambler"])
+		$AbilityManager/Selection.showOptions()
+	elif thief_boss:
+		var a_dict: Dictionary = $AbilityManager.a_dict
+		$AbilityManager/Selection.setOneOption(a_dict["Joker"])
+		$AbilityManager/Selection.showOptions()
+	elif mute_boss:
+		var a_dict: Dictionary = $AbilityManager.a_dict
+		$AbilityManager/Selection.setOneOption(a_dict["Peeping Tom"])
+		$AbilityManager/Selection.showOptions()
+	elif final_boss:
+		var a_dict: Dictionary = $AbilityManager.a_dict
+		$AbilityManager/Selection.setOneOption(a_dict["Time Rewind"])
+		$AbilityManager/Selection.showOptions()
 	round_timer = get_tree().create_timer(0.5)
 	disable_stand(1)
 	play_round()
@@ -310,20 +326,19 @@ func mute_random_ability():
 	var numActive = $HUD.activesList.size()
 	var rnum = randi_range(1, numActive)
 	match rnum:
-		0:
-			$HUD/Button_Down.disabled = true
 		1:
-			$HUD/Button_Right.disabled = true 
+			$HUD/Button_Down.disabled = true
 		2:
-			$HUD/Button_Left.disabled = true
+			$HUD/Button_Right.disabled = true 
 		3:
+			$HUD/Button_Left.disabled = true
+		4:
 			$HUD/Button_Up.disabled = true 
 
 
 
 func reset_disabled_abilities():
 	var numActive = $HUD.activesList.size()
-
 	for i:int in range(numActive):
 		match i:
 			0:
@@ -370,13 +385,13 @@ func switch_to_next_boss():
 func determin_boss():
 	if self.name == "Tutorial":
 		tutorial_boss = true
-	elif self.name == "FirstBoss":
+	elif self.name == "Mimic":
 		mimic_boss = true
-	elif self.name == "SecondBoss":
+	elif self.name == "Thief":
 		thief_boss = true
-	elif self.name == "ThirdBoss":
+	elif self.name == "Mute":
 		mute_boss = true
-	elif self.name == "FinalBoss":
+	elif self.name == "Final":
 		final_boss = true
 
 func restart():

@@ -7,7 +7,7 @@ var cooldown: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(self._to_string())
+	#print(self._to_string())
 	pass
 
 
