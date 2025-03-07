@@ -141,6 +141,7 @@ func determine_winner():
 func player_has_won():
 	var diff = $Player.total_card_value - $Dealer.total_card_value
 	$Dealer.has_bust()
+	$Player.has_bust()
 	if $Dealer.bust and not $Player.bust:
 		return true
 	if not $Player.bust and diff > 0:
@@ -149,7 +150,9 @@ func player_has_won():
 
 func dealer_has_won():
 	var diff = $Dealer.total_card_value - $Player.total_card_value
-	if $Player.bust and $Dealer.bust:
+	$Dealer.has_bust()
+	$Player.has_bust()
+	if $Player.bust and not $Dealer.bust:
 		return true
 	if not $Dealer.bust and diff > 0:
 		return true
