@@ -86,7 +86,7 @@ func stand():
 	#total_card_value
 	
 func has_won():
-	if chips >= 3:
+	if chips >= 1:
 		return true
 	return false
 	
