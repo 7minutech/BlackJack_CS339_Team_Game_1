@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://chu2fs7s42b4d"]
+
+[ext_resource type="Texture2D" uid="uid://bc64ladgx53k6" path="res://Assets/Sprites/Animations/symbol_animations/reroll_animation/ani_reroll_0.png" id="1_qlm0o"]
+[ext_resource type="Texture2D" uid="uid://csaa5e604nk4f" path="res://Assets/Sprites/Animations/symbol_animations/reroll_animation/ani_reroll_2.png" id="2_j4e3o"]
+[ext_resource type="Texture2D" uid="uid://cchsbr7a6oacv" path="res://Assets/Sprites/Animations/symbol_animations/reroll_animation/ani_reroll_3.png" id="3_r7tem"]
+[ext_resource type="Texture2D" uid="uid://cr7epp2f3qjgt" path="res://Assets/Sprites/Animations/symbol_animations/reroll_animation/ani_reroll_4.png" id="4_i3225"]
+[ext_resource type="Texture2D" uid="uid://df1rjo7ep20oe" path="res://Assets/Sprites/Animations/symbol_animations/reroll_animation/ani_reroll_5.png" id="5_pdkb8"]
+[ext_resource type="Texture2D" uid="uid://cngrpaeg8ti01" path="res://Assets/Sprites/Animations/symbol_animations/reroll_animation/ani_reroll_6.png" id="6_6icqa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qok2g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qlm0o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qlm0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j4e3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r7tem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i3225")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pdkb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6icqa")
+}],
+"loop": false,
+"name": &"focus_animation",
+"speed": 5.0
+}]
+
+[node name="reroll_symbol" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qok2g")
+animation = &"focus_animation"
+frame = 5
+frame_progress = 1.0
