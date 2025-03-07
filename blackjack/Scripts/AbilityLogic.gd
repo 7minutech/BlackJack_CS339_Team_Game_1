@@ -61,6 +61,8 @@ func can_use_rewind():
 	var rewind_cd = current_scene.rewind_cd
 	var ability_manager = current_scene.get_node("AbilityManager")
 	var cd = ability_manager.a_dict["Time Rewind"].cooldown
+	if dealer.chips < 2:
+		return false
 	if player.has_ability("Time Rewind") and (current_scene.turns - rewind_cd >= cd 
 	or rewind_cd == 0):
 		return true

@@ -238,7 +238,8 @@ func _on_hit_pressed_main() -> void:
 		AbilityLogic.rewind_time_ability()
 		disable_stand(1)
 		disable_hit(1)
-		_on_stand_pressed_main()
+		await get_tree().create_timer(0.75).timeout
+		round_over_main.emit()
 	check_aces()
 	calculate_total_value()
 	if (mimic or mimic_boss) and not $Player.can_stun():
