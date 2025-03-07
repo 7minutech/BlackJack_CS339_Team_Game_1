@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cgnw48s7pdbn6"]
+[gd_scene load_steps=66 format=3 uid="uid://cgnw48s7pdbn6"]
 
 [ext_resource type="Script" path="res://card_deck/card.gd" id="1_8i1o8"]
 [ext_resource type="Texture2D" uid="uid://brria722eg871" path="res://Assets/Sprites/cards/rounded/card_backs/default.png" id="2_68dkl"]
@@ -54,6 +54,14 @@
 [ext_resource type="Texture2D" uid="uid://cpacti73pfdlm" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_jack_round.png" id="52_uwefr"]
 [ext_resource type="Texture2D" uid="uid://buh0xnp22g2qq" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_king_round.png" id="53_oeo8a"]
 [ext_resource type="Texture2D" uid="uid://hg2tpr6lmicu" path="res://Assets/Sprites/cards/rounded/spades/spr_template_card_spade_queen_round.png" id="54_eglhf"]
+[ext_resource type="Texture2D" uid="uid://crrt4rnxptkab" path="res://Assets/Sprites/Bosses/mimic.png" id="55_5ejap"]
+[ext_resource type="Texture2D" uid="uid://d1yhrt55h7frl" path="res://Assets/Sprites/Bosses/final_default.png" id="55_nvw6c"]
+[ext_resource type="Texture2D" uid="uid://dkpng57fjo6rd" path="res://Assets/Sprites/Bosses/mute.png" id="56_3bovu"]
+[ext_resource type="Texture2D" uid="uid://dn5737cnrvdkr" path="res://Assets/Sprites/Bosses/final_mimic.png" id="56_81a66"]
+[ext_resource type="Texture2D" uid="uid://dcmwee00hixr6" path="res://Assets/Sprites/Bosses/final_mute.png" id="57_mfasu"]
+[ext_resource type="Texture2D" uid="uid://d1pwyytslk4m0" path="res://Assets/Sprites/Bosses/thief.png" id="57_o8omc"]
+[ext_resource type="Texture2D" uid="uid://bbgqupspv2hx3" path="res://Assets/Sprites/Bosses/tutorial.png" id="58_8d8ro"]
+[ext_resource type="Texture2D" uid="uid://bn1f1jf2j6eg2" path="res://Assets/Sprites/Bosses/final_thief.png" id="58_kl0gw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0j21l"]
 animations = [{
@@ -493,20 +501,69 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("55_nvw6c")
+}],
+"loop": true,
+"name": &"final_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("56_81a66")
+}],
+"loop": true,
+"name": &"final_mimic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_mfasu")
+}],
+"loop": true,
+"name": &"final_mute",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_kl0gw")
+}],
+"loop": true,
+"name": &"final_thief",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("55_5ejap")
+}, {
+"duration": 1.0,
 "texture": SubResource("CompressedTexture2D_rktwj")
 }],
 "loop": true,
 "name": &"mimic",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("56_3bovu")
+}],
 "loop": true,
-"name": &"new_animation",
+"name": &"mute",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_o8omc")
+}],
 "loop": true,
-"name": &"new_animation_1",
+"name": &"thief",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_8d8ro")
+}],
+"loop": true,
+"name": &"tutorial",
 "speed": 5.0
 }]
 
@@ -520,10 +577,9 @@ animation = &"clubs_10"
 
 [node name="boss_symbol" type="AnimatedSprite2D" parent="card_sprite"]
 position = Vector2(12, -20)
-scale = Vector2(0.153846, 0.148148)
+scale = Vector2(0.034, 0.034)
 sprite_frames = SubResource("SpriteFrames_liyqv")
-animation = &"mimic"
-frame_progress = 0.59302
+animation = &"final_thief"
 
 [node name="boss_symbol2" type="AnimatedSprite2D" parent="card_sprite"]
 position = Vector2(-12, 20)

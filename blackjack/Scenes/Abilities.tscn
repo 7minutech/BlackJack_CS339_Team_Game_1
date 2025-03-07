@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://1tukfv0nnmly"]
 
 [ext_resource type="Script" path="res://Scripts/abilities.gd" id="1_0cklr"]
-[ext_resource type="PackedScene" path="res://Scenes/Selection.tscn" id="2_dtcg8"]
+[ext_resource type="PackedScene" uid="uid://d1vb76ucncjgs" path="res://Scenes/Selection.tscn" id="2_dtcg8"]
 
 [node name="Abilities" type="Node2D"]
 script = ExtResource("1_0cklr")

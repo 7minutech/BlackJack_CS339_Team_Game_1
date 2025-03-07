@@ -47,6 +47,7 @@ func create_deck():
 			card.create_card(value, rank, suit)
 			card.position = DECK_POSITION
 			self.add_child(card)
+			card.setSprites()
 			draw_pile.append(card)
 
 func display_total_cards():

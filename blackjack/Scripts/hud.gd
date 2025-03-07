@@ -86,7 +86,7 @@ func setRight(skin: CompressedTexture2D) -> void:
 func setUp(skin: CompressedTexture2D) -> void:
 	$Button_Up.disabled = false
 	$Button_Up/AbilitySymbol_Up.texture = skin
-
+	
 #Function to set InputSymbol Sprite textures
 func setInputType() -> void:
 	pass

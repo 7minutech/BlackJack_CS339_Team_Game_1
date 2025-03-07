@@ -172,5 +172,5 @@ func fillAbility(details: Array[String], ablty: Node2D) -> void:
 #Function to set the new ability button skins
 func setAbilitySymbol(ability_scene: Node2D, a_name: String) -> void:
 	var a_path: String = ABILITY_SPRITES_INIT_PATH + a_name.to_lower().replace(" ", "_") + ".png"
-	print(a_path)
+	#print(a_path)
 	ability_scene.setSkin(a_path)
