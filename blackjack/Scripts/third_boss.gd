@@ -7,10 +7,6 @@ var result
 var finished
 var mute = false 
 var chip_pile = 3
-const UP = 1
-const RIGHT = 2
-const DOWN = 3
-const LEFT = 4
 var up_disabled = false
 var right_disabled = false
 var down_disabled = false
@@ -251,23 +247,32 @@ func give_ability(ability_key: String):
 
 func mute_random_ability():
 	reset_disabled_abilities()
-	var rnum = randi_range(1,4) 
-	print(rnum)
+	var numActive = $HUD.activesList.size()
+	var rnum = randi_range(1, numActive)
+	#print(rnum)
 	match rnum:
-		UP:
-			$HUD/Button_Up.disabled = true
-		DOWN:
-			$HUD/Button_Down.disabled = true 
-		RIGHT:
-			$HUD/Button_Right.disabled = true
-		LEFT:
-			$HUD/Button_Left.disabled = true 
+		0:
+			$HUD/Button_Down.disabled = true
+		1:
+			$HUD/Button_Right.disabled = true 
+		2:
+			$HUD/Button_Left.disabled = true
+		3:
+			$HUD/Button_Up.disabled = true 
 
 func reset_disabled_abilities():
-	$HUD/Button_Up.disabled = false
-	$HUD/Button_Down.disabled = false 
-	$HUD/Button_Right.disabled = false
-	$HUD/Button_Left.disabled = false 
+	var numActive = $HUD.activesList.size()
+	for i:int in range(numActive):
+		match i:
+			0:
+				$HUD/Button_Down.disabled = false
+			1:
+				$HUD/Button_Right.disabled = false 
+			2:
+				$HUD/Button_Left.disabled = false
+			3:
+				$HUD/Button_Up.disabled = false 
+				
 			
 func switch_to_next_boss():
 	AbilityObserver.save_abilities()

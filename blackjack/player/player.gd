@@ -1,5 +1,6 @@
 extends Node
 
+const WIN_VAL = 1
 var hand: Array[Node2D] = []
 var hand_2: Array[Node2D] = []
 var abilities: Array[Node2D] = []
@@ -86,17 +87,9 @@ func stand():
 	#total_card_value
 	
 func has_won():
-	if chips >= 3:
+	if chips >= WIN_VAL:
 		return true
 	return false
-	
-func reset():
-	clear_hand()
-	bust = false
-	chips = 3
-	total_card_value = 0
-	is_split = false
-	standing = false
 
 func round_reset():
 	bust = false

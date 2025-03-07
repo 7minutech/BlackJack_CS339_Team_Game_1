@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://kjkjl73se88t"]
+[gd_scene load_steps=8 format=3 uid="uid://kjkjl73se88t"]
 
 [ext_resource type="Script" path="res://Scripts/second_boss.gd" id="1_rewwu"]
 [ext_resource type="PackedScene" uid="uid://dyux3oh0sotah" path="res://card_deck/deck.tscn" id="2_ke8ff"]
+[ext_resource type="Texture2D" uid="uid://dmxs5ny1y4n6s" path="res://Assets/Sprites/table/spr_table_concrete.png" id="2_re3xk"]
 [ext_resource type="PackedScene" uid="uid://c71lhcqy8hqru" path="res://player/player.tscn" id="3_23fee"]
 [ext_resource type="PackedScene" uid="uid://c63m8tfiigc3" path="res://Scenes/HUD.tscn" id="4_asqm6"]
 [ext_resource type="PackedScene" uid="uid://1tukfv0nnmly" path="res://Scenes/Abilities.tscn" id="5_sg3oo"]
@@ -9,6 +10,11 @@
 
 [node name="SecondBoss" type="Node2D"]
 script = ExtResource("1_rewwu")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(574, 327)
+scale = Vector2(1.01215, 1.0216)
+texture = ExtResource("2_re3xk")
 
 [node name="Deck" parent="." instance=ExtResource("2_ke8ff")]
 
