@@ -27,6 +27,9 @@ func create_card(v, r, s):
 	self.suit = s
 
 func setSprites() -> void:
+	$card_sprite.show()
+	$card_sprite/boss_symbol.show()
+	$card_sprite/boss_symbol2.show()
 	if self.value == 11:
 		$card_sprite.animation = self.suit +"s_a"
 	elif self.rank == "number":
@@ -67,7 +70,14 @@ func setSprites() -> void:
 				$card_sprite/boss_symbol2.scale = THIEF_SCALE
 		_: #This line means default case
 			print("Invalid bossName given to card.gd method setSprites()")
-			
+
+func flipCard() -> void:
+	if face_down:
+		$card_sprite.animation = "card_back"
+		$card_sprite/boss_symbol.hide()
+		$card_sprite/boss_symbol2.hide()
+	else:
+		setSprites()
 
 func _to_string() -> String:
 	if rank in royalty:
