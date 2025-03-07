@@ -127,3 +127,6 @@ func gambler():
 	hand.addCardToDealerHand(player_lowest_card)
 	player.hand.append(dealers_face_down)
 	dealer.hand.append(player_lowest_card)
+	current_scene.check_aces()
+	current_scene.calculate_total_value()
+	current_scene.display_hands()

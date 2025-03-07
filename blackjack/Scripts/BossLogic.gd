@@ -83,6 +83,7 @@ func _ready() -> void:
 		$AbilityManager/Selection.showOptions()
 	round_timer = get_tree().create_timer(0.5)
 	disable_stand(1)
+	disable_hit(1)
 	play_round()
 	pass # Replace with function body.
 
@@ -225,7 +226,7 @@ func calculate_total_value():
 func _on_hit_pressed_main() -> void:
 	player_hits += 1
 	var newCard: Node2D = $Dealer.deal_card()
-	if AbilityLogic.can_use_joker():
+	if AbilityLogic.can_use_joker() and not (dealer_can_steal() and (thief or thief_boss)):
 		AbilityLogic.joker()
 	else:
 		$Player.hit(newCard)

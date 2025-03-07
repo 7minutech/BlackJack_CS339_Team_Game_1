@@ -1,6 +1,6 @@
 extends Node
 
-const WIN_VAL = 9
+const WIN_VAL = 3
 var hand: Array[Node2D] = []
 var hand_2: Array[Node2D] = []
 var abilities: Array[Node2D] = []
