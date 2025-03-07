@@ -81,9 +81,11 @@ func flipCard() -> void:
 
 func _to_string() -> String:
 	if rank in royalty:
-		return "[Rank=%s, Suit=%s]" % [rank, suit]
+		#return "[Rank=%s, Suit=%s]" % [rank, suit]
+		return "[%s of %ss]" % [rank, suit]
 	else:
-		return "[Value=%d, Suit=%s]" % [value, suit]
+		#return "[Value=%d, Suit=%s]" % [value, suit]
+		return "[%d of %ss]" % [value, suit]
 
 func display_card():
 	print("rank: " + rank + " value: " +str(value) + " suit: " + suit)

@@ -110,9 +110,13 @@ func show_hand():
 
 func hand_str() -> String:
 	var card_str = ""
+	var numCards: int = 0
+	card_str += "Value: " + str(total_card_value) + "\n"
 	for card in hand:
+		numCards += 1
 		card_str += card._to_string()
-	card_str += " Value: " + str(total_card_value)
+		if numCards % 7 == 0:
+			card_str += "\n"
 	return card_str
 
 func can_stun():

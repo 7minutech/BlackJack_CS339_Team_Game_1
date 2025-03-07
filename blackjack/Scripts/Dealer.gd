@@ -90,15 +90,19 @@ func show_hand():
 func hand_str() -> String:
 	var card_str = ""
 	var known_value = 0
+	var numCards: int = 0
 	for card in hand:
+		numCards += 1
 		if card.face_down:
-			card_str += "[hidden] "
+			card_str += "[hidden]"
 		else:
 			card_str += card._to_string()
+			if numCards % 7 == 0:
+				card_str += "\n"
 	for card in hand:
 		if not card.face_down:
 			known_value += card.value
-	card_str += " Value: " + str(known_value)
+	card_str += "\nDealer Value: " + str(known_value)
 	return card_str
 
 func round_reset():

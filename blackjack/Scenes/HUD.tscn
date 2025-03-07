@@ -288,7 +288,7 @@ drag_and_drop_selection_enabled = false
 
 [node name="Info_Passive" type="RichTextLabel" parent="."]
 offset_left = 960.0
-offset_top = 333.0
+offset_top = 350.0
 offset_right = 1144.0
 offset_bottom = 594.0
 tooltip_text = "Passive Abilities Detailed:
@@ -300,16 +300,16 @@ scroll_active = false
 drag_and_drop_selection_enabled = false
 
 [node name="DealerHand" type="Label" parent="."]
-offset_left = 168.0
-offset_top = 215.0
-offset_right = 208.0
-offset_bottom = 238.0
+offset_left = 165.0
+offset_top = 196.0
+offset_right = 205.0
+offset_bottom = 219.0
 
 [node name="PlayerHand" type="Label" parent="."]
-offset_left = 173.0
-offset_top = 306.0
-offset_right = 213.0
-offset_bottom = 329.0
+offset_left = 166.0
+offset_top = 273.0
+offset_right = 206.0
+offset_bottom = 296.0
 
 [node name="RoundMessage" type="Label" parent="."]
 offset_left = 27.0
@@ -342,6 +342,7 @@ offset_right = 1141.0
 offset_bottom = 305.0
 tooltip_text = "To draw a card you perform a \"Hit\" and to end your turn you perform a \"Stand\".
 The person whose hand's value is closer to 21 after both players stand is the winner of the hand. (If both players have the same value it is a tie)"
+mouse_default_cursor_shape = 16
 text = "RULES"
 drag_and_drop_selection_enabled = false
 

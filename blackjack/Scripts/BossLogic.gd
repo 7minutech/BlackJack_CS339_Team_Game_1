@@ -207,7 +207,7 @@ func add_discard_pile():
 
 func display_hands():
 	$HUD/PlayerHand.text = "Player " + $Player.hand_str()
-	$HUD/DealerHand.text = "Dealer " + $Dealer.hand_str()
+	$HUD/DealerHand.text = $Dealer.hand_str()
  
 func display_chips():
 	$HUD/PlayerChip.text = str($Player.chips)
