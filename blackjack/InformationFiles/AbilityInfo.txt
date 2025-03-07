@@ -2,7 +2,7 @@
 Reroll,"Before the player stands, the player can redraw their most recent card.",3,a
 Clairvoyance,"View the card on the top of the deck",-1,a
 Stun,"Disable the boss ability for one hand",-1,p
-Gambler,"Swap the lowest value card in your hand with the dealer's face down card",-1,a
+Gambler,"Swap the lowest value card in your hand with the dealer's face down card",3,a
 Lucky Doubles,"Gain a chip if your hand contains two consecutively drawn cards with the same value",0,p
 Cheapskate,"Face cards have a value of 1",0,p
 Time Rewind,"Undo your last hit if it would have made you bust and the dealer would have won the game",0,p

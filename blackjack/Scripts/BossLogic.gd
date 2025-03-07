@@ -28,6 +28,11 @@ var thief_boss = false
 var mute_boss = false
 var round_timer
 var ability_selected
+var ability_1 = 0
+var ability_2 = 0
+var ability_3 = 0
+var ability_4 = 0
+var turns = 0
 signal hit_pressed_main
 signal stand_pressed_main
 signal round_over_main
@@ -74,6 +79,7 @@ func _input(event: InputEvent) -> void:
 
 		
 func play_round():
+	turns += 1
 	if final_boss:
 		choose_boss_ability()
 	player_hits = 0
@@ -99,7 +105,6 @@ func play_round():
 	else:
 		tie()
 	game_over()
-	play_round()
 	
 	 
 
@@ -240,10 +245,16 @@ func _on_right_pressed_main(a_name: String) -> void:
 	checkAbility(a_name)
 
 func checkAbility(a_name: String) -> void:
+	var cd = $AbilityManager.a_dict[a_name].cooldown
 	match a_name:
 		"Reroll":
-			if $Player.has_ability(a_name):
+			if $Player.has_ability(a_name) and (turns - ability_1 >= cd or ability_1 == 0):
 				AbilityLogic.reroll()
+				ability_1 = turns
+		"Gambler":
+			if $Player.has_ability(a_name) and (turns - ability_2>= cd or ability_2== 0):
+				AbilityLogic.gambler()
+				ability_2 = turns
 		_:
 			print("Invalid name supplied to main.gd checkAbility() method")
 
@@ -255,6 +266,7 @@ func game_over():
 
 func _on_round_over_main() -> void:
 	$Player.stun_timer += 1
+	play_round()
 	pass # Replace with function body.
 
 func reset_players():
@@ -295,23 +307,33 @@ func steal_card():
 
 func mute_random_ability():
 	reset_disabled_abilities()
-	var rnum = randi_range(1,4) 
-	print(rnum)
+	var numActive = $HUD.activesList.size()
+	var rnum = randi_range(1, numActive)
 	match rnum:
-		UP:
-			up_disabled = true
-		DOWN:
-			down_disabled = true
-		RIGHT:
-			right_disabled = true
-		LEFT:
-			left_disabled = true
+		0:
+			$HUD/Button_Down.disabled = true
+		1:
+			$HUD/Button_Right.disabled = true 
+		2:
+			$HUD/Button_Left.disabled = true
+		3:
+			$HUD/Button_Up.disabled = true 
+
+
 
 func reset_disabled_abilities():
-	up_disabled = false
-	right_disabled = false
-	down_disabled = false 
-	left_disabled = false
+	var numActive = $HUD.activesList.size()
+
+	for i:int in range(numActive):
+		match i:
+			0:
+				$HUD/Button_Down.disabled = false
+			1:
+				$HUD/Button_Right.disabled = false 
+			2:
+				$HUD/Button_Left.disabled = false
+			3:
+				$HUD/Button_Up.disabled = false 
 
 func choose_boss_ability():
 	reset_boss_ability()
