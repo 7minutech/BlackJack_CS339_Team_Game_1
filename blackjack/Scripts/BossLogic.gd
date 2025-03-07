@@ -69,10 +69,10 @@ func _ready() -> void:
 		var a_dict: Dictionary = $AbilityManager.a_dict
 		$AbilityManager/Selection.setOneOption(a_dict["Gambler"])
 		$AbilityManager/Selection.showOptions()
-	elif thief_boss:
-		var a_dict: Dictionary = $AbilityManager.a_dict
-		$AbilityManager/Selection.setOneOption(a_dict["Joker"])
-		$AbilityManager/Selection.showOptions()
+	#nnnelif thief_boss:
+		#var a_dict: Dictionary = $AbilityManager.a_dict
+		#$AbilityManager/Selection.setOneOption(a_dict["Joker"])
+		#$AbilityManager/Selection.showOptions()
 	elif mute_boss:
 		var a_dict: Dictionary = $AbilityManager.a_dict
 		$AbilityManager/Selection.setOneOption(a_dict["Peeping Tom"])
@@ -259,8 +259,8 @@ func _on_stand_pressed_main() -> void:
 	$Player.stand()
 	disable_stand(2)
 	disable_hit(2)
-	$Dealer.show_face_down()
-	if not mimic:
+	$Dealer.show_face_down() 
+	if not (mimic or mimic_boss):
 		$Dealer.deal_themself()
 	display_hands()
 	await get_tree().create_timer(1.5).timeout
