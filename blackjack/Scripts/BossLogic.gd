@@ -63,7 +63,6 @@ func _ready() -> void:
 	$AbilityManager.createSelection()
 	if tutorial_boss:
 		give_ability("Reroll")
-		give_ability("Gambler")
 	round_timer = get_tree().create_timer(0.5)
 	play_round()
 	pass # Replace with function body.
