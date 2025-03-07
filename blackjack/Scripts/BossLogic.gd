@@ -71,12 +71,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
-	
-# Function to handle input events
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("exit"):
-		get_tree().quit()
+	if Input.is_action_just_pressed("next_scene"):
+		switch_to_next_boss()
 
 		
 func play_round():
