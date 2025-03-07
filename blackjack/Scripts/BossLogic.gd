@@ -295,23 +295,33 @@ func steal_card():
 
 func mute_random_ability():
 	reset_disabled_abilities()
-	var rnum = randi_range(1,4) 
-	print(rnum)
+	var numActive = $HUD.activesList.size()
+	var rnum = randi_range(1, numActive)
 	match rnum:
-		UP:
-			up_disabled = true
-		DOWN:
-			down_disabled = true
-		RIGHT:
-			right_disabled = true
-		LEFT:
-			left_disabled = true
+		0:
+			$HUD/Button_Down.disabled = true
+		1:
+			$HUD/Button_Right.disabled = true 
+		2:
+			$HUD/Button_Left.disabled = true
+		3:
+			$HUD/Button_Up.disabled = true 
+
+
 
 func reset_disabled_abilities():
-	up_disabled = false
-	right_disabled = false
-	down_disabled = false 
-	left_disabled = false
+	var numActive = $HUD.activesList.size()
+
+	for i:int in range(numActive):
+		match i:
+			0:
+				$HUD/Button_Down.disabled = false
+			1:
+				$HUD/Button_Right.disabled = false 
+			2:
+				$HUD/Button_Left.disabled = false
+			3:
+				$HUD/Button_Up.disabled = false 
 
 func choose_boss_ability():
 	reset_boss_ability()
