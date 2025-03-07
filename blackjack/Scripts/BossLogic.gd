@@ -61,21 +61,18 @@ func _ready() -> void:
 	$Dealer/Deck.create_big_deck()
 	$Dealer/Deck.shuffle()
 	$AbilityManager.createSelection()
-	if tutorial_boss:
+	if tutorial_boss or mute_boss:
 		give_ability("Reroll")
 	round_timer = get_tree().create_timer(0.5)
+	disable_stand(1)
 	play_round()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
-	
-# Function to handle input events
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("exit"):
-		get_tree().quit()
+	if Input.is_action_just_pressed("next_scene"):
+		switch_to_next_boss()
 
 		
 func play_round():
@@ -140,7 +137,8 @@ func determine_winner():
 func player_has_won():
 	var diff = $Player.total_card_value - $Dealer.total_card_value
 	$Dealer.has_bust()
-	if $Dealer.bust:
+	$Player.has_bust()
+	if $Dealer.bust and not $Player.bust:
 		return true
 	if not $Player.bust and diff > 0:
 		return true
@@ -148,7 +146,9 @@ func player_has_won():
 
 func dealer_has_won():
 	var diff = $Dealer.total_card_value - $Player.total_card_value
-	if $Player.bust:
+	$Dealer.has_bust()
+	$Player.has_bust()
+	if $Player.bust and not $Dealer.bust:
 		return true
 	if not $Dealer.bust and diff > 0:
 		return true
@@ -224,7 +224,7 @@ func _on_hit_pressed_main() -> void:
 
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
-	disable_stand()
+	disable_stand(2)
 	$Dealer.show_face_down()
 	if not mimic:
 		$Dealer.deal_themself()
@@ -380,11 +380,11 @@ func determin_boss():
 		final_boss = true
 
 func restart():
-	SceneSwitcher.switch_scene("res://Scenes/main.tscn", true)
+	get_tree().quit()
 	
-func disable_stand():
+func disable_stand(duration):
 	$HUD/StandButton.disabled = true
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(duration).timeout
 	$HUD/StandButton.disabled = false
 
 func _on_option_pressed_main() -> void:
