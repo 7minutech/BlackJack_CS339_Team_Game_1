@@ -31,4 +31,5 @@ func update_hud():
 		main.give_ability(ability_key)
 		
 func update_abilites_left():
-	ability_manager.a_available = abilities_left
+	if abilities_left != null:
+		ability_manager.a_available = abilities_left
