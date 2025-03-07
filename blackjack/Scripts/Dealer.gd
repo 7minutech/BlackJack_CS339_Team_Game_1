@@ -119,6 +119,8 @@ func deal_themself():
 	
 func hide_face_down():
 	hand[0].face_down = true
+	hand[0].flipCard()
 func show_face_down():
 	hand[0].face_down = false  
+	hand[0].flipCard()
 		
