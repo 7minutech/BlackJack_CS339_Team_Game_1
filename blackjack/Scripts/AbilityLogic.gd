@@ -66,10 +66,11 @@ func can_use_rewind():
 		return true
 	return false
 func rewind_time_ability():
-	print("rewind")
 	current_scene.rewind_cd = current_scene.turns
 	var player = current_scene.get_node("Player")
 	var dealer = current_scene.get_node("Dealer")	
+	current_scene.check_aces()
+	current_scene.calculate_total_value()
 	#check if the last card bust
 	player.has_bust()
 	if player.bust:
@@ -80,6 +81,7 @@ func rewind_time_ability():
 		current_scene.check_aces()
 		current_scene.calculate_total_value()
 		current_scene.display_hands()
+		print("rewind")
 		pass
 
 

@@ -230,10 +230,15 @@ func _on_hit_pressed_main() -> void:
 	var newCard: Node2D = $Dealer.deal_card()
 	if AbilityLogic.can_use_joker() and not (dealer_can_steal() and (thief or thief_boss)):
 		AbilityLogic.joker()
+		disable_stand(1)
+		disable_hit(1)
 	else:
 		$Player.hit(newCard)
 	if AbilityLogic.can_use_rewind() and not (dealer_can_steal() and (thief or thief_boss)):
 		AbilityLogic.rewind_time_ability()
+		disable_stand(1)
+		disable_hit(1)
+		_on_stand_pressed_main()
 	check_aces()
 	calculate_total_value()
 	if (mimic or mimic_boss) and not $Player.can_stun():
@@ -252,6 +257,7 @@ func _on_hit_pressed_main() -> void:
 func _on_stand_pressed_main() -> void:
 	$Player.stand()
 	disable_stand(2)
+	disable_hit(2)
 	$Dealer.show_face_down()
 	if not mimic:
 		$Dealer.deal_themself()
