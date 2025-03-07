@@ -9,3 +9,12 @@ Sprites for input symbols:
 	Creator: MegaCrash
 	Link to Source: https://megacrash.itch.io/keyboard-pixel-art
 	License: Creative Commons Zero v1.0 Universal
+
+www.youtube.com/watch?v=RMdf60IAxY0
+	Creator: Brett Makes Games
+	Title: How to Switch Scenes in Godot 4
+
+docs.godotengine.org/en/stable/getting_started/step_by_step/signals.html
+	user: Samuel Fine
+	github: https://github.com/samuelfine	
+	How to connect signals based on Event Bus architecture pattern
