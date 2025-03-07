@@ -105,7 +105,6 @@ func play_round():
 	else:
 		tie()
 	game_over()
-	play_round()
 	
 	 
 
@@ -267,6 +266,7 @@ func game_over():
 
 func _on_round_over_main() -> void:
 	$Player.stun_timer += 1
+	play_round()
 	pass # Replace with function body.
 
 func reset_players():
